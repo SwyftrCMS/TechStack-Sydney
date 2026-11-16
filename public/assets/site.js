@@ -1,0 +1,156 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('#site-menu');
+
+function setMenu(open) {
+  menu.hidden = !open;
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.textContent = open ? 'Close menu' : 'Menu';
+}
+
+const desktop = matchMedia('(min-width: 64rem)');
+function resetMenu() {
+  menuToggle.hidden = desktop.matches;
+  setMenu(desktop.matches);
+}
+resetMenu();
+desktop.addEventListener('change', resetMenu);
+menuToggle.addEventListener('click', () => setMenu(menu.hidden));
+menu.addEventListener('click', event => {
+  if (!desktop.matches && event.target.closest('a')) setMenu(false);
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && !desktop.matches && !menu.hidden) {
+    setMenu(false);
+    menuToggle.focus();
+  }
+});
+
+for (const group of document.querySelectorAll('[data-tabs]')) {
+  const tabs = [...group.querySelectorAll('[role=tab]')];
+  function select(current) {
+    for (const tab of tabs) {
+      const active = tab === current;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+    }
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => select(tab));
+    tab.addEventListener('keydown', event => {
+      const nextIndex = {
+        ArrowRight: (index + 1) % tabs.length,
+        ArrowLeft: (index + tabs.length - 1) % tabs.length,
+        Home: 0,
+        End: tabs.length - 1
+      }[event.key];
+      if (nextIndex === undefined) return;
+      event.preventDefault();
+      select(tabs[nextIndex]);
+      tabs[nextIndex].focus();
+    });
+  });
+}
+
+for (const pillar of document.querySelectorAll('[data-steps]')) {
+  const steps = [...pillar.querySelectorAll('button')];
+  pillar.addEventListener('click', event => {
+    const current = event.target.closest('button');
+    if (!current) return;
+    for (const step of steps) {
+      const active = step === current;
+      step.setAttribute('aria-pressed', String(active));
+      step.querySelector('.step-copy').hidden = !active;
+      document.getElementById(step.getAttribute('aria-controls')).hidden = !active;
+    }
+  });
+}
+
+const hero = document.querySelector('.hero-frame');
+if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let pending = false;
+  function updateHero() {
+    const progress = Math.min(Math.max(scrollY / 420, 0), 1);
+    const maxInset = innerWidth < 768 ? 12 : 36;
+    hero.style.setProperty('--hero-inset', progress * maxInset + 'px');
+    hero.style.setProperty('--hero-radius', progress * 28 + 'px');
+    pending = false;
+  }
+  function scheduleHeroUpdate() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(updateHero);
+  }
+  updateHero();
+  addEventListener('scroll', scheduleHeroUpdate, { passive: true });
+  addEventListener('resize', scheduleHeroUpdate);
+}
+
+const contact = document.querySelector('[data-contact]');
+if (contact) initialiseContact(contact);
+
+async function initialiseContact(form) {
+  const status = document.querySelector('#form-status');
+  const fields = form.querySelector('fieldset');
+  const submit = form.querySelector('button[type=submit]');
+  const demo = new URLSearchParams(location.search).get('enquiry') === 'demo';
+  if (demo) form.elements.type.value = 'demo';
+
+  let token = '';
+  let sending = false;
+  let widget;
+  const updateToken = value => {
+    token = value;
+    submit.disabled = sending || !token;
+  };
+
+  try {
+    const response = await fetch('/api/contact');
+    if (!response.ok) return;
+    const { siteKey } = await response.json();
+    if (!siteKey) return;
+    await new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.append(script);
+    });
+    widget = window.turnstile.render('#turnstile-widget', {
+      sitekey: siteKey,
+      action: 'enquiry',
+      'response-field': false,
+      callback: updateToken,
+      'expired-callback': () => updateToken(''),
+      'error-callback': () => updateToken('')
+    });
+    fields.disabled = false;
+    status.textContent = 'Complete the security check before sending.';
+  } catch {
+    return;
+  }
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (sending || !token) return;
+    const body = new URLSearchParams(new FormData(form));
+    body.set('token', token);
+    sending = true;
+    updateToken(token);
+    status.textContent = 'Sending your enquiry…';
+    try {
+      const response = await fetch(form.action, { method: 'POST', body });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send your enquiry.');
+      form.reset();
+      if (demo) form.elements.type.value = 'demo';
+      status.textContent = 'Your enquiry has been sent.';
+    } catch (error) {
+      status.textContent = error.message;
+    } finally {
+      sending = false;
+      updateToken('');
+      window.turnstile.reset(widget);
+    }
+  });
+}
