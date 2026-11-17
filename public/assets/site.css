@@ -80,9 +80,12 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-art { display: none }
 .hero-card {
   position: absolute;
-  width: var(--card-width);
-  height: min(260px, calc((100% - 36px) / 2));
-  padding: clamp(14px, 2vw, 24px);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: var(--hero-card-width);
+  height: calc((100% - var(--hero-card-gap)) / 2);
+  gap: clamp(8px, 1.8vh, 16px);
+  padding: clamp(12px, 2.8vh, 24px);
   overflow: hidden;
   border: 1px solid #dde5f1;
   border-radius: 1rem;
@@ -91,10 +94,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   color: var(--ink);
   font: 500 .75rem/1.4 "Plus Jakarta Sans", system-ui, sans-serif;
 }
-.hero-card-revenue { --card-width: 240px }
-.hero-card-workflow { --card-width: 250px }
-.hero-card-code { --card-width: 265px; padding: 0; border: 0; background: #1d2432 }
-.hero-card-calendar { --card-width: 240px }
+.hero-card-code { display: block; padding: 0; border: 0; background: #1d2432 }
 .hero-card-heading {
   display: flex;
   align-items: center;
@@ -120,23 +120,21 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   vertical-align: .06rem;
 }
 .hero-chart, .hero-workflow {
-  position: absolute;
-  inset: 0 clamp(14px, 2vw, 24px);
-  width: calc(100% - 2 * clamp(14px, 2vw, 24px));
-  height: 44%;
-  margin-block: auto;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  max-height: 112px;
 }
 .hero-chart-grid { stroke: #dde5f1 }
 .hero-chart-guide { stroke: #c4d0e2 }
 .hero-chart-line { fill: none; stroke: #64748b; stroke-width: 1.75; stroke-linecap: round }
 .hero-card-footer {
-  position: absolute;
-  inset: auto clamp(14px, 2vw, 24px) 24px;
   color: #687e9c;
   font-size: .625rem;
 }
 .hero-chart-months { display: flex; justify-content: space-between }
 .hero-card-workflow .hero-card-heading { color: #687e9c }
+.hero-workflow { position: relative; max-height: 96px }
 .hero-workflow-connectors { position: absolute; inset: 0; width: 100%; height: 100% }
 .hero-workflow-connectors path { fill: none; stroke: #c4d0e2; stroke-width: 1.25; vector-effect: non-scaling-stroke }
 .hero-workflow-trigger, .hero-workflow-step {
@@ -174,11 +172,11 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: .375rem;
-  padding: clamp(10px, 1.3vw, 16px);
+  gap: .75rem;
+  padding: clamp(12px, 2.8vh, 24px);
   color: #d9e4ef;
 }
-.hero-editor, .hero-editor pre, .hero-editor code { font: 11px/1.7 "JetBrains Mono", var(--mono) }
+.hero-editor, .hero-editor pre, .hero-editor code { font: 11px/1.6 "JetBrains Mono", var(--mono) }
 .hero-editor-bar { display: flex; align-items: center; gap: .375rem }
 .hero-editor-bar i { width: 9px; height: 9px; border-radius: 50%; background: #f05275 }
 .hero-editor-bar i:nth-child(2) { background: #ffb800 }
@@ -194,8 +192,8 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-week-days {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  margin-top: clamp(12px, 4vh, 30px);
-  padding-bottom: .625rem;
+  align-self: end;
+  padding-bottom: .5rem;
   border-bottom: 1px solid #edf1f7;
   color: #687e9c;
   font-size: .625rem;
@@ -208,8 +206,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   grid-template-columns: 2.5rem minmax(0, 1fr);
   grid-auto-rows: minmax(20px, 1fr);
   align-items: center;
-  gap: .3rem;
-  margin-top: clamp(8px, 3vh, 24px);
+  gap: .375rem;
   color: #687e9c;
   font-size: .625rem;
   font-variant-numeric: tabular-nums;
@@ -232,36 +229,31 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 @media (min-width: 64rem) {
   .hero-inner { position: relative; z-index: 1; max-width: 46rem }
   .hero-art {
-    --hero-card-travel: 50px;
+    --hero-card-width: clamp(310px, 26vw, 380px);
+    --hero-card-travel: clamp(24px, calc(10vw - 80px), 50px);
     --hero-card-offset: calc(var(--hero-card-progress, 0) * var(--hero-card-travel));
-    --hero-card-block-inset: clamp(12px, calc((100% - 536px) / 2), 10%);
-    --left-edge: -96px;
-    --right-edge: -96px;
+    --hero-card-gap: clamp(16px, 3vh, 28px);
+    --hero-edge-offset: min(
+      calc(-32px - var(--hero-card-travel)),
+      calc(50% - 24rem - var(--hero-card-width) - var(--hero-card-travel))
+    );
     display: block;
     position: absolute;
     inset: 0;
+    height: min(calc(100% - 48px), 528px);
+    margin-block: auto;
     pointer-events: none;
   }
   .hero-card-revenue, .hero-card-workflow {
-    left: min(var(--left-edge), calc(50% - 23rem - var(--card-width) - var(--hero-card-travel)));
+    left: var(--hero-edge-offset);
     transform: translateX(var(--hero-card-offset));
   }
   .hero-card-code, .hero-card-calendar {
-    right: min(var(--right-edge), calc(50% - 23rem - var(--card-width) - var(--hero-card-travel)));
+    right: var(--hero-edge-offset);
     transform: translateX(calc(0px - var(--hero-card-offset)));
   }
-  .hero-card-revenue, .hero-card-code { top: var(--hero-card-block-inset) }
-  .hero-card-workflow, .hero-card-calendar { bottom: var(--hero-card-block-inset) }
-}
-@media (min-width: 80rem) {
-  .hero-art { --left-edge: -64px; --right-edge: -56px }
-}
-@media (min-width: 96rem) {
-  .hero-art { --left-edge: -16px; --right-edge: -8px }
-  .hero-card-revenue { --card-width: 265px }
-  .hero-card-workflow { --card-width: 280px }
-  .hero-card-code { --card-width: 295px }
-  .hero-card-calendar { --card-width: 260px }
+  .hero-card-revenue, .hero-card-code { top: 0 }
+  .hero-card-workflow, .hero-card-calendar { bottom: 0 }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-art { --hero-card-offset: 0px }
