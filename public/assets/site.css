@@ -1070,7 +1070,7 @@ textarea { resize: vertical }
   .full-process-carousel { display: block; margin-top: 1.5rem }
   .full-process-track {
     --process-gutter: clamp(.875rem, 3vw, 2rem);
-    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 100%); gap: .875rem;
+    display: flex; flex-wrap: nowrap; gap: .875rem;
     margin: 0; padding: .25rem var(--process-gutter) 1.125rem; list-style: none;
     overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--process-gutter);
     scrollbar-width: none;
@@ -1078,7 +1078,7 @@ textarea { resize: vertical }
   .full-process-track::-webkit-scrollbar { display: none }
   .full-process-track:focus-visible { outline-offset: -2px }
   .full-process-card.process-preview {
-    display: flex; flex-direction: column; min-width: 0; width: 100%; height: auto;
+    display: flex; flex: 0 0 100%; flex-direction: column; min-width: 0; height: auto;
     min-height: min(75svh, 44rem); scroll-snap-align: start;
     box-shadow: 0 8px 18px #0f172a15;
   }
