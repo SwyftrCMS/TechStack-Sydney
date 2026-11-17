@@ -1070,7 +1070,7 @@ textarea { resize: vertical }
   .full-process-carousel { display: block; margin-top: 1.5rem }
   .full-process-track {
     --process-gutter: clamp(.875rem, 3vw, 2rem);
-    display: flex; flex-wrap: nowrap; gap: .875rem;
+    display: flex; flex-wrap: nowrap; gap: calc(2 * var(--process-gutter) + 1rem);
     margin: 0; padding: .25rem var(--process-gutter) 1.125rem; list-style: none;
     overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--process-gutter);
     scrollbar-width: none;
