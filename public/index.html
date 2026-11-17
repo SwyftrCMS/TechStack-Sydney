@@ -11,7 +11,7 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=discovery-funnel-1">
+  <link rel="stylesheet" href="/assets/site.css?v=discovery-illustrations-2">
   <script src="/assets/site.js?v=transparent-menu-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
@@ -111,13 +111,13 @@
         <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="process-preview-title" aria-live="polite">Project Preview — <span data-process-title>Discovery &amp; Strategy</span></span><span class="process-phase"><i aria-hidden="true"></i> Phase <span data-process-phase>01</span> of 05</span></div>
         <div id="process-phase-01">
 <div class="process-discovery">
-  <div class="process-backlog"><div class="process-label"><strong><span class="discovery-backlog-label">Backlog</span><span class="discovery-requirements-label">Requirements</span></strong><span>6 items</span></div>
-    <ul><li><button type="button" class="process-choice " data-process-choice="milestone" data-value="audit" aria-pressed="true" data-accent="pink"><strong>Spreadsheet &amp; tool audit</strong><small><em>Ops</em> · P1</small></button></li>
-<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="roles" aria-pressed="false" data-accent="amber"><strong>Staff &amp; client permissions</strong><small><em>Auth</em> · P1</small></button></li>
-<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="schema" aria-pressed="false" data-accent="green"><strong>Core database schema</strong><small><em>Data</em> · P1</small></button></li>
-<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="xero" aria-pressed="false" data-accent="sky"><strong>Xero &amp; CRM sync scope</strong><small><em>API</em> · P2</small></button></li>
-<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="field" aria-pressed="false" data-accent="blue"><strong>Mobile field checklist</strong><small><em>App</em> · P2</small></button></li>
-<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="quote" aria-pressed="false" data-accent="green"><strong>Fixed-price build schedule</strong><small><em>Plan</em> · P1</small></button></li></ul>
+  <div class="process-backlog"><div class="process-label"><strong><span class="discovery-backlog-label">Backlog</span><span class="discovery-requirements-label">Requirements</span></strong><span><span class="discovery-backlog-label">6 items</span><span class="discovery-requirements-label">5 items</span></span></div>
+    <ul><li><button type="button" class="process-choice " data-process-choice="milestone" data-value="audit" aria-pressed="true" data-accent="pink"><span class="discovery-original-copy"><strong>Spreadsheet &amp; tool audit</strong><small><em>Ops</em> · P1</small></span><strong class="discovery-desktop-copy">Current workflow</strong></button></li>
+<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="roles" aria-pressed="false" data-accent="amber"><span class="discovery-original-copy"><strong>Staff &amp; client permissions</strong><small><em>Auth</em> · P1</small></span><strong class="discovery-desktop-copy">Stakeholder Goals</strong></button></li>
+<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="schema" aria-pressed="false" data-accent="green"><span class="discovery-original-copy"><strong>Core database schema</strong><small><em>Data</em> · P1</small></span><strong class="discovery-desktop-copy">System &amp; Data Architecture</strong></button></li>
+<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="xero" aria-pressed="false" data-accent="sky"><span class="discovery-original-copy"><strong>Xero &amp; CRM sync scope</strong><small><em>API</em> · P2</small></span><strong class="discovery-desktop-copy">Integration Feasibility</strong></button></li>
+<li class="discovery-tablet-field"><button type="button" class="process-choice " data-process-choice="milestone" data-value="field" aria-pressed="false" data-accent="blue"><strong>Mobile field checklist</strong><small><em>App</em> · P2</small></button></li>
+<li><button type="button" class="process-choice " data-process-choice="milestone" data-value="quote" aria-pressed="false" data-accent="green"><span class="discovery-original-copy"><strong>Fixed-price build schedule</strong><small><em>Plan</em> · P1</small></span><strong class="discovery-desktop-copy">Fixed Price Plan &amp; Sign-Off</strong></button></li></ul>
     <div class="process-label process-quote"><span>Quote basis</span><strong>Fixed price</strong></div>
   </div>
   <figure class="discovery-funnel">
@@ -136,6 +136,30 @@
       <span><strong>Your custom app</strong><small>One place to manage the work</small></span>
     </div>
     <figcaption>We map what each tool does and decide what to connect or build into your app.</figcaption>
+  </figure>
+  <figure class="discovery-funnel discovery-detail" data-discovery-view="roles">
+    <div class="process-label"><strong>Who can do what?</strong><span>Illustrative example</span></div>
+    <div class="discovery-tiles"><div><strong>Staff</strong><small>Log a stock request</small></div><div><strong>Manager</strong><small>Approve spending</small></div><div><strong>Owner</strong><small>View weekly KPIs</small></div></div><ol class="discovery-flow"><li>Request</li><li>Manager review</li><li>Approved</li></ol><div class="discovery-tiles"><div><strong>Approval time</strong><small>Time from request to decision</small></div><div><strong>Stock accuracy</strong><small>System count vs. shelf count</small></div></div>
+    <figcaption>We agree on access, approval rules and what success looks like.</figcaption>
+  </figure>
+  <figure class="discovery-funnel discovery-detail" data-discovery-view="schema">
+    <div class="process-label"><strong>Data model and access</strong><span>Illustrative example</span></div>
+    <div class="discovery-sql"><div>SQL Editor <span>· PostgreSQL</span></div><pre><code><b>create policy</b> "Venue stock access"
+<b>on</b> public.stock_requests
+<b>for select using</b> (
+  venue_id <b>in</b> (<b>select</b> member_venue_ids())
+);</code></pre></div><div class="discovery-tiles"><div><strong>venues</strong><small>One record per location</small></div><div><strong>venue_members</strong><small>Staff roles and access</small></div><div><strong>stock_requests</strong><small>Requests tied to a venue</small></div></div>
+    <figcaption>We map the data and test what each role can see before building.</figcaption>
+  </figure>
+  <figure class="discovery-funnel discovery-detail" data-discovery-view="xero">
+    <div class="process-label"><strong>Test the integration before committing</strong><span>Illustrative example</span></div>
+    <div class="discovery-endpoint"><b>POST</b><code>/stock-requests</code><small>Test endpoint</small></div><ol class="discovery-flow"><li>Send sample</li><li>Inspect response</li><li>Adjust &amp; retest</li></ol><div class="discovery-tiles"><div><strong>409 · Duplicate</strong><small>Add a duplicate check</small></div><div><strong>201 · Created</strong><small>Trigger approval workflow</small></div></div>
+    <figcaption>We test success and failure paths before deciding what to automate.</figcaption>
+  </figure>
+  <figure class="discovery-funnel discovery-detail" data-discovery-view="quote">
+    <div class="process-label"><strong>Fixed-price plan for a hospitality team</strong><span>Illustrative example</span></div>
+    <div class="discovery-quote-card"><div class="process-label"><strong>Example quote</strong><span>Venue stock &amp; ordering app</span></div><ul><li>Stock counts and low-stock alerts</li><li>Supplier orders and manager approvals</li><li>Staff onboarding and launch handover</li></ul><div class="process-label"><strong>Fixed price</strong><span>Agreed before build</span></div></div>
+    <figcaption>We confirm what’s included, agree the price and get your sign-off.</figcaption>
   </figure>
   <div class="process-roadmap">
     <button type="button" class="process-choice " data-process-choice="milestone" data-value="audit" aria-pressed="true" data-accent="pink"><span class="process-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Zm4-14-2.5 5.5L8 16l2.5-5.5Z"/></svg></span><span><strong>Current Workflow Audit</strong><small>Map manual spreadsheets, handoffs and bottlenecks</small></span><small class="process-window">Day 1–2</small></button>

@@ -1036,12 +1036,20 @@ textarea { resize: vertical }
 }
 
 /* Desktop Discovery illustration */
-.discovery-funnel, .discovery-requirements-label { display: none }
+.discovery-funnel, .discovery-requirements-label, .discovery-desktop-copy { display: none }
 @media (min-width: 64rem) and (hover: hover) and (pointer: fine) {
   .process-discovery .discovery-backlog-label { display: none }
   .process-discovery .discovery-requirements-label { display: inline }
-  .process-discovery:has(.process-backlog [data-value="audit"][aria-pressed="true"]) .process-roadmap { display: none }
-  .process-discovery:has(.process-backlog [data-value="audit"][aria-pressed="true"]) .discovery-funnel {
+  .process-discovery .process-roadmap,
+  .process-discovery .discovery-original-copy,
+  .process-discovery .discovery-tablet-field { display: none }
+  .process-discovery .discovery-desktop-copy { display: block }
+  .process-discovery .process-backlog .process-choice { min-height: 2.75rem }
+  .process-discovery:has(.process-backlog [data-value="audit"][aria-pressed="true"]) .discovery-funnel:not([data-discovery-view]),
+  .process-discovery:has(.process-backlog [data-value="roles"][aria-pressed="true"]) [data-discovery-view="roles"],
+  .process-discovery:has(.process-backlog [data-value="schema"][aria-pressed="true"]) [data-discovery-view="schema"],
+  .process-discovery:has(.process-backlog [data-value="xero"][aria-pressed="true"]) [data-discovery-view="xero"],
+  .process-discovery:has(.process-backlog :is([data-value="quote"], [data-value="field"])[aria-pressed="true"]) [data-discovery-view="quote"] {
     display: grid; align-content: center; justify-items: center; min-width: 0;
     margin: 0; padding: clamp(.75rem, 1.5vw, 1.25rem);
   }
@@ -1060,4 +1068,25 @@ textarea { resize: vertical }
   .discovery-output svg { width: 2rem; height: 2rem; flex: none }
   .discovery-output strong { font-size: .8125rem }
   .discovery-funnel figcaption { margin-top: .75rem; color: var(--process-muted); text-align: center; font-size: .6875rem }
+}
+
+@media (min-width: 64rem) and (hover: hover) and (pointer: fine) {
+  .discovery-detail { row-gap: .65rem }
+  .discovery-detail .process-label { width: 100%; margin: 0; flex-wrap: wrap }
+  .discovery-detail figcaption { margin-top: .125rem }
+  .discovery-tiles, .discovery-flow { width: 100%; display: flex; gap: .375rem }
+  .discovery-tiles > div, .discovery-flow > li { flex: 1; min-width: 0; padding: .45rem; border: 1px solid var(--process-line); border-radius: .5rem; background: var(--process-surface); overflow-wrap: anywhere }
+  .discovery-tiles strong { display: block; font-size: .6875rem }
+  .discovery-flow { align-items: center; list-style: none; padding: 0 }
+  .discovery-flow li { position: relative; background: #f5f3ff; color: #5b21b6; font-size: .625rem; text-align: center }
+  .discovery-flow li:not(:last-child)::after { content: "›"; position: absolute; left: 100%; color: #6d28d9 }
+  .discovery-sql, .discovery-endpoint, .discovery-quote-card { width: 100%; min-width: 0; padding: .625rem; border-radius: .625rem }
+  .discovery-sql { background: #10182f; color: #e2e8f0; font: .625rem/1.55 "JetBrains Mono", var(--mono) }
+  .discovery-sql span { color: #94a3b8 }
+  .discovery-sql pre { margin: .375rem 0 0; white-space: pre-wrap; overflow-wrap: anywhere }
+  .discovery-sql b { color: #86efac }
+  .discovery-endpoint { display: flex; align-items: center; flex-wrap: wrap; gap: .375rem; background: #ecfdf5; color: #065f46 }
+  .discovery-quote-card { border: 1px solid #ddd6fe; background: #f5f3ff }
+  .discovery-quote-card ul { margin: .5rem 0; padding-inline-start: 1rem; line-height: 1.65 }
+  .discovery-quote-card .process-label:last-child { border-top: 1px solid #ddd6fe; padding-top: .5rem }
 }
