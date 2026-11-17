@@ -1,3 +1,8 @@
+#app .mobile-showcase { grid-template-columns: minmax(0, 1fr) }
+#app .mobile-showcase > * { min-width: 0 }
+@media (min-width: 64rem) {
+  #app .mobile-showcase { grid-template-columns: minmax(0, 1fr) 372px minmax(0, 1fr) }
+}
 .phone.scheduler-phone {
   width: min(100%, 372px);
   height: auto;
