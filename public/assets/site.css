@@ -780,7 +780,10 @@ textarea { resize: vertical }
 }
 
 /* Pain point and value comparison */
-.hero:has(+ .value-contrast), .value-contrast, .process-transition { background: #10182f }
+.value-contrast { background: #10182f }
+.hero:has(+ .value-hook), .value-hook, .process-transition {
+  background: linear-gradient(90deg, #d9c9ff, #efe7ff 34%, #eaf2ff 65%, #c0e5ff);
+}
 .process-transition { display: flow-root }
 .process-transition > .process {
   margin-inline: var(--process-inset, 0px);
@@ -864,8 +867,8 @@ textarea { resize: vertical }
   .value-guarantees { grid-template-columns: repeat(4, minmax(0, 1fr)) }
 }
 
-.value-hook { padding-block: clamp(2.5rem, 6vw, 4.5rem); text-align: center }
+.value-hook { padding-block: clamp(2.5rem, 6vw, 4.5rem); color: #10182f; text-align: center }
 .value-hook h2 { font-size: clamp(1.625rem, 4vw, 2.625rem); font-weight: 800; letter-spacing: -.03em }
-.value-hook p { margin-top: .75rem; color: #cbd5e1 }
-.value-hook .button { gap: .5rem; min-height: 2.75rem; margin-top: 1.25rem; border-color: #e2e8f0; background: #f8fafc; color: #10182f }
-.value-hook .button:hover { background: #ede9fe }
+.value-hook p { margin-top: .75rem; color: #334155 }
+.value-hook .button { gap: .5rem; min-height: 2.75rem; margin-top: 1.25rem; border-color: #6d28d9; background: #6d28d9; color: #fff }
+.value-hook .button:hover { border-color: #5b21b6; background: #5b21b6 }
