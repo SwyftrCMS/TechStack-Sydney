@@ -81,11 +81,11 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-card {
   position: absolute;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  align-content: start;
   width: var(--hero-card-width);
-  height: calc((100% - var(--hero-card-gap)) / 2);
-  gap: clamp(8px, 1.8vh, 16px);
-  padding: clamp(12px, 2.8vh, 24px);
+  height: min(192px, calc((100% - 2 * var(--hero-card-stagger) - 20px) / 2));
+  gap: 12px;
+  padding: 18px 22px;
   overflow: hidden;
   border: 1px solid #dde5f1;
   border-radius: 1rem;
@@ -98,7 +98,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-card-heading {
   display: flex;
   align-items: center;
-  gap: .875rem;
+  gap: .625rem;
   font-weight: 650;
 }
 .hero-card-heading svg {
@@ -120,10 +120,9 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   vertical-align: .06rem;
 }
 .hero-chart, .hero-workflow {
-  align-self: center;
+  display: block;
   width: 100%;
-  height: 100%;
-  max-height: 112px;
+  height: 88px;
 }
 .hero-chart-grid { stroke: #dde5f1 }
 .hero-chart-guide { stroke: #c4d0e2 }
@@ -134,7 +133,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 }
 .hero-chart-months { display: flex; justify-content: space-between }
 .hero-card-workflow .hero-card-heading { color: #687e9c }
-.hero-workflow { position: relative; max-height: 96px }
+.hero-workflow { position: relative; height: 80px }
 .hero-workflow-connectors { position: absolute; inset: 0; width: 100%; height: 100% }
 .hero-workflow-connectors path { fill: none; stroke: #c4d0e2; stroke-width: 1.25; vector-effect: non-scaling-stroke }
 .hero-workflow-trigger, .hero-workflow-step {
@@ -171,12 +170,11 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: .75rem;
-  padding: clamp(12px, 2.8vh, 24px);
+  gap: 14px;
+  padding: 18px 22px;
   color: #d9e4ef;
 }
-.hero-editor, .hero-editor pre, .hero-editor code { font: 11px/1.6 "JetBrains Mono", var(--mono) }
+.hero-editor, .hero-editor pre, .hero-editor code { font: 11px/1.55 "JetBrains Mono", var(--mono) }
 .hero-editor-bar { display: flex; align-items: center; gap: .375rem }
 .hero-editor-bar i { width: 9px; height: 9px; border-radius: 50%; background: #f05275 }
 .hero-editor-bar i:nth-child(2) { background: #ffb800 }
@@ -192,8 +190,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-week-days {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  align-self: end;
-  padding-bottom: .5rem;
+  padding-bottom: .375rem;
   border-bottom: 1px solid #edf1f7;
   color: #687e9c;
   font-size: .625rem;
@@ -204,7 +201,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
 .hero-week {
   display: grid;
   grid-template-columns: 2.5rem minmax(0, 1fr);
-  grid-auto-rows: minmax(20px, 1fr);
+  grid-auto-rows: minmax(20px, auto);
   align-items: center;
   gap: .375rem;
   color: #687e9c;
@@ -232,7 +229,8 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
     --hero-card-width: clamp(310px, 26vw, 380px);
     --hero-card-travel: clamp(24px, calc(10vw - 80px), 50px);
     --hero-card-offset: calc(var(--hero-card-progress, 0) * var(--hero-card-travel));
-    --hero-card-gap: clamp(16px, 3vh, 28px);
+    --hero-card-stagger: clamp(12px, 2.2vh, 24px);
+    --hero-card-recess: clamp(12px, 1.5vw, 24px);
     --hero-edge-offset: min(
       calc(-32px - var(--hero-card-travel)),
       calc(50% - 24rem - var(--hero-card-width) - var(--hero-card-travel))
@@ -240,7 +238,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
     display: block;
     position: absolute;
     inset: 0;
-    height: min(calc(100% - 48px), 528px);
+    height: min(calc(100% - 32px), 460px);
     margin-block: auto;
     pointer-events: none;
   }
@@ -252,8 +250,23 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
     right: var(--hero-edge-offset);
     transform: translateX(calc(0px - var(--hero-card-offset)));
   }
-  .hero-card-revenue, .hero-card-code { top: 0 }
-  .hero-card-workflow, .hero-card-calendar { bottom: 0 }
+  .hero-card-revenue { top: 0 }
+  .hero-card-code {
+    top: var(--hero-card-stagger);
+    right: calc(var(--hero-edge-offset) - var(--hero-card-recess));
+  }
+  .hero-card-workflow {
+    bottom: var(--hero-card-stagger);
+    left: calc(var(--hero-edge-offset) - var(--hero-card-recess));
+  }
+  .hero-card-calendar { bottom: 0 }
+}
+@media (min-width: 64rem) and (max-height: 560px) {
+  .hero-card { gap: 8px; padding-block: 10px }
+  .hero-card-code { padding: 0 }
+  .hero-editor { gap: 8px; padding-block: 10px }
+  .hero-editor, .hero-editor pre, .hero-editor code { line-height: 1.25 }
+  .hero-chart, .hero-workflow { height: 64px }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-art { --hero-card-offset: 0px }
