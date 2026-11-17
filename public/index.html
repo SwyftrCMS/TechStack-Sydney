@@ -33,20 +33,21 @@
 <section id="top" class="hero"><div class="hero-frame">
 <div class="hero-art" aria-hidden="true">
   <div class="hero-card hero-card-revenue">
-    <div class="hero-card-heading"><p>Revenue</p><span class="hero-chart-legend">Lead</span></div>
+    <div class="hero-card-heading"><p>Revenue</p><span class="hero-chart-legend">Lead trend</span></div>
     <div class="hero-revenue-summary"><strong>$24.8k</strong><span>+12% this quarter</span></div>
     <svg class="hero-chart" viewBox="0 0 244 96" preserveAspectRatio="none" focusable="false">
       <defs>
         <linearGradient id="hero-revenue-fill" x2="0" y2="1">
-          <stop stop-color="#64748b" stop-opacity=".2"/>
-          <stop offset="1" stop-color="#64748b" stop-opacity="0"/>
+          <stop stop-color="#8b5cf6" stop-opacity=".29"/>
+          <stop offset="1" stop-color="#8b5cf6" stop-opacity=".03"/>
         </linearGradient>
       </defs>
-      <path class="hero-chart-grid" d="M0 22H244 M0 53H244 M0 84H244"/>
+      <path class="hero-chart-grid" d="M0 18H244 M0 40H244 M0 62H244 M0 84H244"/>
       <path fill="url(#hero-revenue-fill)" d="M0 73 C27 73 49 48 76 48 S118 62 142 58 S197 28 235 9 V86 H0Z"/>
       <path class="hero-chart-line" d="M0 73 C27 73 49 48 76 48 S118 62 142 58 S197 28 235 9"/>
       <path class="hero-chart-guide" d="M142 9V89"/>
-      <circle cx="142" cy="58" r="3.5" fill="#475569" stroke="white" stroke-width="1.5"/>
+      <circle cx="142" cy="58" r="3.4" fill="white" stroke="#7c3aed" stroke-width="1.5"/>
+      <circle cx="235" cy="9" r="3.8" fill="#7c3aed" stroke="white" stroke-width="1.5"/>
     </svg>
     <div class="hero-card-footer hero-chart-months"><span>Jun</span><span>Jul</span><span>Aug</span></div>
   </div>
@@ -54,26 +55,21 @@
     <div class="hero-card-heading"><p>Workflow triggers</p></div>
     <div class="hero-workflow">
       <svg class="hero-workflow-connectors" viewBox="0 0 244 90" preserveAspectRatio="none" focusable="false">
-        <path d="M31 45H47V23H66 M47 45V67H66"/>
+        <path d="M25 45H47V15H66 M47 45H66 M47 45V75H66"/>
       </svg>
       <span class="hero-workflow-trigger">
         <svg viewBox="0 0 16 16" focusable="false"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v7c0 2.7 10 2.7 10 0V4M3 8c0 2.7 10 2.7 10 0"/></svg>
       </span>
       <span class="hero-workflow-step"><b>↯</b> Automated workflow</span>
       <span class="hero-workflow-step"><b>▤</b> Record synced</span>
+      <span class="hero-workflow-step"><b>✓</b> Notification sent</span>
     </div>
-    <p class="hero-card-footer">Xero · HubSpot · SMS</p>
+    <p class="hero-card-footer hero-workflow-footer"><span>Xero · HubSpot · SMS</span><span>● Active</span></p>
   </div>
   <div class="hero-card hero-card-code">
     <div class="hero-editor">
       <div class="hero-editor-bar"><i></i><i></i><i></i><span>Workflow.tsx</span></div>
-      <pre><code><span class="hero-editor-line"><span class="hero-editor-number">1</span><b class="hero-code-keyword">const</b> <b class="hero-code-property">dispatch</b> = () =&gt; {</span>
-<span class="hero-editor-line"><span class="hero-editor-number">2</span>  <b class="hero-code-keyword">const</b> quote = <b class="hero-code-string">'fixed-price'</b></span>
-<span class="hero-editor-line"><span class="hero-editor-number">3</span>  &lt;<b class="hero-code-tag">JobCard</b> <b class="hero-code-property">status</b>=<b class="hero-code-string">"active"</b> /&gt;</span>
-<span class="hero-editor-line"><span class="hero-editor-number">4</span>};</span>
-<span class="hero-editor-line"><span class="hero-editor-number">5</span><b class="hero-code-keyword">return</b> (</span>
-<span class="hero-editor-line"><span class="hero-editor-number">6</span>  &lt;<b class="hero-code-tag">Portal</b> <b class="hero-code-property">region</b>=<b class="hero-code-string">"AU"</b> /&gt;</span>
-<span class="hero-editor-line"><span class="hero-editor-number">7</span>);</span></code></pre>
+      <pre><code><span class="hero-editor-line"><span class="hero-editor-number">1</span><b class="hero-code-keyword">function</b> <b class="hero-code-property">Workflow</b>() {</span><span class="hero-editor-line"><span class="hero-editor-number">2</span>  <b class="hero-code-keyword">const</b> job = useDispatch();</span><span class="hero-editor-line"><span class="hero-editor-number">3</span>  <b class="hero-code-keyword">return</b> (</span><span class="hero-editor-line"><span class="hero-editor-number">4</span>    &lt;<b class="hero-code-tag">Portal</b> region=<b class="hero-code-string">"AU"</b>&gt;</span><span class="hero-editor-line"><span class="hero-editor-number">5</span>      &lt;<b class="hero-code-tag">JobCard</b> job={job} /&gt;</span><span class="hero-editor-line"><span class="hero-editor-number">6</span>      &lt;<b class="hero-code-tag">Schedule</b> job={job} /&gt;</span><span class="hero-editor-line"><span class="hero-editor-number">7</span>    &lt;/<b class="hero-code-tag">Portal</b>&gt;</span><span class="hero-editor-line"><span class="hero-editor-number">8</span>  );</span><span class="hero-editor-line"><span class="hero-editor-number">9</span>}</span><span class="hero-editor-line"><span class="hero-editor-number">10</span><b class="hero-code-keyword">export default</b> Workflow;</span></code></pre>
     </div>
   </div>
   <div class="hero-card hero-card-calendar">
@@ -83,6 +79,8 @@
       <span>10 AM</span><div class="hero-week-events"><i class="hero-week-dispatch">Site dispatch</i></div>
       <span>12 PM</span><div class="hero-week-events"><i>Client sync</i><i class="hero-week-review">QA review</i></div>
       <span>2 PM</span><div class="hero-week-events"><i class="hero-week-dispatch">Project handover</i></div>
+      <span class="hero-week-extra">3 PM</span><div class="hero-week-events hero-week-extra"><i class="hero-week-review">Sprint demo</i><i>Team sync</i></div>
+      <span class="hero-week-extra">4 PM</span><div class="hero-week-events hero-week-extra"><i class="hero-week-dispatch">Delivery review</i></div>
     </div>
   </div>
 </div>
