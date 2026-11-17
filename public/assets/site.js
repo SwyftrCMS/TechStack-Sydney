@@ -172,32 +172,12 @@ if (processSection?.classList.contains('process')) {
   const previewTitle = processSection.querySelector('[data-process-title]');
   const previewPhase = processSection.querySelector('[data-process-phase]');
   const diagram = processSection.querySelector('.process-diagram');
-  const layout = processSection.querySelector('.process-layout');
-  const preview = processSection.querySelector('.process-preview');
-  const phoneLayout = matchMedia('(width < 40rem)');
-  let activePhase = phases.find(phase => phase.getAttribute('aria-expanded') === 'true');
-
-  function placePreview() {
-    const parent = phoneLayout.matches ? activePhase.parentElement : layout;
-    if (preview.parentElement === parent) return;
-
-    const focused = preview.contains(document.activeElement) ? document.activeElement : null;
-    parent.append(preview);
-    focused?.focus({ preventScroll: true });
-  }
-
-  placePreview();
-  phoneLayout.addEventListener('change', placePreview);
 
   processSection.addEventListener('click', event => {
     const button = event.target.closest('button');
     if (!button) return;
 
     if (button.dataset.processStep) {
-      if (button === activePhase) return;
-
-      const previousTop = button.getBoundingClientRect().top;
-      activePhase = button;
       for (const phase of phases) {
         const active = phase === button;
         phase.setAttribute('aria-expanded', String(active));
@@ -207,10 +187,6 @@ if (processSection?.classList.contains('process')) {
       }
       previewTitle.textContent = button.querySelector('strong').textContent;
       previewPhase.textContent = button.dataset.processStep;
-      placePreview();
-      if (phoneLayout.matches) {
-        window.scrollBy({ top: button.getBoundingClientRect().top - previousTop, behavior: 'instant' });
-      }
       return;
     }
 
@@ -348,4 +324,34 @@ if (supportPreview) {
 
   reply.disabled = false;
   composer.querySelector('button').disabled = false;
+}
+
+const processCards = document.getElementById('process-cards');
+if (processCards) {
+  const controls = processCards.nextElementSibling;
+  const [previous, next] = controls.querySelectorAll('button');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  function updateCardControls() {
+    const end = processCards.scrollWidth - processCards.clientWidth;
+    previous.setAttribute('aria-disabled', String(processCards.scrollLeft <= 1));
+    next.setAttribute('aria-disabled', String(processCards.scrollLeft >= end - 1));
+  }
+
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('[data-process-card-direction]');
+    if (!button || button.getAttribute('aria-disabled') === 'true') return;
+
+    const cards = processCards.children;
+    const stride = cards[1].offsetLeft - cards[0].offsetLeft;
+    processCards.scrollBy({
+      left: stride * Number(button.dataset.processCardDirection),
+      behavior: reduceMotion.matches ? 'instant' : 'smooth',
+    });
+  });
+
+  controls.hidden = false;
+  processCards.addEventListener('scroll', updateCardControls, { passive: true });
+  new ResizeObserver(updateCardControls).observe(processCards);
+  updateCardControls();
 }
