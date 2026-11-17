@@ -1043,7 +1043,7 @@ textarea { resize: vertical }
   .process-carousel { display: block; margin-top: 1.5rem }
   .process-cards {
     display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: .75rem;
-    margin: 0; padding: 0; list-style: none; overflow-x: auto;
+    margin: 0; padding: 0 0 1rem; list-style: none; overflow-x: auto;
     scroll-snap-type: x mandatory; scrollbar-width: none;
   }
   .process-cards::-webkit-scrollbar { display: none }
@@ -1052,6 +1052,7 @@ textarea { resize: vertical }
     min-width: 0; display: grid; grid-template-rows: auto 1fr;
     border: 1px solid #33415c; border-radius: .75rem;
     overflow: hidden; background: #111a2c; color: #f8fafc; scroll-snap-align: start;
+    box-shadow: 0 8px 24px -8px #0f172a33;
   }
   .process-card:last-child { scroll-snap-align: end }
   .process-card .process-window-bar {
@@ -1089,7 +1090,7 @@ textarea { resize: vertical }
 
 @media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
   #grow .support-layout { display: none }
-  .compact-support { margin-top: 1.5rem }
+  .compact-support { display: block; margin-top: 1.5rem }
   .compact-support-track {
     display: grid; grid-auto-flow: column; grid-auto-columns: 100%; gap: .75rem;
     margin: 0; padding: 0 7%; list-style: none; overflow-x: auto;
