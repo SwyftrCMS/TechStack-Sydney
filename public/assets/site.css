@@ -780,7 +780,16 @@ textarea { resize: vertical }
 }
 
 /* Pain point and value comparison */
-.hero:has(+ .value-contrast), .value-contrast { background: #10182f }
+.hero:has(+ .value-contrast), .value-contrast, .process-transition { background: #10182f }
+.process-transition { display: flow-root }
+.process-transition > .process {
+  margin-inline: var(--process-inset, 0px);
+  border-start-start-radius: var(--process-radius, 0px);
+  border-start-end-radius: var(--process-radius, 0px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-transition > .process { margin-inline: 0; border-radius: 0 }
+}
 .value-contrast {
   padding: 3.5rem 1.25rem;
   color: #f8fafc;
