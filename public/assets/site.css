@@ -1042,6 +1042,22 @@ textarea { resize: vertical }
   .site-header--scroll::before { transition: none }
 }
 
+/* Pin the homepage header on phones and tablets, including wide touch tablets. */
+@media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
+  .site-header.site-header--scroll {
+    position: fixed;
+    inset-inline: 0;
+    margin-bottom: 0;
+  }
+}
+@media (width < 64rem) {
+  .site-header--scroll .nav-menu {
+    max-height: calc(100dvh - var(--home-nav-height));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+}
+
 /* Homepage industry website previews */
 .industry-gallery { display: grid; gap: 1rem; margin-top: 2rem }
 .industry-gallery .industry-tabs { margin: 0 }
