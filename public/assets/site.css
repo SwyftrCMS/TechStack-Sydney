@@ -1162,3 +1162,72 @@ textarea { resize: vertical }
 .support-carousel .support-node-merge { grid-area: 3 / 1 / 4 / 3 }
 .support-carousel .support-node-process { grid-area: 4 / 1 / 5 / 3 }
 .support-carousel .support-node-deliver { grid-area: 5 / 1 / 6 / 3 }
+
+/* The phone layout places each stage and its example in the page scroll. */
+.mobile-story { display: none }
+@media (width < 40rem) {
+  .home-main > :is(#run, #grow) {
+    padding: 3.5rem clamp(1rem, 5.25vw, 1.25rem);
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+  :is(#run, #grow) .process-heading { margin-inline: 0 }
+  :is(#run, #grow) .process-heading h2 { font-size: clamp(1.75rem, 7.6vw, 2rem); line-height: 1.15 }
+  :is(#run, #grow) .process-heading p:last-child { font-size: 1rem; line-height: 1.5 }
+  .home-main > :is(#run, #grow) :is(.process-layout, .full-process-carousel) { display: none }
+  .mobile-story { display: grid; gap: 2rem; margin: 1.5rem 0 0; padding: 0; list-style: none }
+  .story-stage { min-width: 0 }
+  .story-stage h3 { margin: 0 0 .5rem; font-size: 1.25rem; font-weight: 650; line-height: 1.3 }
+  .story-stage > p { color: var(--process-muted); font-size: 1rem; line-height: 1.5 }
+  .story-stage .story-after-figure { margin-top: .75rem }
+  .story-figure {
+    margin: 1rem 0 0; padding: .75rem; background: #fff;
+    border: 1px solid var(--process-line); border-radius: .75rem; font-size: .875rem; line-height: 1.45;
+  }
+  .story-figure figcaption { margin-top: .75rem; color: var(--process-muted); font-size: .8125rem }
+  .story-funnel { text-align: center }
+  .story-funnel > div, .story-metrics, .story-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .375rem }
+  .story-funnel span, .story-funnel strong, .story-metrics > div, .story-steps li {
+    padding: .5rem .25rem; border-radius: .5rem; background: #f1edff; overflow-wrap: anywhere;
+  }
+  .story-funnel strong { display: inline-block; padding-inline: .75rem }
+  .story-funnel svg { display: block; width: 100%; height: 1.5rem; fill: none; stroke: #8b5cf6; stroke-width: 2 }
+  .story-metrics { margin: 0 0 .5rem; text-align: center }
+  .story-metrics dt { font-size: .8125rem }
+  .story-metrics dd { margin: .25rem 0 0; font-weight: 750 }
+  .story-chart > svg { display: block; width: 100%; height: 4.5rem }
+  .story-kpi { display: flex; gap: .5rem; align-items: baseline }
+  .story-kpi strong { font-size: 1.25rem }
+  .story-chart { --process-accent: #16a34a; --process-accent-ink: #15803d }
+  .story-chart:has(.story-metrics) { --process-accent: #8b5cf6; --process-accent-ink: #6d28d9 }
+  .story-architecture .process-diagram { margin-top: 0 }
+  .story-architecture .story-spoke, .story-architecture .process-core {
+    background: #fff; border: 1px solid var(--process-line); border-radius: .5rem; padding: .375rem; text-align: center;
+    font-size: .8125rem;
+  }
+  .story-architecture .process-diagram small { display: block; font: inherit; color: var(--process-muted) }
+  .story-steps, .story-checklist, .story-chat { list-style: none; padding: 0 }
+  .story-steps { text-align: center }
+  .story-steps li + li { position: relative }
+  .story-steps li + li::before { content: ""; position: absolute; left: -.375rem; top: 50%; width: .375rem; border-top: 1px solid #8b5cf6 }
+  .story-checklist, .story-chat { display: grid; gap: .5rem }
+  .story-checklist li::before { content: "✓"; margin-right: .5rem; color: #15803d }
+  .story-chat li { padding: .5rem .625rem; border-radius: .5rem; background: #f1f5f9; max-width: 90% }
+  .story-chat li:last-child { justify-self: end; background: #10182f; color: #fff }
+  .story-chat strong { font-size: .8125rem }
+  .story-chat p { margin-top: .125rem }
+  .story-automation .support-flow-grid {
+    grid-template: repeat(5, 3.375rem) / repeat(2, minmax(0, 1fr));
+    gap: 0; padding: 0; margin: 0; align-items: center;
+  }
+  .story-automation .support-flow-grid > svg { display: block }
+  .story-automation .support-flow-grid > svg path { vector-effect: non-scaling-stroke }
+  .story-automation .support-node { min-width: 0; padding: .125rem }
+  .story-automation .support-node-icon { width: 1.5rem; height: 1.5rem; border-radius: .375rem }
+  .story-automation .support-node strong { font-size: .8125rem; background: #f5f7fa }
+  .story-automation .support-node-trigger { grid-area: 1 / 1 / 2 / 3 }
+  .story-automation .support-node-sourceA { grid-area: 2 / 1 }
+  .story-automation .support-node-sourceB { grid-area: 2 / 2 }
+  .story-automation .support-node-merge { grid-area: 3 / 1 / 4 / 3 }
+  .story-automation .support-node-process { grid-area: 4 / 1 / 5 / 3 }
+  .story-automation .support-node-deliver { grid-area: 5 / 1 / 6 / 3 }
+}
