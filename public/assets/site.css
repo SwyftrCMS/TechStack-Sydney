@@ -35,6 +35,13 @@ section[id] { scroll-margin-top: 4.5rem }
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 1px solid var(--border) }
 .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; min-height: 4rem; gap: .5rem }
 .brand { font-size: 1rem; font-weight: 750; letter-spacing: -.03em; text-decoration: none }
+.site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+.brand-icon { display: block; flex: none; width: 1.875rem; height: 1.875rem }
 .menu-toggle { border: 1px solid var(--border); border-radius: .5rem; background: var(--surface); padding: .4rem .8rem }
 .nav-menu { flex-basis: 100%; padding-block: .5rem 1rem }
 .nav-menu ul, .footer ul { padding: 0; list-style: none }
@@ -1035,6 +1042,22 @@ textarea { resize: vertical }
   .site-header--scroll::before { transition: none }
 }
 
+/* Pin the homepage header on phones and tablets, including wide touch tablets. */
+@media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
+  .site-header.site-header--scroll {
+    position: fixed;
+    inset-inline: 0;
+    margin-bottom: 0;
+  }
+}
+@media (width < 64rem) {
+  .site-header--scroll .nav-menu {
+    max-height: calc(100dvh - var(--home-nav-height));
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+}
+
 /* Homepage industry website previews */
 .industry-gallery { display: grid; gap: 1rem; margin-top: 2rem }
 .industry-gallery .industry-tabs { margin: 0 }
@@ -1058,4 +1081,55 @@ textarea { resize: vertical }
   .industry-gallery { grid-template-columns: minmax(13rem, 1fr) minmax(0, 3fr); align-items: start; gap: 1.5rem }
   .industry-gallery .industry-tabs { display: grid; overflow: visible }
   .industry-tabs button { width: 100%; text-align: left }
+}
+
+/* Full How we build stages for phones and touch tablets. */
+.full-process-carousel { display: none }
+@media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
+  #run:has(.full-process-carousel:not([hidden])) .process-layout { display: none }
+  #run:has(.full-process-carousel:not([hidden])) { padding-inline: 0 }
+  #run:has(.full-process-carousel:not([hidden])) .process-wrap { max-width: none }
+  #run:has(.full-process-carousel:not([hidden])) .process-heading { margin-inline: clamp(1rem, 4vw, 2.5rem) }
+  .full-process-carousel { display: block; margin-top: 1.5rem }
+  .full-process-track {
+    --process-gutter: clamp(.875rem, 3vw, 2rem);
+    display: flex; flex-wrap: nowrap; gap: calc(2 * var(--process-gutter) + 1rem);
+    margin: 0; padding: .25rem var(--process-gutter) 1.125rem; list-style: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--process-gutter);
+    scrollbar-width: none;
+  }
+  .full-process-track::-webkit-scrollbar { display: none }
+  .full-process-track:focus-visible { outline-offset: -2px }
+  .full-process-card.process-preview {
+    display: flex; flex: 0 0 100%; flex-direction: column; min-width: 0; height: auto;
+    min-height: min(75svh, 44rem); scroll-snap-align: start;
+    box-shadow: 0 8px 18px #0f172a15;
+  }
+  .full-process-card > :nth-child(2) { flex: 1 }
+  .full-process-card .process-window-bar { gap: .5rem; padding-inline: .875rem }
+  .full-process-number { margin-inline-start: auto; white-space: nowrap }
+  .full-process-card .compact-discovery { display: block }
+  .full-process-card .process-roadmap { height: 100%; align-content: space-evenly }
+  .full-process-card .process-roadmap .process-choice { grid-template-columns: auto minmax(0, 1fr) auto }
+  .full-process-card .process-sprint-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .625rem; margin: .875rem; background: none;
+  }
+  .full-process-card .process-sprint-grid .process-choice { grid-column: auto; grid-row: auto; min-height: 4rem }
+  .full-process-card .process-axis { display: none }
+  .full-process-card .process-integrations { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start }
+  .full-process-card .process-layer-list:has(> :not([hidden])) { min-height: 0 }
+  .full-process-card .process-launch { display: flex; flex-direction: column; justify-content: center }
+  .full-process-card .process-dev, .full-process-card .process-app { min-width: 0 }
+  .full-process-indicator { display: flex; justify-content: center; align-items: center; gap: .125rem }
+  .full-process-indicator button {
+    display: grid; place-items: center; width: 2.375rem; height: 2.75rem; padding: 0;
+    border: 0; background: transparent; cursor: pointer;
+  }
+  .full-process-indicator button span { width: .4375rem; height: .4375rem; border-radius: 1rem; background: #a8b0bf }
+  .full-process-indicator button[aria-pressed="true"] span { width: 1.5rem; background: #6d28d9 }
+}
+@media (width < 30rem) {
+  .full-process-card .process-roadmap { padding-inline: .625rem }
+  .full-process-card .process-window { white-space: nowrap }
 }

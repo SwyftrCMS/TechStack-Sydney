@@ -164,8 +164,8 @@ async function initialiseContact(form) {
   });
 }
 
-const processSection = document.getElementById('run');
-if (processSection?.classList.contains('process')) {
+const processSection = document.querySelector('#run .process-layout');
+if (processSection) {
   const phases = [...processSection.querySelectorAll('[data-process-step]')];
   const choices = [...processSection.querySelectorAll('[data-process-choice]')];
   const results = [...processSection.querySelectorAll('[data-process-result]')];
@@ -324,4 +324,74 @@ if (supportPreview) {
 
   reply.disabled = false;
   composer.querySelector('button').disabled = false;
+}
+
+
+for (const carousel of document.querySelectorAll('[data-full-process-carousel]')) {
+  const track = carousel.querySelector('[data-swipe-track]');
+  const indicator = carousel.querySelector('.swipe-indicator');
+  const buttons = [...indicator.querySelectorAll('button')];
+  const slides = [...track.children];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  function offset(slide) {
+    const view = track.getBoundingClientRect();
+    const card = slide.getBoundingClientRect();
+    return card.left + card.width / 2 - view.left - view.width / 2;
+  }
+
+  function updateIndicator() {
+    let nearest = 0;
+    let distance = Infinity;
+    slides.forEach((slide, index) => {
+      const candidate = Math.abs(offset(slide));
+      if (candidate < distance) {
+        nearest = index;
+        distance = candidate;
+      }
+    });
+    buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === nearest)));
+  }
+
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => track.scrollBy({
+      left: offset(slides[index]),
+      behavior: reduceMotion.matches ? 'instant' : 'smooth',
+    }));
+  });
+  track.addEventListener('scroll', updateIndicator, { passive: true });
+  new ResizeObserver(updateIndicator).observe(track);
+  track.addEventListener('keydown', event => {
+    if (event.target !== track || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+    event.preventDefault();
+    const current = buttons.findIndex(button => button.getAttribute('aria-pressed') === 'true');
+    const next = Math.max(0, Math.min(slides.length - 1, current + (event.key === 'ArrowRight' ? 1 : -1)));
+    buttons[next].click();
+  });
+
+  track.addEventListener('click', event => {
+    const button = event.target.closest('[data-process-choice]');
+    if (!button) return;
+    const slide = button.closest('.full-process-card');
+    if (!slide) return;
+    const { processChoice: group, value } = button.dataset;
+    for (const choice of slide.querySelectorAll('[data-process-choice]')) {
+      if (choice.dataset.processChoice === group) {
+        choice.setAttribute('aria-pressed', String(choice.dataset.value === value));
+      }
+    }
+    for (const result of slide.querySelectorAll('[data-process-result]')) {
+      if (result.dataset.processResult === group) result.hidden = result.dataset.value !== value;
+    }
+    if (group === 'layer') {
+      slide.querySelector('.process-diagram').dataset.layer = value;
+      for (const detail of slide.querySelectorAll('[data-compact-layer]')) {
+        detail.hidden = detail.dataset.compactLayer !== value;
+      }
+    }
+  });
+
+  carousel.hidden = false;
+  indicator.hidden = false;
+  if (track.clientWidth) updateIndicator();
 }
