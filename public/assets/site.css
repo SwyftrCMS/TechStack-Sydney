@@ -1185,17 +1185,17 @@ textarea { resize: vertical }
   .story-stage > p { color: var(--process-muted); font-size: 1rem; line-height: 1.65 }
   .story-stage .story-after-figure { margin-top: 1rem }
   .story-figure {
-    margin: 1.25rem 0 0; padding: clamp(.875rem, 4vw, 1.25rem); background: #fff;
+    margin: 1.5rem 0 0; padding: clamp(1.125rem, 5vw, 1.5rem); background: #fff;
     border: 1px solid var(--process-line); border-radius: .75rem; font-size: .875rem; line-height: 1.45;
   }
-  .story-figure figcaption { margin-top: 1rem; color: #475569; font-size: .875rem }
+  .story-figure figcaption { margin-top: 1.25rem; color: #475569; font-size: .875rem }
   .story-funnel { text-align: center }
   .story-funnel > div, .story-metrics, .story-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem }
   .story-funnel span, .story-funnel strong, .story-metrics > div, .story-steps li {
     padding: .625rem .25rem; border-radius: .5rem; background: #f1edff; overflow-wrap: anywhere;
   }
   .story-funnel strong { display: inline-block; padding-inline: .75rem }
-  .story-funnel svg { display: block; width: 100%; height: 1.5rem; fill: none; stroke: #8b5cf6; stroke-width: 2 }
+  .story-funnel > svg { display: block; width: 100%; height: 1.5rem; fill: none; stroke: #8b5cf6; stroke-width: 2 }
   .story-metrics { margin: 0 0 .5rem; text-align: center }
   .story-metrics dt { font-size: .8125rem }
   .story-metrics dd { margin: .25rem 0 0; font-weight: 750 }
@@ -1251,7 +1251,7 @@ textarea { resize: vertical }
   .story-funnel span, .story-funnel strong, .story-metrics > div, .story-steps li {
     background: var(--demo-panel);
     color: var(--demo-ink);
-    box-shadow: inset 0 0 0 1px var(--demo-line), inset 0 2px var(--demo-accent, var(--blue));
+    box-shadow: inset 0 0 0 1px var(--demo-line);
   }
   .story-figure :is(.story-funnel span, .story-metrics > div, .story-steps li):nth-child(2) { --demo-accent: var(--mint) }
   .story-figure :is(.story-funnel span, .story-metrics > div, .story-steps li):nth-child(3) { --demo-accent: var(--amber) }
@@ -1286,7 +1286,7 @@ textarea { resize: vertical }
     background: var(--demo-panel);
     color: var(--demo-ink);
     border-color: var(--demo-line);
-    box-shadow: inset 0 2px var(--demo-accent, var(--blue));
+
   }
   .story-architecture .process-spoke-xero { --demo-accent: var(--rose) }
   .story-architecture .process-spoke-crm { --demo-accent: var(--amber) }
@@ -1316,4 +1316,18 @@ textarea { resize: vertical }
   .story-automation .support-node-sourceB { --demo-accent: var(--amber) }
   .story-automation .support-node-merge { --demo-accent: var(--yellow) }
   .story-automation .support-node-deliver { --demo-accent: var(--mint) }
+
+  .story-figure .story-icon {
+    display: inline-block; width: 1rem; height: 1rem;
+    color: var(--demo-accent, var(--blue)); vertical-align: -.2em;
+  }
+  .story-funnel > div { grid-template-columns: 1.3fr 1fr .7fr }
+  .story-funnel > div > span { font-size: .8125rem }
+  .story-funnel span .story-icon, .story-steps .story-icon, .story-metrics .story-icon {
+    display: block; margin: 0 auto .375rem;
+  }
+  .story-funnel strong .story-icon, .story-chat .story-icon, .story-kpi .story-icon { margin-right: .375rem }
+  .story-steps li, .story-metrics > div { padding-block: .75rem }
+  .story-chat li { padding: .75rem .875rem }
+  .story-checklist { gap: .75rem }
 }
