@@ -172,12 +172,32 @@ if (processSection?.classList.contains('process')) {
   const previewTitle = processSection.querySelector('[data-process-title]');
   const previewPhase = processSection.querySelector('[data-process-phase]');
   const diagram = processSection.querySelector('.process-diagram');
+  const layout = processSection.querySelector('.process-layout');
+  const preview = processSection.querySelector('.process-preview');
+  const phoneLayout = matchMedia('(width < 40rem)');
+  let activePhase = phases.find(phase => phase.getAttribute('aria-expanded') === 'true');
+
+  function placePreview() {
+    const parent = phoneLayout.matches ? activePhase.parentElement : layout;
+    if (preview.parentElement === parent) return;
+
+    const focused = preview.contains(document.activeElement) ? document.activeElement : null;
+    parent.append(preview);
+    focused?.focus({ preventScroll: true });
+  }
+
+  placePreview();
+  phoneLayout.addEventListener('change', placePreview);
 
   processSection.addEventListener('click', event => {
     const button = event.target.closest('button');
     if (!button) return;
 
     if (button.dataset.processStep) {
+      if (button === activePhase) return;
+
+      const previousTop = button.getBoundingClientRect().top;
+      activePhase = button;
       for (const phase of phases) {
         const active = phase === button;
         phase.setAttribute('aria-expanded', String(active));
@@ -187,6 +207,10 @@ if (processSection?.classList.contains('process')) {
       }
       previewTitle.textContent = button.querySelector('strong').textContent;
       previewPhase.textContent = button.dataset.processStep;
+      placePreview();
+      if (phoneLayout.matches) {
+        window.scrollBy({ top: button.getBoundingClientRect().top - previousTop, behavior: 'instant' });
+      }
       return;
     }
 

@@ -535,16 +535,16 @@ textarea { resize: vertical }
 .process-heading p:last-child { margin-top: 1rem; color: var(--process-muted); line-height: 1.6 }
 .process-layout { display: grid; gap: 2rem; margin-top: 3rem; align-items: start }
 .process-steps, .process-backlog ul { list-style: none; padding: 0; display: grid; gap: .375rem }
-.process-steps button {
+.process-steps > :where(li) > button {
   display: flex; align-items: flex-start; gap: 1rem; width: 100%; padding: 1rem 1.25rem;
   text-align: left; background: transparent; border: 1px solid transparent; border-radius: .75rem;
   color: #1e293b; font-size: .9375rem; line-height: 1.4;
 }
-.process-steps button:hover { background: rgb(255 255 255 / .7) }
-.process-steps button[aria-expanded="true"] { background: #eef2f7; border-color: #cbd5e1; color: #0f172a; box-shadow: 0 1px 2px #0f172a0a }
-.process-steps button > span:first-child { flex: none; margin-top: .125rem; color: #64748b; font: 500 .75rem/1.4 "JetBrains Mono", var(--mono) }
-.process-steps button[aria-expanded="true"] > span:first-child { color: #6d28d9 }
-.process-steps small { margin-top: .5rem; color: var(--process-muted); font-size: .875rem; line-height: 1.625 }
+.process-steps > :where(li) > button:hover { background: rgb(255 255 255 / .7) }
+.process-steps > :where(li) > button[aria-expanded="true"] { background: #eef2f7; border-color: #cbd5e1; color: #0f172a; box-shadow: 0 1px 2px #0f172a0a }
+.process-steps > :where(li) > button > span:first-child { flex: none; margin-top: .125rem; color: #64748b; font: 500 .75rem/1.4 "JetBrains Mono", var(--mono) }
+.process-steps > :where(li) > button[aria-expanded="true"] > span:first-child { color: #6d28d9 }
+.process-steps > :where(li) > button small { margin-top: .5rem; color: var(--process-muted); font-size: .875rem; line-height: 1.625 }
 .process-preview {
   min-width: 0; overflow: hidden; background: white; border: 1px solid var(--process-line);
   border-radius: 1rem; box-shadow: 0 24px 54px -18px #0f172a1f; font-size: .75rem;
@@ -567,7 +567,7 @@ textarea { resize: vertical }
   width: 4.125rem; height: 2px; border-radius: 2px;
   background: linear-gradient(90deg, #e14d79 0 15%, transparent 15% 21%, #f59e0b 21% 36%, transparent 36% 42%, #22c55e 42% 57%, transparent 57% 63%, #38bdf8 63% 78%, transparent 78% 84%, #3b82f6 84%);
 }
-.process-preview small, .process-steps small { display: block }
+.process-preview small, .process-steps > :where(li) > button small { display: block }
 .process-preview small { color: var(--process-muted); font-size: .6875rem; line-height: 1.45 }
 .process-preview strong, .process-steps strong { font-weight: 650 }
 .process-preview em { color: var(--process-accent-ink); font-style: normal }
@@ -1033,4 +1033,43 @@ textarea { resize: vertical }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header--scroll::before { transition: none }
+}
+
+/* Compact layouts for How we build. */
+@media (width < 64rem) {
+  #run .process-layout { gap: 1rem; margin-top: 1.75rem }
+  #run .process-steps > :where(li) > button { min-height: 2.75rem; gap: .625rem; padding: .75rem }
+  #run .process-choice { min-height: 2.75rem; overflow-wrap: anywhere }
+  #run .process-preview-title { white-space: normal }
+  #run .process-file-tabs { flex-wrap: wrap }
+  #run .process-dev pre { white-space: pre-wrap; overflow-wrap: anywhere }
+}
+
+@media (width < 40rem) {
+  #run { padding-inline: 1rem }
+  #run .process-steps > li > .process-preview { margin-block: .5rem 1rem }
+  #run .process-window-bar { padding-inline: .875rem }
+  #run .process-backlog ul { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  #run .process-backlog .process-choice { height: 100%; border-color: var(--process-line) }
+  #run .process-backlog .process-choice[aria-pressed="true"] {
+    border-color: var(--process-accent);
+  }
+  #run .process-performance { height: auto }
+  #run .process-metrics strong { font-size: 1rem }
+  #run .process-diagram :is(.process-spoke, .process-core) { min-height: 2.75rem }
+  #run .process-diagram .process-spoke { max-width: 40% }
+}
+
+@media (40rem <= width < 64rem) {
+  #run .process-steps { grid-template-columns: repeat(3, minmax(0, 1fr)) }
+  #run .process-steps > li { min-width: 0 }
+  #run .process-steps > :where(li) > button {
+    align-items: center;
+    background: rgb(255 255 255 / .65);
+    border-color: var(--process-line);
+  }
+  #run .process-steps > :where(li) > button[aria-expanded="true"] {
+    background: #eef2f7;
+    border-color: #94a3b8;
+  }
 }
