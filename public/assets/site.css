@@ -1034,3 +1034,30 @@ textarea { resize: vertical }
 @media (prefers-reduced-motion: reduce) {
   .site-header--scroll::before { transition: none }
 }
+
+/* Desktop Discovery illustration */
+.discovery-funnel, .discovery-requirements-label { display: none }
+@media (min-width: 64rem) and (hover: hover) and (pointer: fine) {
+  .process-discovery .discovery-backlog-label { display: none }
+  .process-discovery .discovery-requirements-label { display: inline }
+  .process-discovery:has(.process-backlog [data-value="audit"][aria-pressed="true"]) .process-roadmap { display: none }
+  .process-discovery:has(.process-backlog [data-value="audit"][aria-pressed="true"]) .discovery-funnel {
+    display: grid; align-content: center; justify-items: center; min-width: 0;
+    margin: 0; padding: clamp(.75rem, 1.5vw, 1.25rem);
+  }
+  .discovery-funnel .process-label { justify-self: start; margin-bottom: 1rem; font-size: .8125rem }
+  .discovery-inputs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; gap: .35rem; text-align: center }
+  .discovery-inputs > div { display: grid; justify-items: center; align-content: start; min-width: 0; padding: .5rem .125rem; border: 1px solid var(--process-line); border-radius: .5rem; background: var(--process-surface) }
+  .discovery-inputs strong { font-size: .625rem; overflow-wrap: anywhere }
+  .discovery-inputs small { font-size: .5625rem; overflow-wrap: anywhere }
+  .discovery-inputs [data-tool] { display: grid; place-items: center; width: 1.375rem; height: 1.375rem; margin-bottom: .3rem; border-radius: .375rem; background: #e0e7ff; color: #3730a3; font-size: .625rem; font-weight: 750 }
+  .discovery-inputs [data-tool="excel"] { background: #dcfce7; color: #166534 }
+  .discovery-inputs [data-tool="servicem8"] { background: #fef3c7; color: #92400e }
+  .discovery-inputs [data-tool="xero"] { background: #e0f2fe; color: #075985 }
+  .discovery-connections { display: block; width: calc(100% + .35rem); height: 4.5rem; fill: none; stroke: #a78bfa; stroke-width: 1.5 }
+  .discovery-connections path { vector-effect: non-scaling-stroke }
+  .discovery-output { display: flex; align-items: center; gap: .625rem; padding: .5rem .75rem; border: 1px solid #ddd6fe; border-radius: .625rem; background: #f5f3ff }
+  .discovery-output svg { width: 2rem; height: 2rem; flex: none }
+  .discovery-output strong { font-size: .8125rem }
+  .discovery-funnel figcaption { margin-top: .75rem; color: var(--process-muted); text-align: center; font-size: .6875rem }
+}
