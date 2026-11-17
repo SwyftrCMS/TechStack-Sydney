@@ -325,3 +325,28 @@ if (supportPreview) {
   reply.disabled = false;
   composer.querySelector('button').disabled = false;
 }
+
+const compactSupport = document.querySelector('.compact-support');
+if (compactSupport) {
+  compactSupport.addEventListener('click', event => {
+    const button = event.target.closest('[data-compact-value]');
+    if (!button) return;
+
+    const panel = button.closest('.compact-support-panel');
+    for (const option of panel.querySelectorAll('[data-compact-value]')) {
+      option.setAttribute('aria-pressed', String(option === button));
+    }
+    for (const item of panel.querySelectorAll('[data-compact-result]')) {
+      item.hidden = item.dataset.compactResult !== button.dataset.compactValue;
+    }
+  });
+
+  compactSupport.addEventListener('toggle', event => {
+    if (!event.target.open) return;
+    const summary = event.target.querySelector('summary');
+    const header = document.querySelector('.site-header');
+    if (summary.getBoundingClientRect().top < header.getBoundingClientRect().bottom) {
+      summary.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
+  }, true);
+}
