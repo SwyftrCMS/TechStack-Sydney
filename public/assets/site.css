@@ -1204,6 +1204,7 @@ textarea { resize: vertical }
     background: #fff; border: 1px solid var(--process-line); border-radius: .5rem; padding: .375rem; text-align: center;
     font-size: .8125rem;
   }
+  .story-architecture .story-spoke { max-width: 39%; white-space: normal; overflow-wrap: anywhere }
   .story-architecture .process-diagram small { display: block; font: inherit; color: var(--process-muted) }
   .story-steps, .story-checklist, .story-chat { list-style: none; padding: 0 }
   .story-steps { text-align: center }
