@@ -24,10 +24,8 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border: 1px solid var(--border);
   border-radius: 1.125rem;
   background: #fff;
-  box-shadow: 0 22px 54px -20px rgb(13 21 36 / .22);
 }
 .app-video-iframe,
 .app-video-placeholder {
