@@ -71,6 +71,7 @@ section[id] { scroll-margin-top: 4.5rem }
   .hero-headline-accent {
     background-image: linear-gradient(90deg, #9333ea, #7c3aed, #4f46e5);
     background-clip: text;
+    padding-inline-end: .08em;
     color: transparent;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
@@ -86,15 +87,15 @@ section[id] { scroll-margin-top: 4.5rem }
 }
 .hero-sparkles svg { position: absolute; display: block }
 .hero-sparkle-primary {
-  top: -8px;
-  left: 3px;
+  top: .025em;
+  left: -2px;
   width: 16px;
   height: 16px;
   fill: #8b5cf6;
 }
 .hero-sparkle-secondary {
-  top: -14px;
-  left: 17px;
+  top: -.2em;
+  left: 12px;
   width: 10px;
   height: 10px;
   fill: #7c3aed;
@@ -102,7 +103,7 @@ section[id] { scroll-margin-top: 4.5rem }
 @media (min-width: 48rem) {
   .hero-inner h1 { font-size: 3.5rem }
   .hero-sparkle-primary { width: 20px; height: 20px }
-  .hero-sparkle-secondary { left: 21px; width: 12px; height: 12px }
+  .hero-sparkle-secondary { left: 16px; width: 12px; height: 12px }
 }
 @media (min-width: 64rem) {
   .hero-inner h1 { font-size: 4.15rem }
