@@ -43,7 +43,7 @@ section[id] { scroll-margin-top: 4.5rem }
 .button { display: inline-flex; justify-content: center; align-items: center; text-align: center; border: 1px solid var(--ink); background: var(--ink); color: white; padding: .65rem 1rem; font-size: .875rem; font-weight: 650; border-radius: .55rem; text-decoration: none }
 .nav-menu li a:hover { text-decoration-color: var(--blue); text-decoration-thickness: 2px; text-underline-offset: .25em }
 .button:hover { background: var(--ink-hover); border-color: var(--ink-hover) }
-.hero-frame { position: relative; min-height: calc(100svh - 4rem); display: grid; place-items: center; overflow: hidden; padding: 0 0 2rem; background: var(--mock); border: 1px solid var(--border); margin-inline: var(--hero-inset, 0px); border-radius: var(--hero-radius, 0px) }
+.hero-frame { position: relative; min-height: calc(100svh - 4rem); display: grid; place-items: center; overflow: hidden; padding: 0 0 2rem; background: var(--mock) }
 
 .hero-frame {
   background-image:
@@ -781,17 +781,8 @@ textarea { resize: vertical }
 
 /* Pain point and value comparison */
 .value-contrast { background: #10182f }
-.hero:has(+ .value-hook), .value-hook, .process-transition {
+.value-hook {
   background: linear-gradient(90deg, #d9c9ff, #efe7ff 34%, #eaf2ff 65%, #c0e5ff);
-}
-.process-transition { display: flow-root }
-.process-transition > .process {
-  margin-inline: var(--process-inset, 0px);
-  border-start-start-radius: var(--process-radius, 0px);
-  border-start-end-radius: var(--process-radius, 0px);
-}
-@media (prefers-reduced-motion: reduce) {
-  .process-transition > .process { margin-inline: 0; border-radius: 0 }
 }
 .value-contrast {
   padding: 3.5rem 1.25rem;

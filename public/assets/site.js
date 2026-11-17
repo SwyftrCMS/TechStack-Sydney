@@ -67,24 +67,11 @@ for (const pillar of document.querySelectorAll('[data-steps]')) {
 }
 
 const hero = document.querySelector('.hero-frame');
-const processTransition = document.querySelector('.process-transition');
 if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let pending = false;
   function updateHero() {
-    const progress = Math.min(Math.max(scrollY / 420, 0), 1);
-    const maxInset = innerWidth < 768 ? 12 : 36;
-    const processTop = processTransition?.getBoundingClientRect().top;
-    hero.style.setProperty('--hero-inset', progress * maxInset + 'px');
-    hero.style.setProperty('--hero-radius', progress * 28 + 'px');
     const cardProgress = Math.min(Math.max(scrollY / 275, 0), 1);
     hero.style.setProperty('--hero-card-progress', String(cardProgress));
-    if (processTop !== undefined) {
-      const start = innerHeight * 0.9;
-      const distance = Math.min(innerHeight * 0.55, 420);
-      const remaining = Math.min(Math.max((processTop - start + distance) / distance, 0), 1);
-      processTransition.style.setProperty('--process-inset', remaining * maxInset + 'px');
-      processTransition.style.setProperty('--process-radius', remaining * 28 + 'px');
-    }
     pending = false;
   }
   function scheduleHeroUpdate() {
