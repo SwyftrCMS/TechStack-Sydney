@@ -295,6 +295,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
     --hero-card-width: clamp(310px, 26vw, 380px);
     --hero-card-travel: clamp(24px, calc(10vw - 80px), 50px);
     --hero-card-offset: calc(var(--hero-card-progress, 0) * var(--hero-card-travel));
+    --hero-card-tilt: calc(var(--hero-card-progress, 0) * 6deg);
     --hero-card-stagger: clamp(24px, 4vh, 44px);
     --hero-card-gap: clamp(32px, 5vh, 52px);
     --hero-card-recess: clamp(28px, 2.8vw, 48px);
@@ -312,11 +313,11 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   }
   .hero-card-revenue, .hero-card-workflow {
     left: var(--hero-edge-offset);
-    transform: translateX(var(--hero-card-offset)) perspective(900px) rotateY(6deg);
+    transform: translateX(var(--hero-card-offset)) perspective(900px) rotateY(var(--hero-card-tilt));
   }
   .hero-card-code, .hero-card-calendar {
     right: var(--hero-edge-offset);
-    transform: translateX(calc(0px - var(--hero-card-offset))) perspective(900px) rotateY(-6deg);
+    transform: translateX(calc(0px - var(--hero-card-offset))) perspective(900px) rotateY(calc(0deg - var(--hero-card-tilt)));
   }
   .hero-card-revenue { top: 0 }
   .hero-card-code {
@@ -370,7 +371,7 @@ h3 { font-size: 1.2rem; line-height: 1.3 }
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-art { --hero-card-offset: 0px }
+  .hero-art { --hero-card-offset: 0px; --hero-card-tilt: 0deg }
 }
 .partners { padding-top: 4rem; text-align: center }
 .marquee-mask { overflow: hidden; margin-top: 1.5rem; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent) }
