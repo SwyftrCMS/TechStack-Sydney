@@ -1086,10 +1086,10 @@ textarea { resize: vertical }
 /* Full How we build stages for phones and touch tablets. */
 .full-process-carousel { display: none }
 @media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
-  #run:has(.full-process-carousel:not([hidden])) .process-layout { display: none }
-  #run:has(.full-process-carousel:not([hidden])) { padding-inline: 0 }
-  #run:has(.full-process-carousel:not([hidden])) .process-wrap { max-width: none }
-  #run:has(.full-process-carousel:not([hidden])) .process-heading { margin-inline: clamp(1rem, 4vw, 2.5rem) }
+  :is(#run, #grow):has(.full-process-carousel:not([hidden])) .process-layout { display: none }
+  :is(#run, #grow):has(.full-process-carousel:not([hidden])) { padding-inline: 0 }
+  :is(#run, #grow):has(.full-process-carousel:not([hidden])) .process-wrap { max-width: none }
+  :is(#run, #grow):has(.full-process-carousel:not([hidden])) .process-heading { margin-inline: clamp(1rem, 4vw, 2.5rem) }
   .full-process-carousel { display: block; margin-top: 1.5rem }
   .full-process-track {
     --process-gutter: clamp(.875rem, 3vw, 2rem);
@@ -1133,3 +1133,28 @@ textarea { resize: vertical }
   .full-process-card .process-roadmap { padding-inline: .625rem }
   .full-process-card .process-window { white-space: nowrap }
 }
+
+/* Support & Scale slides reuse the full-process carousel and support demos. */
+.support-carousel .support-chat { padding: 1rem }
+.support-carousel .support-analytics { grid-template-columns: minmax(0, 1fr) }
+.support-carousel .support-flow-grid {
+  grid-template: repeat(5, 4.5rem) / repeat(2, minmax(0, 1fr));
+  gap: 0;
+  padding: 0;
+  align-items: center;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+.support-carousel .support-flow-grid > svg {
+  display: block;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.support-carousel .support-flow-grid > svg path { vector-effect: non-scaling-stroke }
+.support-carousel .support-node-trigger { grid-area: 1 / 1 / 2 / 3 }
+.support-carousel .support-node-sourceA { grid-area: 2 / 1 }
+.support-carousel .support-node-sourceB { grid-area: 2 / 2 }
+.support-carousel .support-node-merge { grid-area: 3 / 1 / 4 / 3 }
+.support-carousel .support-node-process { grid-area: 4 / 1 / 5 / 3 }
+.support-carousel .support-node-deliver { grid-area: 5 / 1 / 6 / 3 }

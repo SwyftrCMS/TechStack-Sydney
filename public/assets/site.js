@@ -245,12 +245,9 @@ if (supportPreview) {
   const steps = [...supportPreview.querySelectorAll('[data-support-step]')];
   const panels = steps.map(step => document.getElementById(step.getAttribute('aria-controls')));
   const choices = [...supportPreview.querySelectorAll('[data-support-choice]')];
-  const results = [...supportPreview.querySelectorAll('[data-support-result]')];
   const title = supportPreview.querySelector('[data-support-title]');
   const number = supportPreview.querySelector('[data-support-current]');
   const history = supportPreview.querySelector('.support-history');
-  const composer = supportPreview.querySelector('.support-compose');
-  const reply = composer.querySelector('input');
   let recent = [steps[0]];
 
   function selectSupportStep(step) {
@@ -275,13 +272,13 @@ if (supportPreview) {
     history.hidden = false;
   }
 
-  function selectSupportChoice(group, value) {
-    for (const choice of choices) {
+  function selectSupportChoice(group, value, scope = supportPreview.querySelector('.support-layout')) {
+    for (const choice of scope.querySelectorAll('[data-support-choice]')) {
       if (choice.dataset.supportChoice === group) {
         choice.setAttribute('aria-pressed', String(choice.dataset.supportValue === value));
       }
     }
-    for (const result of results) {
+    for (const result of scope.querySelectorAll('[data-support-result]')) {
       if (result.dataset.supportResult === group) result.hidden = result.dataset.supportValue !== value;
     }
   }
@@ -295,7 +292,7 @@ if (supportPreview) {
       selectSupportStep(step);
       if (supportHistory) step.focus({ preventScroll: true });
     } else if (supportChoice) {
-      selectSupportChoice(supportChoice, supportValue);
+      selectSupportChoice(supportChoice, supportValue, button.closest('.full-process-card') ?? undefined);
     } else if (button.hasAttribute('data-support-next')) {
       const flows = choices.filter(choice => choice.dataset.supportChoice === 'flow');
       const active = flows.findIndex(choice => choice.getAttribute('aria-pressed') === 'true');
@@ -303,12 +300,13 @@ if (supportPreview) {
     }
   });
 
-  composer.addEventListener('submit', event => {
+  function handleReply(event) {
     event.preventDefault();
+    const composer = event.currentTarget;
+    const reply = composer.querySelector('input');
     const message = reply.value.trim();
     if (!message) return;
-    const thread = results.find(result => result.dataset.supportResult === 'ticket' && !result.hidden)
-      .querySelector('.support-thread');
+    const thread = composer.closest('.support-chat').querySelector('[data-support-result="ticket"]:not([hidden]) .support-thread');
     const item = document.createElement('li');
     const author = document.createElement('small');
     const body = document.createElement('p');
@@ -320,10 +318,69 @@ if (supportPreview) {
     thread.scrollTop = thread.scrollHeight;
     composer.reset();
     reply.focus();
-  });
+  }
 
-  reply.disabled = false;
-  composer.querySelector('button').disabled = false;
+  const carousel = document.createElement('div');
+  carousel.className = 'full-process-carousel support-carousel';
+  carousel.dataset.fullProcessCarousel = '';
+  carousel.hidden = true;
+  carousel.innerHTML = `
+    <ol class="full-process-track" data-swipe-track tabindex="0" aria-label="Support and Scale previews"></ol>
+    <div class="swipe-indicator full-process-indicator" role="group" aria-label="Choose a support stage" hidden></div>
+  `;
+  const track = carousel.querySelector('[data-swipe-track]');
+  const indicator = carousel.querySelector('.swipe-indicator');
+
+  steps.forEach((step, index) => {
+    const name = step.querySelector('strong').textContent;
+    const slide = document.createElement('li');
+    slide.className = 'process-preview support-preview full-process-card';
+    const bar = supportPreview.querySelector('.process-window-bar').cloneNode(true);
+    const title = bar.querySelector('.process-preview-title');
+    title.removeAttribute('aria-live');
+    title.textContent = name;
+    const number = bar.querySelector('.process-phase');
+    number.className = 'full-process-number';
+    number.textContent = step.dataset.supportStep + ' / ' + steps.length.toString().padStart(2, '0');
+
+    const panel = panels[index].cloneNode(true);
+    panel.removeAttribute('id');
+    panel.hidden = false;
+    if (index === 1) {
+      panel.querySelector('.support-tickets > aside').remove();
+      panel.querySelector('.support-tickets').classList.remove('support-split');
+      panel.querySelectorAll('[data-support-result="ticket"]:not([data-support-value="quote-chat"])')
+        .forEach(thread => thread.remove());
+      panel.querySelector('input').id = 'support-demo-reply-carousel';
+      panel.querySelector('label').htmlFor = 'support-demo-reply-carousel';
+    }
+    if (index === 2) panel.querySelector('.support-pipeline').remove();
+    if (index === 4) {
+      const workflow = panel.querySelector('[data-support-result="flow"][data-support-value="invoice-sync"]');
+      panel.querySelector('.support-content').replaceChildren(workflow);
+      const lines = workflow.querySelector('.support-flow-grid > svg');
+      lines.setAttribute('viewBox', '0 0 200 500');
+      lines.querySelector('path').setAttribute('d',
+        'M100 40 C100 95 50 95 50 140 M100 40 C100 95 150 95 150 140 ' +
+        'M50 140 C50 200 100 190 100 240 M150 140 C150 200 100 190 100 240 M100 240 V440');
+    }
+    slide.append(bar, panel);
+    track.append(slide);
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.setAttribute('aria-label', name);
+    button.setAttribute('aria-pressed', String(index === 0));
+    button.append(document.createElement('span'));
+    indicator.append(button);
+  });
+  supportPreview.querySelector('.support-layout').after(carousel);
+
+  for (const composer of supportPreview.querySelectorAll('.support-compose')) {
+    composer.addEventListener('submit', handleReply);
+    composer.querySelector('input').disabled = false;
+    composer.querySelector('button').disabled = false;
+  }
 }
 
 
