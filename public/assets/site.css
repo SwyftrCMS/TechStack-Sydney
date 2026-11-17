@@ -1054,46 +1054,27 @@ textarea { resize: vertical }
     background: white; scroll-snap-align: start;
   }
   .process-card:last-child { scroll-snap-align: end }
-  .process-card h3, .process-card p { margin: 0; padding-inline: .25rem }
+  .process-card > h3, .process-card > p { margin: 0; padding-inline: .25rem }
   .process-card h3 span { color: #6d28d9; font: 600 .85em var(--mono); margin-inline-end: .25rem }
-  .process-card p { color: var(--process-muted); line-height: 1.55; padding-bottom: .25rem }
+  .process-card > p { color: var(--process-muted); line-height: 1.55; padding-bottom: .25rem }
   .process-card-window {
     min-width: 0; border: 1px solid var(--process-line); border-radius: .75rem;
     overflow: hidden; background: var(--process-surface);
   }
   .process-card-window .process-window-bar { gap: .5rem; padding: .625rem .75rem; font-size: .6875rem }
   .process-card-window .process-window-dots i { width: .5rem; height: .5rem }
-  .process-card-scene { display: grid; align-content: start; gap: .625rem; padding: .75rem; font-size: .75rem }
-  .process-card-label, .process-card-quote {
-    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .25rem .5rem;
+  .process-card-journey {
+    display: grid; gap: .5rem; margin: 0; padding: .625rem;
+    list-style: none;
   }
-  .process-card-label { padding-bottom: .5rem; border-bottom: 1px solid var(--process-line) }
-  .process-card-label span, .process-card-quote span { color: var(--process-muted); font: .6875rem var(--mono) }
-  .process-card-quote { padding-top: .375rem; border-top: 1px solid var(--process-line) }
-  .process-card-quote strong { color: #15803d }
-  .process-card-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .375rem }
-  .process-card-tiles div, .process-card-sprints span, .process-card-checklist li {
-    min-width: 0; padding: .375rem .5rem; background: white; border: 1px solid var(--process-line);
-    border-radius: .375rem; overflow-wrap: anywhere;
+  .process-card-journey li {
+    padding: .5rem .625rem; background: white; border: 1px solid var(--process-line);
+    border-radius: .5rem; overflow-wrap: anywhere;
   }
-  .process-card-tiles small, .process-card-sprints small {
-    display: block; color: var(--process-accent-ink, var(--process-muted)); font: .625rem/1.4 var(--mono);
+  .process-card-journey strong { display: block; font-size: .875rem; line-height: 1.3 }
+  .process-card-journey p {
+    margin: .15rem 0 0; color: var(--process-muted); font-size: .8125rem; line-height: 1.4;
   }
-  .process-card-sprints, .process-card-checklist { display: grid; gap: .375rem; margin: 0; padding: 0 }
-  .process-card-sprints span { width: 82%; border-inline-start: 3px solid var(--process-accent) }
-  .process-card-sprints span:nth-child(2) { margin-inline-start: 9% }
-  .process-card-sprints span:nth-child(3) { margin-inline-start: 18% }
-  .process-card-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)) }
-  .process-card-scene > svg { display: block; width: 100%; height: 6rem }
-  .process-card-diagram { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; text-align: center }
-  .process-card-diagram svg { position: absolute; width: 100%; height: 100% }
-  .process-card-diagram :is(span, strong) {
-    position: relative; padding: .375rem .25rem; border: 1px solid var(--process-line);
-    border-radius: .375rem; background: white;
-  }
-  .process-card-diagram strong { grid-column: 1 / -1; justify-self: center; padding-inline: .625rem; border-color: #c4b5fd }
-  .process-card-checklist { list-style: none }
-  .process-card-checklist li::before { content: "✓"; color: #15803d; margin-inline-end: .5rem }
 }
 
 @media (width < 40rem) {
