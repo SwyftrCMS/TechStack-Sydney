@@ -994,3 +994,25 @@ textarea { resize: vertical }
 .home-main > .process, .home-main > #ai { background: #f5f7fb }
 .home-main > :is(.section, .process) { padding-block: clamp(3.5rem, 7vw, 7rem) }
 .home-main > .section > .wrap { width: min(100%, 77.5rem) }
+
+/* Homepage navigation over the hero */
+.site-header.site-header--scroll {
+  background: transparent;
+  border-bottom-color: transparent;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition: background-color 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.site-header--scroll.is-scrolled {
+  background: rgb(255 255 255 / .9);
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 18px rgb(13 21 36 / .08);
+}
+.site-header--scroll:has(.menu-toggle[aria-expanded="true"]) {
+  background: rgb(255 255 255 / .96);
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 18px rgb(13 21 36 / .08);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header.site-header--scroll { transition: none }
+}
