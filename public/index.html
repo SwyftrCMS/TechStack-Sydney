@@ -33,30 +33,55 @@
 <section id="top" class="hero"><div class="hero-frame">
 <div class="hero-art" aria-hidden="true">
   <div class="hero-card hero-card-revenue">
-    <p class="hero-card-title">Revenue</p>
-    <div class="hero-card-chart">
-      <svg viewBox="0 0 220 80" focusable="false">
-        <path d="M0 67 L25 53 L47 58 L72 35 L96 43 L121 25 L147 31 L174 13 L196 19 L220 4"/>
+    <div class="hero-card-heading">
+      <p>Revenue</p>
+      <span class="hero-chart-legend">Actual</span>
+    </div>
+    <svg class="hero-chart" viewBox="0 0 220 96" focusable="false">
+      <defs>
+        <linearGradient id="hero-revenue-fill" x2="0" y2="1">
+          <stop stop-color="#39a6de" stop-opacity=".27"/>
+          <stop offset="1" stop-color="#39a6de" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="hero-chart-grid" d="M0 16H220 M0 36H220 M0 56H220 M0 76H220"/>
+      <path fill="url(#hero-revenue-fill)" d="M2 75 C20 74 26 56 45 56 S68 65 87 54 S111 34 130 37 S153 47 172 29 S198 22 218 8 V96 H2Z"/>
+      <path class="hero-chart-line" d="M2 75 C20 74 26 56 45 56 S68 65 87 54 S111 34 130 37 S153 47 172 29 S198 22 218 8"/>
+      <circle cx="218" cy="8" r="3" fill="#176083"/>
+    </svg>
+    <div class="hero-chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+  </div>
+  <div class="hero-card hero-card-workflow">
+    <div class="hero-card-heading"><p>Automated workflow</p></div>
+    <div class="hero-workflow">
+      <svg viewBox="0 0 240 120" preserveAspectRatio="none" focusable="false">
+        <path d="M120 30V42H60V55 M120 42H180V55 M60 86V99H180V86"/>
+        <circle cx="120" cy="42" r="3"/>
       </svg>
+      <span class="hero-workflow-trigger">↯</span>
+      <span class="hero-workflow-step"><b>01</b> Client sync</span>
+      <span class="hero-workflow-step"><b>✓</b> Record synced</span>
     </div>
   </div>
   <div class="hero-card hero-card-code">
-    <p class="hero-card-title">● ● ● &nbsp; workflow.js</p>
-    <pre><code><span>async function</span> sync() {
-  <span>const</span> record = <span>await</span> load();
-  <span>return</span> save(record);
+    <div class="hero-editor">
+      <div class="hero-editor-bar"><i></i><i></i><i></i><span>Workflow.tsx</span></div>
+      <pre><code><span class="hero-code-keyword">export function</span> Workflow() {
+  <span class="hero-code-keyword">return</span> (
+    &lt;<span class="hero-code-tag">Pipeline</span> mode=<span class="hero-code-string">"sync"</span>&gt;
+      &lt;<span class="hero-code-tag">SyncRecords</span> /&gt;
+    &lt;/<span class="hero-code-tag">Pipeline</span>&gt;
+  );
 }</code></pre>
-  </div>
-  <div class="hero-card hero-card-workflow">
-    <p class="hero-card-title">Automated workflow</p>
-    <div class="hero-card-steps"><span>Record synced</span><span>Client sync</span><span>Review</span></div>
+    </div>
   </div>
   <div class="hero-card hero-card-calendar">
-    <p class="hero-card-title">Calendar</p>
-    <div class="hero-card-days">
-      <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
-      <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
-      <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+    <div class="hero-card-heading"><p>Calendar</p><span>‹ &nbsp; ›</span></div>
+    <div class="hero-week">
+      <span></span><b>Mon</b><b>Tue</b><b>Wed</b><b>Thu</b><b>Fri</b>
+      <span>10 AM</span><i>Sync</i><i></i><i></i><i>Demo</i><i></i>
+      <span>12 PM</span><i></i><i>Plan</i><i></i><i></i><i></i>
+      <span>2 PM</span><i></i><i></i><i>Review</i><i></i><i>Build</i>
     </div>
   </div>
 </div>
