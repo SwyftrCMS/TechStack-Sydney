@@ -25,3 +25,20 @@
 
 /scheduler-demo/assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/app-video-demo/
+  ! X-Frame-Options
+  X-Frame-Options: SAMEORIGIN
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'self'; form-action 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'
+  Cache-Control: public, max-age=300
+
+/app-video-demo/index.html
+  ! X-Frame-Options
+  X-Frame-Options: SAMEORIGIN
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'self'; form-action 'none'; script-src 'self'; style-src 'self'; style-src-attr 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'self'
+  Cache-Control: public, max-age=300
+
+/app-video-demo/assets/*
+  Cache-Control: public, max-age=31536000, immutable

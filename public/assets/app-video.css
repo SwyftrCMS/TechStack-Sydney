@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/plus-jakarta-sans.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* Lazy-loaded App Video section */
+/* Lazy-loaded App Video section */
+.app-showcase {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+  background: #fff;
+}
+.app-showcase .section-heading {
+  width: min(100%, 48rem);
+  margin-inline: auto;
+}
+.app-video-player {
+  width: min(100%, 80rem);
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+}
+.app-video-viewport {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 1.125rem;
+  background: #fff;
+  box-shadow: 0 22px 54px -20px rgb(13 21 36 / .22);
+}
+.app-video-iframe,
+.app-video-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.app-video-iframe {
+  display: block;
+  border: 0;
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+.app-video-player.is-ready .app-video-iframe { opacity: 1 }
+.app-video-placeholder {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: .75rem;
+  color: var(--body);
+  background: var(--mock);
+  text-align: center;
+  font-size: .9375rem;
+  transition: opacity 260ms ease;
+}
+.app-video-player.is-ready .app-video-placeholder { opacity: 0 }
+.app-video-play {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background: #4f46e5;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgb(79 70 229 / .25);
+}
+.app-video-play svg { width: 1.25rem; height: 1.25rem; margin-left: .125rem }
+.app-video-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem 1rem;
+  padding: .75rem 1rem;
+  color: var(--body);
+  text-align: center;
+  font-size: .875rem;
+}
+@media (max-width: 40rem) {
+  .app-video-viewport { border-radius: .875rem }
+  .app-video-player { margin-top: 1.75rem }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-video-iframe,
+  .app-video-placeholder { transition: none }
+}
