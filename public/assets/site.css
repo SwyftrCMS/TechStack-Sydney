@@ -988,3 +988,9 @@ textarea { resize: vertical }
   .support-flow-grid > svg { inset: .875rem .5rem; width: calc(100% - 1rem); height: calc(100% - 1.75rem) }
   .support-node-deliver { grid-area: 1 / 5 }
 }
+
+/* Homepage section backgrounds and spacing */
+.home-main > .section { background: var(--surface) }
+.home-main > .process, .home-main > #ai { background: #f5f7fb }
+.home-main > :is(.section, .process) { padding-block: clamp(3.5rem, 7vw, 7rem) }
+.home-main > .section > .wrap { width: min(100%, 77.5rem) }
