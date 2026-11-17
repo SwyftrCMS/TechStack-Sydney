@@ -196,3 +196,39 @@ if (processSection?.classList.contains('process')) {
     if (group === 'layer') diagram.dataset.layer = value;
   });
 }
+
+const valueComparison = document.getElementById('why-choose-us');
+if (valueComparison) {
+  const filters = [...valueComparison.querySelectorAll('[data-value-filter]')];
+  const rows = [...valueComparison.querySelectorAll('[data-value-group]')];
+  const points = [...valueComparison.querySelectorAll('[data-value-point]')];
+  let activePoint = null;
+
+  function highlightPoint(id) {
+    activePoint = id;
+    for (const point of points) {
+      point.setAttribute('aria-pressed', String(point.dataset.valuePoint === id));
+    }
+  }
+
+  valueComparison.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    const { valueFilter, valuePoint } = button.dataset;
+    if (valueFilter) {
+      for (const filter of filters) {
+        filter.setAttribute('aria-pressed', String(filter === button));
+      }
+      for (const row of rows) {
+        row.hidden = valueFilter !== 'all' && row.dataset.valueGroup !== valueFilter;
+      }
+      if (!rows.some(row => !row.hidden && row.firstElementChild.dataset.valuePoint === activePoint)) {
+        highlightPoint(null);
+      }
+    }
+    if (valuePoint) highlightPoint(activePoint === valuePoint ? null : valuePoint);
+  });
+
+  for (const point of points) point.disabled = false;
+  valueComparison.querySelector('.value-filters').hidden = false;
+}
