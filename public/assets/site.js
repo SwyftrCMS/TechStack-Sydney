@@ -228,3 +228,89 @@ if (valueComparison) {
   for (const point of points) point.disabled = false;
   valueComparison.querySelector('.value-filters').hidden = false;
 }
+
+const supportPreview = document.querySelector('.support-scale');
+if (supportPreview) {
+  const steps = [...supportPreview.querySelectorAll('[data-support-step]')];
+  const panels = steps.map(step => document.getElementById(step.getAttribute('aria-controls')));
+  const choices = [...supportPreview.querySelectorAll('[data-support-choice]')];
+  const results = [...supportPreview.querySelectorAll('[data-support-result]')];
+  const title = supportPreview.querySelector('[data-support-title]');
+  const number = supportPreview.querySelector('[data-support-current]');
+  const history = supportPreview.querySelector('.support-history');
+  const composer = supportPreview.querySelector('.support-compose');
+  const reply = composer.querySelector('input');
+  let recent = [steps[0]];
+
+  function selectSupportStep(step) {
+    if (recent[0] === step) return;
+    recent = [step, ...recent.filter(item => item !== step)];
+    steps.forEach((item, index) => {
+      const active = item === step;
+      item.setAttribute('aria-expanded', String(active));
+      item.querySelector('small').hidden = !active;
+      panels[index].hidden = !active;
+    });
+    title.textContent = step.querySelector('strong').textContent;
+    number.textContent = step.dataset.supportStep;
+    history.replaceChildren(...recent.slice(1).map(item => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'process-choice support-choice';
+      button.dataset.supportHistory = item.dataset.supportStep;
+      button.textContent = item.dataset.supportStep + ' ' + item.querySelector('strong').textContent;
+      return button;
+    }));
+    history.hidden = false;
+  }
+
+  function selectSupportChoice(group, value) {
+    for (const choice of choices) {
+      if (choice.dataset.supportChoice === group) {
+        choice.setAttribute('aria-pressed', String(choice.dataset.supportValue === value));
+      }
+    }
+    for (const result of results) {
+      if (result.dataset.supportResult === group) result.hidden = result.dataset.supportValue !== value;
+    }
+  }
+
+  supportPreview.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    const { supportStep, supportHistory, supportChoice, supportValue } = button.dataset;
+    if (supportStep || supportHistory) {
+      const step = steps.find(item => item.dataset.supportStep === (supportStep || supportHistory));
+      selectSupportStep(step);
+      if (supportHistory) step.focus({ preventScroll: true });
+    } else if (supportChoice) {
+      selectSupportChoice(supportChoice, supportValue);
+    } else if (button.hasAttribute('data-support-next')) {
+      const flows = choices.filter(choice => choice.dataset.supportChoice === 'flow');
+      const active = flows.findIndex(choice => choice.getAttribute('aria-pressed') === 'true');
+      selectSupportChoice('flow', flows[(active + 1) % flows.length].dataset.supportValue);
+    }
+  });
+
+  composer.addEventListener('submit', event => {
+    event.preventDefault();
+    const message = reply.value.trim();
+    if (!message) return;
+    const thread = results.find(result => result.dataset.supportResult === 'ticket' && !result.hidden)
+      .querySelector('.support-thread');
+    const item = document.createElement('li');
+    const author = document.createElement('small');
+    const body = document.createElement('p');
+    item.className = 'support-message support-message-reply';
+    author.textContent = 'You · Just now';
+    body.textContent = message;
+    item.append(author, body);
+    thread.append(item);
+    thread.scrollTop = thread.scrollHeight;
+    composer.reset();
+    reply.focus();
+  });
+
+  reply.disabled = false;
+  composer.querySelector('button').disabled = false;
+}
