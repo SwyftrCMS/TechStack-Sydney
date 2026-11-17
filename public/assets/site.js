@@ -154,3 +154,43 @@ async function initialiseContact(form) {
     }
   });
 }
+
+const processSection = document.getElementById('run');
+if (processSection?.classList.contains('process')) {
+  const phases = [...processSection.querySelectorAll('[data-process-step]')];
+  const choices = [...processSection.querySelectorAll('[data-process-choice]')];
+  const results = [...processSection.querySelectorAll('[data-process-result]')];
+  const previewTitle = processSection.querySelector('[data-process-title]');
+  const previewPhase = processSection.querySelector('[data-process-phase]');
+  const diagram = processSection.querySelector('.process-diagram');
+
+  processSection.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+
+    if (button.dataset.processStep) {
+      for (const phase of phases) {
+        const active = phase === button;
+        phase.setAttribute('aria-expanded', String(active));
+        const description = phase.querySelector('small');
+        if (description) description.hidden = !active;
+        document.getElementById(phase.getAttribute('aria-controls')).hidden = !active;
+      }
+      previewTitle.textContent = button.querySelector('strong').textContent;
+      previewPhase.textContent = button.dataset.processStep;
+      return;
+    }
+
+    const { processChoice: group, value } = button.dataset;
+    if (!group) return;
+    for (const choice of choices) {
+      if (choice.dataset.processChoice === group) {
+        choice.setAttribute('aria-pressed', String(choice.dataset.value === value));
+      }
+    }
+    for (const result of results) {
+      if (result.dataset.processResult === group) result.hidden = result.dataset.value !== value;
+    }
+    if (group === 'layer') diagram.dataset.layer = value;
+  });
+}
