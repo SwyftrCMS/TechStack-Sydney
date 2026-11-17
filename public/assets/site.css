@@ -1035,7 +1035,7 @@ textarea { resize: vertical }
   .site-header--scroll::before { transition: none }
 }
 
-/* How we build cards for compact screens and touch-first tablets. */
+/* Swipeable process previews on compact screens and touch-first tablets. */
 .process-carousel { display: none }
 
 @media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
@@ -1043,44 +1043,63 @@ textarea { resize: vertical }
   .process-carousel { display: block; margin-top: 1.5rem }
   .process-cards {
     display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: .75rem;
-    margin: 0; padding: 0; list-style: none; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin: 0; padding: 0; list-style: none; overflow-x: auto;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
   }
-  .process-cards > li {
-    min-width: 0; display: grid; grid-template-rows: auto auto 1fr; gap: .625rem;
-    padding: 1rem; border: 1px solid var(--process-line); border-radius: 1rem;
+  .process-cards::-webkit-scrollbar { display: none }
+  .process-cards:focus-visible { outline-offset: -2px }
+  .process-card {
+    min-width: 0; display: grid; grid-template-rows: subgrid; grid-row: span 3; gap: .75rem;
+    padding: .75rem; border: 1px solid var(--process-line); border-radius: 1rem;
     background: white; scroll-snap-align: start;
   }
-  .process-cards > li:last-child { scroll-snap-align: end }
-  .process-cards h3, .process-cards p { margin: 0 }
-  .process-cards p { color: var(--process-muted); line-height: 1.55 }
-  .process-card-art {
-    display: grid; place-items: center; height: 6.25rem; padding: .75rem;
-    border-radius: .625rem; background: var(--process-surface);
+  .process-card:last-child { scroll-snap-align: end }
+  .process-card h3, .process-card p { margin: 0; padding-inline: .25rem }
+  .process-card h3 span { color: #6d28d9; font: 600 .85em var(--mono); margin-inline-end: .25rem }
+  .process-card p { color: var(--process-muted); line-height: 1.55; padding-bottom: .25rem }
+  .process-card-window {
+    min-width: 0; border: 1px solid var(--process-line); border-radius: .75rem;
+    overflow: hidden; background: var(--process-surface);
   }
-  .process-card-art svg { width: min(100%, 14rem); height: 100% }
-  .process-card-checklist { display: grid; gap: .25rem; width: min(100%, 13rem) }
-  .process-card-checklist span { display: flex; align-items: center; gap: .5rem; font-size: .75rem }
-  .process-card-checklist span::before {
-    content: ""; display: grid; place-items: center; flex: none;
-    width: 1rem; height: 1rem; border: 1px solid #a5b3c3; border-radius: .25rem;
+  .process-card-window .process-window-bar { gap: .5rem; padding: .625rem .75rem; font-size: .6875rem }
+  .process-card-window .process-window-dots i { width: .5rem; height: .5rem }
+  .process-card-scene { display: grid; align-content: start; gap: .625rem; padding: .75rem; font-size: .75rem }
+  .process-card-label, .process-card-quote {
+    display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .25rem .5rem;
   }
-  .process-card-checklist span:first-child::before, .process-card-checklist--complete span::before {
-    content: "✓"; background: #dcfce7; color: #15803d; border-color: #86efac;
+  .process-card-label { padding-bottom: .5rem; border-bottom: 1px solid var(--process-line) }
+  .process-card-label span, .process-card-quote span { color: var(--process-muted); font: .6875rem var(--mono) }
+  .process-card-quote { padding-top: .375rem; border-top: 1px solid var(--process-line) }
+  .process-card-quote strong { color: #15803d }
+  .process-card-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .375rem }
+  .process-card-tiles div, .process-card-sprints span, .process-card-checklist li {
+    min-width: 0; padding: .375rem .5rem; background: white; border: 1px solid var(--process-line);
+    border-radius: .375rem; overflow-wrap: anywhere;
   }
-  .process-card-timeline {
-    display: grid; gap: .5rem; width: min(100%, 14rem);
-    background: repeating-linear-gradient(to right, #e2e8f0 0 1px, transparent 1px 25%);
+  .process-card-tiles small, .process-card-sprints small {
+    display: block; color: var(--process-accent-ink, var(--process-muted)); font: .625rem/1.4 var(--mono);
   }
-  .process-card-timeline i { display: block; height: .625rem; width: 50%; border-radius: 1rem; background: #e14d79 }
-  .process-card-timeline i:nth-child(2) { margin-left: 25%; background: #38bdf8 }
-  .process-card-timeline i:nth-child(3) { margin-left: 50%; background: #22c55e }
-  .process-card-controls { display: flex; justify-content: flex-end; gap: .5rem; margin-top: .75rem }
-  .process-card-controls button {
-    display: grid; place-items: center; width: 2.75rem; height: 2.75rem; padding: 0;
-    border: 1px solid var(--process-line); border-radius: .625rem;
-    background: white; color: var(--ink); font-size: 1.25rem;
+  .process-card-sprints, .process-card-checklist { display: grid; gap: .375rem; margin: 0; padding: 0 }
+  .process-card-sprints span { width: 82%; border-inline-start: 3px solid var(--process-accent) }
+  .process-card-sprints span:nth-child(2) { margin-inline-start: 9% }
+  .process-card-sprints span:nth-child(3) { margin-inline-start: 18% }
+  .process-card-metrics { grid-template-columns: repeat(3, minmax(0, 1fr)) }
+  .process-card-scene > svg { display: block; width: 100%; height: 6rem }
+  .process-card-diagram { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; text-align: center }
+  .process-card-diagram svg { position: absolute; width: 100%; height: 100% }
+  .process-card-diagram :is(span, strong) {
+    position: relative; padding: .375rem .25rem; border: 1px solid var(--process-line);
+    border-radius: .375rem; background: white;
   }
-  .process-card-controls button[aria-disabled="true"] { opacity: .45; cursor: default }
+  .process-card-diagram strong { grid-column: 1 / -1; justify-self: center; padding-inline: .625rem; border-color: #c4b5fd }
+  .process-card-checklist { list-style: none }
+  .process-card-checklist li::before { content: "✓"; color: #15803d; margin-inline-end: .5rem }
+}
+
+@media (width < 40rem) {
+  .process-carousel { margin-inline: -1.5rem }
+  .process-cards { padding-inline: 1.5rem 0; grid-auto-columns: 92% }
+  .process-card:first-child { scroll-margin-inline-start: 1.5rem }
 }
 
 @media (40rem <= width < 64rem), (40rem <= width <= 86rem) and (hover: none) and (pointer: coarse) {

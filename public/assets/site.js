@@ -325,33 +325,3 @@ if (supportPreview) {
   reply.disabled = false;
   composer.querySelector('button').disabled = false;
 }
-
-const processCards = document.getElementById('process-cards');
-if (processCards) {
-  const controls = processCards.nextElementSibling;
-  const [previous, next] = controls.querySelectorAll('button');
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-
-  function updateCardControls() {
-    const end = processCards.scrollWidth - processCards.clientWidth;
-    previous.setAttribute('aria-disabled', String(processCards.scrollLeft <= 1));
-    next.setAttribute('aria-disabled', String(processCards.scrollLeft >= end - 1));
-  }
-
-  controls.addEventListener('click', event => {
-    const button = event.target.closest('[data-process-card-direction]');
-    if (!button || button.getAttribute('aria-disabled') === 'true') return;
-
-    const cards = processCards.children;
-    const stride = cards[1].offsetLeft - cards[0].offsetLeft;
-    processCards.scrollBy({
-      left: stride * Number(button.dataset.processCardDirection),
-      behavior: reduceMotion.matches ? 'instant' : 'smooth',
-    });
-  });
-
-  controls.hidden = false;
-  processCards.addEventListener('scroll', updateCardControls, { passive: true });
-  new ResizeObserver(updateCardControls).observe(processCards);
-  updateCardControls();
-}
