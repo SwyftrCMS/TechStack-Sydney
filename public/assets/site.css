@@ -1135,6 +1135,10 @@ textarea { resize: vertical }
 }
 
 /* Support & Scale slides reuse the full-process carousel and support demos. */
+@media (width < 40rem) {
+  .support-carousel .full-process-track { align-items: start }
+  .support-carousel .full-process-card.process-preview { min-height: 0 }
+}
 .support-carousel .support-chat { padding: 1rem }
 .support-carousel .support-analytics { grid-template-columns: minmax(0, 1fr) }
 .support-carousel .support-flow-grid {
