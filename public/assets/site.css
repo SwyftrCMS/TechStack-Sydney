@@ -1059,3 +1059,54 @@ textarea { resize: vertical }
   .industry-gallery .industry-tabs { display: grid; overflow: visible }
   .industry-tabs button { width: 100%; text-align: left }
 }
+
+/* Full How we build stages for phones and touch tablets. */
+.full-process-carousel { display: none }
+@media (width < 64rem), (width <= 86rem) and (hover: none) and (pointer: coarse) {
+  #run:has(.full-process-carousel:not([hidden])) .process-layout { display: none }
+  #run:has(.full-process-carousel:not([hidden])) { padding-inline: 0 }
+  #run:has(.full-process-carousel:not([hidden])) .process-wrap { max-width: none }
+  #run:has(.full-process-carousel:not([hidden])) .process-heading { margin-inline: clamp(1rem, 4vw, 2.5rem) }
+  .full-process-carousel { display: block; margin-top: 1.5rem }
+  .full-process-track {
+    --process-gutter: clamp(.875rem, 3vw, 2rem);
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 100%); gap: .875rem;
+    margin: 0; padding: .25rem var(--process-gutter) 1.125rem; list-style: none;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--process-gutter);
+    scrollbar-width: none;
+  }
+  .full-process-track::-webkit-scrollbar { display: none }
+  .full-process-track:focus-visible { outline-offset: -2px }
+  .full-process-card.process-preview {
+    display: flex; flex-direction: column; min-width: 0; width: 100%; height: auto;
+    min-height: min(75svh, 44rem); scroll-snap-align: start;
+    box-shadow: 0 8px 18px #0f172a15;
+  }
+  .full-process-card > :nth-child(2) { flex: 1 }
+  .full-process-card .process-window-bar { gap: .5rem; padding-inline: .875rem }
+  .full-process-number { margin-inline-start: auto; white-space: nowrap }
+  .full-process-card .compact-discovery { display: block }
+  .full-process-card .process-roadmap { height: 100%; align-content: space-evenly }
+  .full-process-card .process-roadmap .process-choice { grid-template-columns: auto minmax(0, 1fr) auto }
+  .full-process-card .process-sprint-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .625rem; margin: .875rem; background: none;
+  }
+  .full-process-card .process-sprint-grid .process-choice { grid-column: auto; grid-row: auto; min-height: 4rem }
+  .full-process-card .process-axis { display: none }
+  .full-process-card .process-integrations { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start }
+  .full-process-card .process-layer-list:has(> :not([hidden])) { min-height: 0 }
+  .full-process-card .process-launch { display: flex; flex-direction: column; justify-content: center }
+  .full-process-card .process-dev, .full-process-card .process-app { min-width: 0 }
+  .full-process-indicator { display: flex; justify-content: center; align-items: center; gap: .125rem }
+  .full-process-indicator button {
+    display: grid; place-items: center; width: 2.375rem; height: 2.75rem; padding: 0;
+    border: 0; background: transparent; cursor: pointer;
+  }
+  .full-process-indicator button span { width: .4375rem; height: .4375rem; border-radius: 1rem; background: #a8b0bf }
+  .full-process-indicator button[aria-pressed="true"] span { width: 1.5rem; background: #6d28d9 }
+}
+@media (width < 30rem) {
+  .full-process-card .process-roadmap { padding-inline: .625rem }
+  .full-process-card .process-window { white-space: nowrap }
+}
