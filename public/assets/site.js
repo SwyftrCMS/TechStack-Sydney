@@ -67,6 +67,16 @@ for (const pillar of document.querySelectorAll('[data-steps]')) {
 }
 
 
+const scrollHeader = document.querySelector('.site-header--scroll');
+if (scrollHeader) {
+  function updateScrollHeader() {
+    scrollHeader.classList.toggle('is-scrolled', window.scrollY > 0);
+  }
+  updateScrollHeader();
+  window.addEventListener('scroll', updateScrollHeader, { passive: true });
+  window.addEventListener('pageshow', updateScrollHeader);
+}
+
 const hero = document.querySelector('.hero-frame');
 if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let pending = false;

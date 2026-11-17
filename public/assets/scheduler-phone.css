@@ -2,16 +2,9 @@
 #app .mobile-showcase > * { min-width: 0 }
 @media (min-width: 64rem) {
   #app .mobile-showcase { grid-template-columns: minmax(0, 1fr) 372px minmax(0, 1fr) }
-  .phone.scheduler-phone { order: 0 }
 }
 .phone.scheduler-phone {
-  order: -1;
   width: min(100%, 372px);
-  margin-inline: auto;
-  padding: .6rem;
-  border-radius: 3rem;
-  background: var(--ink);
-  box-shadow: 0 1rem 2rem #0002;
   height: auto;
   aspect-ratio: 372 / 760;
   display: grid;
