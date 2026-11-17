@@ -481,7 +481,7 @@ textarea { resize: vertical }
 .process {
   --process-line: #e2e8f0;
   --process-muted: #475569;
-  --process-surface: #f8fafc;
+  --process-surface: #f5f7fa;
   padding: 6rem 1.5rem;
   border-top: 1px solid var(--process-line);
   background: #f7f8fb;
@@ -666,4 +666,75 @@ textarea { resize: vertical }
   .process { padding-inline: 3rem }
   .process-heading h2 { font-size: 2.85rem }
   .process-layout { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; margin-top: 3.5rem }
+}
+
+/* Light preview surfaces and phase layouts */
+.process-inspection { background: var(--process-surface) }
+.process-sprint-grid .process-choice small,
+.process-metrics .process-choice small:last-child,
+.process-chart-axis,
+.process-layer-list .process-choice > em {
+  font-family: "JetBrains Mono", var(--mono);
+}
+.process-sprint-grid .process-choice small:first-of-type { color: var(--process-accent-ink) }
+.process-performance {
+  display: grid;
+  grid-template-rows: auto minmax(6rem, 1fr) auto;
+  gap: .65rem;
+  height: 100%;
+  padding: 1rem;
+  background: var(--process-surface);
+}
+.process-performance svg { height: 100%; min-height: 6rem; margin-top: 0 }
+.process-chart-axis { display: flex; justify-content: space-between; gap: .25rem; color: #64748b; font-size: .625rem }
+.process-metrics .process-choice { position: relative }
+.process-metrics .process-icon {
+  position: absolute; inset: .5rem .5rem auto auto; width: .75rem; height: .75rem;
+  margin: 0; background: transparent;
+}
+.process-metrics .process-icon svg { width: .75rem; height: .75rem }
+.process-metrics .process-choice > small:first-of-type { padding-inline-end: .85rem }
+.process-metrics strong { margin-block: .375rem; font-size: 1.125rem }
+.process-dev { display: flex; flex-direction: column }
+.process-dev-foot { margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--process-line) }
+.process-integrations { gap: 1rem; padding: 1.25rem }
+.process-architecture { display: flex; flex-direction: column; border: 1px solid var(--process-line); border-radius: .75rem }
+.process-diagram { flex: 1; min-height: 13rem }
+.process-core { border-color: #93b4ff; background: white; box-shadow: 0 8px 24px -12px #3b82f650 }
+.process-diagram[data-layer="api"] .process-commerce-link { stroke: #f59e0b }
+.process-spoke-crm[aria-pressed="true"] { border-color: #f59e0b }
+.process-layer-list { align-content: stretch; padding: 0; gap: .75rem }
+.process-layer-list .process-choice { align-content: center; gap: .4rem .625rem }
+.process-layer-list .process-layer-items {
+  grid-column: 1 / -1; border-top: 1px solid var(--process-line); padding-top: .5rem;
+}
+.process-layer-items span::before { content: none }
+.process-launch { padding: 1.25rem; text-align: left }
+.process-launch ol { display: grid; gap: .5rem; padding: 0; margin-top: .75rem; list-style: none; counter-reset: launch-check }
+.process-launch li {
+  counter-increment: launch-check; display: grid; grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: .125rem .625rem; padding: .625rem .75rem; border: 1px solid var(--process-line);
+  border-radius: .625rem; background: var(--process-surface);
+}
+.process-launch li::before {
+  content: counter(launch-check, decimal-leading-zero); grid-row: span 2; color: #0369a1;
+  font: .625rem/1.7 "JetBrains Mono", var(--mono);
+}
+.process-launch li small { color: var(--process-muted); font: inherit; font-size: .6875rem }
+@media (min-width: 40rem) {
+  .process-sprint-grid { background: repeating-linear-gradient(90deg, transparent 0 calc(100% / 6 - 1px), #e2e8f0 0 calc(100% / 6)) }
+}
+@media (min-width: 64rem) {
+  .process-preview { display: grid; grid-template-rows: auto minmax(0, 1fr); height: 31.125rem }
+  .process-preview > [id^="process-phase-"] { display: flex; flex-direction: column; min-height: 0 }
+  .process-preview > [id^="process-phase-"] > :first-child { flex: 1; min-height: 0 }
+  .process-meta, .process-inspection { min-height: 2.625rem }
+  .process-backlog .process-choice { padding-block: .375rem }
+  .process-roadmap .process-choice { padding-block: .5rem }
+  .process-sprint-grid { row-gap: .5rem; margin-block: .625rem 1rem }
+  .process-sprint-grid .process-choice { min-height: 0; padding: .5rem .625rem }
+  .process-sprint-grid .process-choice::before { margin-bottom: .25rem }
+  .process-sprint-grid strong { margin-block: .125rem }
+  .process-app { grid-template-rows: auto minmax(0, 1fr); align-content: stretch }
+  .process-chart-axis { font-size: clamp(.5rem, .75vw, .625rem) }
 }
