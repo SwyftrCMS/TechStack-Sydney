@@ -780,9 +780,9 @@ textarea { resize: vertical }
 }
 
 /* Pain point and value comparison */
+.hero:has(+ .value-contrast), .value-contrast { background: #10182f }
 .value-contrast {
-  padding: 6rem 1.5rem;
-  background: #10182f;
+  padding: 3.5rem 1.25rem;
   color: #f8fafc;
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
@@ -796,30 +796,30 @@ textarea { resize: vertical }
 .value-filters button { padding: .375rem .75rem; border: 0; border-radius: .375rem; background: transparent; color: #e2e8f0; font-size: .75rem; font-weight: 650 }
 .value-filters button:hover { background: #344261 }
 .value-filters button[aria-pressed="true"] { background: #fff; color: #0f172a }
-.value-grid { display: grid; gap: 1.5rem; margin-top: 3rem }
+.value-grid { display: grid; gap: 1rem; margin-top: 1.75rem }
 .value-card {
-  display: flex; flex-direction: column; min-width: 0; padding: 1.5rem;
+  display: flex; flex-direction: column; min-width: 0; padding: 1.25rem;
   border: 1px solid #e2e8f0; border-radius: 1rem; background: #fff; color: #0f172a;
   --value-icon-bg: #fff1f2; --value-icon-ink: #be123c;
 }
 .value-card-diy { --value-icon-bg: #fffbeb; --value-icon-ink: #b45309 }
-.value-card-studio { position: relative; border-color: #c4b5fd; box-shadow: 0 16px 44px -16px #7c3aed75; --value-icon-bg: #ecfdf5; --value-icon-ink: #047857 }
+.value-card-studio { position: relative; overflow: hidden; border-color: #c4b5fd; box-shadow: 0 16px 44px -16px #7c3aed75; --value-icon-bg: #ecfdf5; --value-icon-ink: #047857 }
 .value-card-studio::before {
-  content: ""; position: absolute; inset: 0 0 auto; height: 3px; border-radius: 1rem 1rem 0 0;
+  content: ""; position: absolute; inset: 0 0 auto; height: 3px; pointer-events: none;
   background: linear-gradient(90deg, #e14d79 0 20%, #f59e0b 20% 40%, #22c55e 40% 60%, #38bdf8 60% 80%, #3b82f6 80%);
 }
-.value-card-header { padding-bottom: 1.25rem; border-bottom: 1px solid #e2e8f0 }
+.value-card-header { padding-bottom: .875rem; border-bottom: 1px solid #e2e8f0 }
 .value-card-header > p:first-child { color: #475569; font-size: .75rem; font-weight: 600 }
 .value-card-studio .value-card-header > p:first-child { color: #6d28d9 }
 .value-card-header h3 { margin-top: .375rem; font-size: 1.125rem; font-weight: 750 }
-.value-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .125rem .5rem; margin-top: .75rem; font-family: "JetBrains Mono", var(--mono) }
+.value-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .125rem .5rem; margin-top: .5rem; font-variant-numeric: tabular-nums }
 .value-price strong { font-size: 1.25rem; font-weight: 750 }
 .value-price span { color: #475569; font-size: .75rem }
-.value-points { margin: .75rem 0 1.5rem; padding: 0; list-style: none }
-.value-points li { padding: .5rem 0; border-bottom: 1px solid #f1f5f9 }
+.value-points { margin: .375rem 0 .75rem; padding: 0; list-style: none }
+.value-points li { padding: .25rem 0; border-bottom: 1px solid #f1f5f9 }
 .value-points li:last-child { border: 0 }
 .value-points button {
-  display: flex; align-items: flex-start; gap: .75rem; width: 100%; padding: .375rem .5rem;
+  display: flex; align-items: flex-start; gap: .625rem; width: 100%; padding: .375rem .375rem;
   border: 0; border-radius: .5rem; background: transparent; text-align: left;
 }
 .value-points button:disabled { opacity: 1 }
@@ -840,10 +840,10 @@ textarea { resize: vertical }
 .value-guarantees strong, .value-guarantees span { display: block }
 .value-guarantees span { margin-top: .125rem; color: #cbd5e1 }
 @media (min-width: 40rem) {
-  .value-contrast { padding: 8rem 2.5rem }
+  .value-contrast { padding: 5rem 2.5rem }
   .value-header h2 { font-size: 2.25rem }
   .value-intro { font-size: 1.0625rem }
-  .value-card { padding: 1.75rem }
+  .value-card { padding: 1.5rem }
   .value-guarantees { grid-template-columns: repeat(2, minmax(0, 1fr)) }
 }
 @media (min-width: 64rem) {
@@ -851,6 +851,6 @@ textarea { resize: vertical }
   .value-header { flex-direction: row; align-items: end; justify-content: space-between }
   .value-header h2 { font-size: 2.85rem }
   .value-filters { flex: none; align-self: end }
-  .value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) }
+  .value-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 2rem }
   .value-guarantees { grid-template-columns: repeat(4, minmax(0, 1fr)) }
 }
