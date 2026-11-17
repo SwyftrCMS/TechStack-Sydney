@@ -341,12 +341,39 @@ if (compactSupport) {
     }
   });
 
-  compactSupport.addEventListener('toggle', event => {
-    if (!event.target.open) return;
-    const summary = event.target.querySelector('summary');
-    const header = document.querySelector('.site-header');
-    if (summary.getBoundingClientRect().top < header.getBoundingClientRect().bottom) {
-      summary.scrollIntoView({ block: 'start', behavior: 'instant' });
-    }
-  }, true);
+  const track = compactSupport.querySelector('.compact-support-track');
+  const topics = compactSupport.querySelector('.compact-support-topics');
+  const buttons = [...topics.querySelectorAll('[data-compact-slide]')];
+  const cards = [...track.children];
+
+  function offset(card) {
+    const view = track.getBoundingClientRect();
+    const slide = card.getBoundingClientRect();
+    return (slide.left + slide.width / 2) - (view.left + view.width / 2);
+  }
+
+  function selectVisibleTopic() {
+    let nearest = 0;
+    let distance = Infinity;
+    cards.forEach((card, index) => {
+      const candidate = Math.abs(offset(card));
+      if (candidate < distance) {
+        nearest = index;
+        distance = candidate;
+      }
+    });
+    buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === nearest)));
+  }
+
+  topics.addEventListener('click', event => {
+    const button = event.target.closest('[data-compact-slide]');
+    if (!button) return;
+    track.scrollBy({
+      left: offset(cards[Number(button.dataset.compactSlide)]),
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+  });
+  track.addEventListener('scroll', selectVisibleTopic, { passive: true });
+  new ResizeObserver(selectVisibleTopic).observe(track);
+  topics.hidden = false;
 }

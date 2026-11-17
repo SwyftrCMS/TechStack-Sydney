@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=compact-support-1">
-  <script src="/assets/site.js?v=compact-support-1" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=support-showcase-1">
+  <script src="/assets/site.js?v=support-showcase-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
 </head>
@@ -282,28 +282,37 @@
       <p>Ongoing partnership plans that keep your app fast, secure and growing with you.</p>
     </header>
     <div class="compact-support">
-      <details name="compact-support" class="compact-support-card">
-        <summary><span class="compact-support-number">01</span><strong>Hosting &amp; Monitoring</strong><span class="compact-support-chevron" aria-hidden="true"></span></summary>
-        <div class="compact-support-panel">
-        <div class="compact-support-connected compact-support-hosting" aria-label="Australian hosting components">
-          <button type="button" data-compact-value="edge" data-accent="blue" aria-pressed="true">Cloudflare Edge</button>
-          <button type="button" data-compact-value="database" data-accent="green" aria-pressed="false">Sydney Database</button>
-          <button type="button" data-compact-value="health" data-accent="amber" aria-pressed="false">Health Monitor</button>
-        </div>
-        </div>
-      </details>
-      <details name="compact-support" class="compact-support-card">
-        <summary><span class="compact-support-number">02</span><strong>Support &amp; Maintenance</strong><span class="compact-support-chevron" aria-hidden="true"></span></summary>
-        <div class="compact-support-panel">
-        <div class="compact-support-ticket">
-          <p><strong>Quote follow-ups</strong> <span>Ready to test</span></p>
-          <p><strong>Support reply</strong><br>Automatic follow-ups are ready to test. Unfinished quotes trigger an email after 48 hours.</p>
-        </div>
-        </div>
-      </details>
-      <details name="compact-support" class="compact-support-card">
-        <summary><span class="compact-support-number">03</span><strong>Analytics &amp; Insights</strong><span class="compact-support-chevron" aria-hidden="true"></span></summary>
-        <div class="compact-support-panel">
+      <ol class="compact-support-track" role="list" tabindex="0" aria-label="Support and Scale previews">
+        <li class="compact-support-card" id="support-showcase-1">
+          <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>Hosting &amp; Monitoring</h3></div>
+          <div class="compact-support-panel">
+            <p class="showcase-intro">See how your app stays online and where your data is hosted.</p>
+            <div class="showcase-board">
+            <div class="showcase-bar"><strong>Australian hosting</strong><span>Monitoring active</span></div>
+            <div class="showcase-hosting" role="group" aria-label="Hosting infrastructure">
+              <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path data-host-link="edge" d="M25 25H75"/><path data-host-link="db" d="M75 25V50H25V75"/><path data-host-link="monitor" d="M75 25V75"/></svg>
+              <button type="button" data-compact-value="edge" data-accent="blue" aria-pressed="true"><span class="showcase-icon" aria-hidden="true">↗</span><strong>Cloudflare Edge</strong></button><button type="button" data-compact-value="app" data-accent="sky" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">▦</span><strong>Your app</strong></button><button type="button" data-compact-value="db" data-accent="green" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">◉</span><strong>Sydney database</strong></button><button type="button" data-compact-value="monitor" data-accent="amber" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">∿</span><strong>Health monitoring</strong></button>
+            </div>
+            <div class="compact-support-detail" aria-live="polite"><p data-compact-result="edge">Incoming traffic is screened before it reaches your app.</p><p data-compact-result="app" hidden>Your app runs in an Australian hosting environment.</p><p data-compact-result="db" hidden>Your business data is stored in Sydney.</p><p data-compact-result="monitor" hidden>Health checks help flag outages and slowdowns.</p></div>
+          </div>
+          </div>
+        </li>
+        <li class="compact-support-card" id="compact-support-2">
+          <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>Support &amp; Maintenance</h3></div>
+          <div class="compact-support-panel">
+            <p class="showcase-intro">See what happens when you ask us to fix or improve something.</p>
+            <div class="showcase-board showcase-ticket">
+            <div class="showcase-bar"><strong>Support inbox</strong><span>Ready to test</span></div>
+            <div class="showcase-ticket-subject"><span class="showcase-icon" aria-hidden="true">✉</span><div><small>Example ticket</small><strong>Follow up unfinished quotes</strong></div></div>
+            <div class="showcase-reply"><strong>TechStack Sydney · Support</strong><p>We’ve set up a follow-up email for quotes left unfinished for 48 hours. It’s ready for you to try on your test site.</p></div>
+          </div>
+          </div>
+        </li>
+        <li class="compact-support-card" id="compact-support-3">
+          <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>Analytics &amp; Insights</h3></div>
+          <div class="compact-support-panel">
+            <p class="showcase-intro">See which jobs, invoices and quotes need your attention.</p>
+            <div class="showcase-board"><div class="showcase-bar"><strong>Operations dashboard</strong><span>Example data</span></div>
         <div class="compact-support-kpis" aria-label="Example performance metrics">
           <button type="button" data-compact-value="invoices" aria-pressed="true"><strong>$48,200</strong><span>Invoices paid</span></button>
           <button type="button" data-compact-value="jobs" aria-pressed="false"><strong>128</strong><span>Jobs completed</span></button>
@@ -315,36 +324,44 @@
           <figure class="compact-support-chart support-chart" data-compact-result="jobs" data-accent="blue" hidden><figcaption><strong>Jobs Completed &amp; Active</strong><small>90% completed on schedule (AEST)</small></figcaption><svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 70 C36 64, 74 54, 112 46 C150 38, 186 24, 224 18 C258 14, 286 10, 310 8 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 70 C36 64, 74 54, 112 46 C150 38, 186 24, 224 18 C258 14, 286 10, 310 8"/></svg></figure>
           <figure class="compact-support-chart support-chart" data-compact-result="quotes" data-accent="amber" hidden><figcaption><strong>Unfinished &amp; Open Quotes</strong><small>Follow up via Sender to close</small></figcaption><svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 44 C38 38, 74 50, 112 42 C150 34, 188 28, 226 36 C258 42, 286 30, 310 24 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 44 C38 38, 74 50, 112 42 C150 34, 188 28, 226 36 C258 42, 286 30, 310 24"/></svg></figure>
           <figure class="compact-support-chart support-chart" data-compact-result="pipeline" data-accent="pink" hidden><figcaption><strong>CRM Sales &amp; Job Pipeline</strong><small>34% quote-to-paid conversion</small></figcaption><svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 68 C36 60, 74 52, 112 44 C150 34, 188 26, 226 20 C258 15, 286 12, 310 10 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 68 C36 60, 74 52, 112 44 C150 34, 188 26, 226 20 C258 15, 286 12, 310 10"/></svg></figure>
-        </div>
-        </div>
-      </details>
-      <details name="compact-support" class="compact-support-card">
-        <summary><span class="compact-support-number">04</span><strong>New Features</strong><span class="compact-support-chevron" aria-hidden="true"></span></summary>
-        <div class="compact-support-panel">
-        <p><strong>Client Portal</strong></p>
-        <div class="compact-support-connected" aria-label="Client Portal release stages">
-          <button type="button" data-compact-value="planned" aria-pressed="true">Planned</button>
-          <button type="button" data-compact-value="build" aria-pressed="false">In progress</button>
-          <button type="button" data-compact-value="released" aria-pressed="false">Released</button>
-        </div>
-        <div class="compact-support-detail" aria-live="polite">
-          <p data-compact-result="planned">Agree on what clients need to see and approve.</p>
-          <p data-compact-result="build" hidden>Try the portal and review the approval flow.</p>
-          <p data-compact-result="released" hidden>Clients can sign in and approve work.</p>
-        </div>
-        </div>
-      </details>
-      <details name="compact-support" class="compact-support-card">
-        <summary><span class="compact-support-number">05</span><strong>Automation</strong><span class="compact-support-chevron" aria-hidden="true"></span></summary>
-        <div class="compact-support-panel">
-        <p><strong>Job completion to invoice</strong></p>
-        <div class="compact-support-connected" aria-label="Job completion workflow">
-          <button type="button" data-compact-value="job" aria-pressed="true">Job marked complete</button>
-          <button type="button" data-compact-value="invoice" aria-pressed="false">Draft invoice in Xero</button>
-          <button type="button" data-compact-value="email" aria-pressed="false">Send client update</button>
-        </div>
-        </div>
-      </details>
+        </div></div>
+          </div>
+        </li>
+        <li class="compact-support-card" id="compact-support-4">
+          <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>New Features</h3></div>
+          <div class="compact-support-panel">
+            <p class="showcase-intro">See how a new feature goes from an idea to something clients can use.</p>
+            <div class="showcase-board">
+            <div class="showcase-bar"><strong>Client Portal</strong><span>Feature rollout</span></div>
+            <div class="showcase-portal" aria-label="Client portal walkthrough"><span>Sign in</span><span>Review project</span><span>Approve work</span></div>
+            <div class="compact-support-connected" role="group" aria-label="Release stages">
+              <button type="button" data-compact-value="planned" data-accent="blue" aria-pressed="true"><span class="showcase-icon" aria-hidden="true">◇</span><strong>Planned</strong></button><button type="button" data-compact-value="build" data-accent="amber" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">◐</span><strong>In progress</strong></button><button type="button" data-compact-value="released" data-accent="green" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">✓</span><strong>Released</strong></button>
+            </div>
+            <div class="compact-support-detail" aria-live="polite"><p data-compact-result="planned">Agree on what clients need to see and approve.</p><p data-compact-result="build" hidden>Try the portal and review the approval flow.</p><p data-compact-result="released" hidden>Clients can sign in, view a project and approve the work.</p></div>
+          </div>
+          </div>
+        </li>
+        <li class="compact-support-card" id="compact-support-5">
+          <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>Automation</h3></div>
+          <div class="compact-support-panel">
+            <p class="showcase-intro">See how a finished job can turn into an invoice and a client update.</p>
+            <div class="showcase-board">
+            <div class="showcase-bar"><strong>Job completion workflow</strong><span>Example</span></div>
+            <div class="compact-support-connected showcase-flow" role="group" aria-label="Job to invoice and client email">
+              <button type="button" data-compact-value="job" data-accent="blue" aria-pressed="true"><span class="showcase-icon" aria-hidden="true">✓</span><strong>Job signed off</strong></button><button type="button" data-compact-value="invoice" data-accent="sky" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">▤</span><strong>Draft Xero invoice</strong></button><button type="button" data-compact-value="email" data-accent="green" aria-pressed="false"><span class="showcase-icon" aria-hidden="true">✉</span><strong>Email client</strong></button>
+            </div>
+            <div class="compact-support-detail" aria-live="polite"><p data-compact-result="job">Signing off a job starts the workflow automatically.</p><p data-compact-result="invoice" hidden>Job details flow into a draft invoice in Xero for review.</p><p data-compact-result="email" hidden>The client receives a completion update without a manual email.</p></div>
+          </div>
+          </div>
+        </li>
+      </ol>
+      <div class="compact-support-topics" role="group" aria-label="Choose a support topic" hidden>
+        <button type="button" data-compact-slide="0" aria-controls="support-showcase-1" aria-pressed="true">Hosting</button>
+        <button type="button" data-compact-slide="1" aria-controls="compact-support-2" aria-pressed="false">Support</button>
+        <button type="button" data-compact-slide="2" aria-controls="compact-support-3" aria-pressed="false">Analytics</button>
+        <button type="button" data-compact-slide="3" aria-controls="compact-support-4" aria-pressed="false">Features</button>
+        <button type="button" data-compact-slide="4" aria-controls="compact-support-5" aria-pressed="false">Automation</button>
+      </div>
     </div>
     <div class="process-layout support-layout">
       <ol class="process-steps support-steps">
