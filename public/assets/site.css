@@ -1079,8 +1079,8 @@ textarea { resize: vertical }
 
 @media (width < 40rem) {
   .process-carousel { margin-inline: -1.5rem }
-  .process-cards { padding-inline: 1.5rem 0; grid-auto-columns: 92% }
-  .process-card:first-child { scroll-margin-inline-start: 1.5rem }
+  .process-cards { padding-inline: 1.5rem; grid-auto-columns: 100% }
+  .process-cards > .process-card { scroll-snap-align: center; scroll-snap-stop: always }
 }
 
 @media (40rem <= width < 64rem), (40rem <= width <= 86rem) and (hover: none) and (pointer: coarse) {
