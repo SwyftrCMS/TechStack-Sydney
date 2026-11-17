@@ -1043,7 +1043,7 @@ textarea { resize: vertical }
   .process-carousel { display: block; margin-top: 1.5rem }
   .process-cards {
     display: grid; grid-auto-flow: column; grid-auto-columns: 88%; gap: .75rem;
-    margin: 0; padding: 0 0 1rem; list-style: none; overflow-x: auto;
+    margin: 0; padding: 0 0 .75rem; list-style: none; overflow-x: auto;
     scroll-snap-type: x mandatory; scrollbar-width: none;
   }
   .process-cards::-webkit-scrollbar { display: none }
@@ -1062,28 +1062,47 @@ textarea { resize: vertical }
   .process-card h3 { margin: 0; font: inherit; font-weight: 600 }
   .process-card h3 span { color: #a5b4fc; margin-inline-end: .25rem }
   .process-card .process-window-dots i { width: .5rem; height: .5rem }
-  .process-card-journey {
-    display: grid; grid-template-rows: repeat(3, auto); gap: .75rem; margin: 0; padding: .875rem;
-    list-style: none;
+  .build-showcase { display: grid; align-content: start; gap: .625rem; padding: .875rem; font-size: .875rem }
+  .build-showcase p { margin: 0 }
+  .build-flow, .build-timeline, .build-checklist { list-style: none; margin: 0; padding: 0 }
+  .build-flow, .build-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem }
+  .build-flow li, .build-options span {
+    position: relative; display: grid; align-content: start; gap: .25rem; padding: .5rem .25rem;
+    border: 1px solid #475569; border-radius: .5rem; background: #20304a;
+    text-align: center; overflow-wrap: anywhere; font-size: .75rem;
   }
-  .process-card-journey li {
-    padding: .75rem .875rem; background: #20304a; border: 1px solid #33415c;
-    border-radius: .5rem; overflow-wrap: anywhere;
+  .build-flow li > span { color: #bfdbfe; font-size: 1.25rem; line-height: 1 }
+  .build-flow li + li::before {
+    content: ""; position: absolute; inset-inline-end: 100%; top: 50%; width: .5rem;
+    border-top: 1px solid #a5b4fc;
   }
-  .process-card-journey strong { display: block; font-size: .875rem; line-height: 1.3 }
-  .process-card-journey p {
-    margin: .25rem 0 0; color: #cbd5e1; font-size: .875rem; line-height: 1.5;
+  .build-options span { color: #cbd5e1; background: #111a2c }
+  .build-timeline, .build-checklist { display: grid; gap: .375rem }
+  .build-timeline li, .build-checklist li {
+    padding: .375rem .5rem; border-radius: .375rem; background: #20304a; font-size: .75rem;
   }
+  .build-timeline li { border-inline-start: 3px solid #38bdf8 }
+  .build-timeline li:nth-child(2) { margin-inline-start: 6%; border-color: #a78bfa }
+  .build-timeline li:nth-child(3) { margin-inline-start: 12%; border-color: #34d399 }
+  .build-timeline small { display: block; color: #cbd5e1 }
+  .build-workspace { display: grid; grid-template-columns: auto 1fr; border: 1px solid #475569; border-radius: .5rem; font-size: .75rem }
+  .build-workspace > span { padding: .5rem; border-inline-end: 1px solid #475569; color: #bfdbfe }
+  .build-workspace > div { display: grid; gap: .25rem; padding: .5rem }
+  .build-workspace small { padding: .25rem .375rem; background: #20304a; border-radius: .25rem; color: #cbd5e1 }
+  .build-workspace b { color: #86efac }
+  .build-checklist li::before { content: "✓"; color: #86efac; margin-inline-end: .5rem }
 }
 
 @media (width < 40rem) {
   .process-carousel { margin-inline: -1.5rem }
-  .process-cards { padding-inline: 1.5rem; grid-auto-columns: 100% }
+  .process-cards { padding-inline: 7%; grid-auto-columns: 100% }
   .process-cards > .process-card { scroll-snap-align: center; scroll-snap-stop: always }
 }
 
 @media (40rem <= width < 64rem), (40rem <= width <= 86rem) and (hover: none) and (pointer: coarse) {
-  .process-cards { grid-auto-columns: calc((100% - .75rem) / 2) }
+  .process-carousel { max-width: 42rem; margin-inline: auto }
+  .process-cards { padding-inline: 7%; grid-auto-columns: 100% }
+  .process-cards > .process-card { scroll-snap-align: center }
 }
 
 .compact-support { display: none }
@@ -1122,14 +1141,15 @@ textarea { resize: vertical }
     display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-inline: auto;
     border-radius: .375rem; background: #334766; color: #bfdbfe; font-size: .875rem;
   }
-  .compact-support-topics { display: flex; flex-wrap: wrap; justify-content: center; gap: .375rem; margin-top: .625rem }
-  .compact-support-topics button {
-    min-height: 2.75rem; padding: .375rem .625rem; border: 1px solid #cbd5e1;
-    border-radius: .5rem; background: white; color: var(--ink); font-size: .8125rem; cursor: pointer;
+  .swipe-indicator { display: flex; justify-content: center; gap: .125rem; margin-top: .5rem }
+  .swipe-indicator button {
+    display: grid; place-items: center; min-width: 1.75rem; min-height: 2.75rem;
+    padding: 0 .25rem; border: 0; border-radius: .5rem; background: transparent; cursor: pointer;
   }
-  .compact-support-topics button[aria-pressed="true"] {
-    background: #18243a; color: #f8fafc; border-color: #18243a;
+  .swipe-indicator button::before {
+    content: ""; width: .375rem; height: .375rem; border-radius: 999px; background: #94a3b8;
   }
+  .swipe-indicator button[aria-pressed="true"]::before { width: 1.25rem; background: #334155 }
   .compact-support-panel button {
     position: relative; min-width: 0; min-height: 2.75rem; padding: .375rem;
     border: 1px solid #475569; border-radius: .5rem; background: #20304a;

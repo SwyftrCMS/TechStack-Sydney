@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=support-showcase-2">
-  <script src="/assets/site.js?v=support-showcase-1" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=swipe-previews-1">
+  <script src="/assets/site.js?v=swipe-previews-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
 </head>
@@ -99,49 +99,36 @@
       <h2 id="process-title">From idea to launch, without the guesswork</h2>
       <p>A proven, transparent process that keeps your project on time and on budget.</p>
     </header>
-    <div class="process-carousel">
-      <ol class="process-cards" id="process-cards" role="list" tabindex="0" aria-label="How we build steps">
-        <li class="process-card">
+    <div class="process-carousel" data-swipe-carousel>
+      <ol class="process-cards" id="process-cards" data-swipe-track role="list" tabindex="0" aria-label="How we build steps">
+        <li class="process-card" id="build-slide-1">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3><span>01</span> Discovery &amp; Strategy</h3></div>
-          <ol class="process-card-journey" role="list">
-            <li><strong>Find the friction</strong><p>Where does your team lose time, repeat work or hit delays?</p></li>
-            <li><strong>See what’s missing</strong><p>We look at the tools you already use and where they fall short.</p></li>
-            <li><strong>Choose what fits</strong><p>Connect your existing tools, build a small app for one workflow, or plan a full web or mobile app.</p></li>
-          </ol>
+          <div class="build-showcase"><p class="showcase-intro">Show us where work slows down. We’ll look at what your tools already do and where a connection, a small app or a full build could help.</p><div class="showcase-board"><div class="showcase-bar"><strong>From problem to solution</strong></div><ol class="build-flow" role="list"><li><span aria-hidden="true">⌕</span><strong>Find the friction</strong></li><li><span aria-hidden="true">▦</span><strong>Review your tools</strong></li><li><span aria-hidden="true">✓</span><strong>Choose what fits</strong></li></ol><div class="build-options"><span>Connect tools</span><span>Small app</span><span>Web or mobile app</span></div></div></div>
         </li>
-        <li class="process-card">
+        <li class="process-card" id="build-slide-2">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3><span>02</span> Sprint Planning</h3></div>
-          <ol class="process-card-journey" role="list">
-            <li><strong>Set the priorities</strong><p>Decide what your team needs on day one and what can come later.</p></li>
-            <li><strong>Break the work into stages</strong><p>See what we’ll build first, when you can try it and when we’re aiming to launch.</p></li>
-            <li><strong>Agree on check-ins</strong><p>Know when we’ll show you progress and when we’ll need your feedback.</p></li>
-          </ol>
+          <div class="build-showcase"><p class="showcase-intro">See what we’ll build first, when you can try it and where your feedback fits.</p><div class="showcase-board"><div class="showcase-bar"><strong>Example sprint plan</strong></div><ol class="build-timeline" role="list"><li><small>Weeks 1–2</small><strong>Build the first workflow</strong></li><li><small>Weeks 3–4</small><strong>Try a working demo</strong></li><li><small>Weeks 5–6</small><strong>Review and refine</strong></li></ol></div></div>
         </li>
-        <li class="process-card">
+        <li class="process-card" id="build-slide-3">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3><span>03</span> Design &amp; Build</h3></div>
-          <ol class="process-card-journey" role="list">
-            <li><strong>See how it’ll work</strong><p>Walk through the key screens and see how your team would use them day to day.</p></li>
-            <li><strong>Try a working version</strong><p>Test a real workflow, like creating a job and sending it to the right person.</p></li>
-            <li><strong>Shape it with feedback</strong><p>Tell us what feels right and where your team still gets stuck. We’ll use that feedback in the next round.</p></li>
-          </ol>
+          <div class="build-showcase"><p class="showcase-intro">Try a working version of a real task and tell us what would make it easier for your team.</p><div class="showcase-board"><div class="showcase-bar"><strong>Working demo · Job workspace</strong></div><div class="build-workspace"><span>Jobs</span><div><strong>New job</strong><small>Customer details</small><small>Assign a team member</small><b>Ready to send</b></div></div></div></div>
         </li>
-        <li class="process-card">
+        <li class="process-card" id="build-slide-4">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3><span>04</span> Integrations</h3></div>
-          <ol class="process-card-journey" role="list">
-            <li><strong>Connect the tools you use</strong><p>Link the new app to the systems your team already uses, like Xero or your CRM.</p></li>
-            <li><strong>Decide what gets shared</strong><p>Agree on which details should move between tools and when.</p></li>
-            <li><strong>Test the handover</strong><p>Try a real example, like sending a completed job to Xero as a draft invoice.</p></li>
-          </ol>
+          <div class="build-showcase"><p class="showcase-intro">See how job details move between the tools you already use, without entering them twice.</p><div class="showcase-board"><div class="showcase-bar"><strong>Example data flow</strong></div><ol class="build-flow" role="list"><li><span aria-hidden="true">▦</span><strong>Job completed</strong></li><li><span aria-hidden="true">↗</span><strong>Send job details</strong></li><li><span aria-hidden="true">▤</span><strong>Draft in Xero</strong></li></ol></div></div>
         </li>
-        <li class="process-card">
+        <li class="process-card" id="build-slide-5">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3><span>05</span> Testing &amp; Launch</h3></div>
-          <ol class="process-card-journey" role="list">
-            <li><strong>Test a real day</strong><p>Run through everyday tasks, like creating a job and checking that it reaches Xero as a draft invoice.</p></li>
-            <li><strong>Get your team ready</strong><p>Walk through the new setup with your team and agree on when to switch over.</p></li>
-            <li><strong>Go live and check in</strong><p>We check that everything works with live data and help your team through the first few days.</p></li>
-          </ol>
+          <div class="build-showcase"><p class="showcase-intro">Test everyday tasks with your team, agree on a launch date and check that the new setup works once it’s live.</p><div class="showcase-board"><div class="showcase-bar"><strong>Launch readiness</strong></div><ul class="build-checklist" role="list"><li>Everyday workflows tested</li><li>Team ready to switch over</li><li>Live checks complete</li></ul></div></div>
         </li>
       </ol>
+      <div class="swipe-indicator" role="group" aria-label="Choose a slide" hidden>
+        <button type="button" aria-label="Discovery &amp; Strategy" aria-controls="build-slide-1" aria-pressed="true"></button>
+        <button type="button" aria-label="Sprint Planning" aria-controls="build-slide-2" aria-pressed="false"></button>
+        <button type="button" aria-label="Design &amp; Build" aria-controls="build-slide-3" aria-pressed="false"></button>
+        <button type="button" aria-label="Integrations" aria-controls="build-slide-4" aria-pressed="false"></button>
+        <button type="button" aria-label="Testing &amp; Launch" aria-controls="build-slide-5" aria-pressed="false"></button>
+      </div>
     </div>
     <div class="process-layout">
       <ol class="process-steps">
@@ -281,8 +268,8 @@
       <h2 id="support-title">Software that keeps getting better after launch</h2>
       <p>Ongoing partnership plans that keep your app fast, secure and growing with you.</p>
     </header>
-    <div class="compact-support">
-      <ol class="compact-support-track" role="list" tabindex="0" aria-label="Support and Scale previews">
+    <div class="compact-support" data-swipe-carousel>
+      <ol class="compact-support-track" data-swipe-track role="list" tabindex="0" aria-label="Support and Scale previews">
         <li class="compact-support-card" id="support-showcase-1">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><h3>Hosting &amp; Monitoring</h3></div>
           <div class="compact-support-panel">
@@ -355,12 +342,12 @@
           </div>
         </li>
       </ol>
-      <div class="compact-support-topics" role="group" aria-label="Choose a support topic" hidden>
-        <button type="button" data-compact-slide="0" aria-controls="support-showcase-1" aria-pressed="true">Hosting</button>
-        <button type="button" data-compact-slide="1" aria-controls="compact-support-2" aria-pressed="false">Support</button>
-        <button type="button" data-compact-slide="2" aria-controls="compact-support-3" aria-pressed="false">Analytics</button>
-        <button type="button" data-compact-slide="3" aria-controls="compact-support-4" aria-pressed="false">Features</button>
-        <button type="button" data-compact-slide="4" aria-controls="compact-support-5" aria-pressed="false">Automation</button>
+      <div class="swipe-indicator" role="group" aria-label="Choose a slide" hidden>
+        <button type="button" aria-label="Hosting &amp; Monitoring" aria-controls="compact-support-1" aria-pressed="true"></button>
+        <button type="button" aria-label="Support &amp; Maintenance" aria-controls="compact-support-2" aria-pressed="false"></button>
+        <button type="button" aria-label="Analytics &amp; Insights" aria-controls="compact-support-3" aria-pressed="false"></button>
+        <button type="button" aria-label="New Features" aria-controls="compact-support-4" aria-pressed="false"></button>
+        <button type="button" aria-label="Automation" aria-controls="compact-support-5" aria-pressed="false"></button>
       </div>
     </div>
     <div class="process-layout support-layout">

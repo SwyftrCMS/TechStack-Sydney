@@ -340,23 +340,26 @@ if (compactSupport) {
       item.hidden = item.dataset.compactResult !== button.dataset.compactValue;
     }
   });
+}
 
-  const track = compactSupport.querySelector('.compact-support-track');
-  const topics = compactSupport.querySelector('.compact-support-topics');
-  const buttons = [...topics.querySelectorAll('[data-compact-slide]')];
-  const cards = [...track.children];
+for (const carousel of document.querySelectorAll('[data-swipe-carousel]')) {
+  const track = carousel.querySelector('[data-swipe-track]');
+  const indicator = carousel.querySelector('.swipe-indicator');
+  const buttons = [...indicator.querySelectorAll('button')];
+  const slides = [...track.children];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-  function offset(card) {
+  function offset(slide) {
     const view = track.getBoundingClientRect();
-    const slide = card.getBoundingClientRect();
-    return (slide.left + slide.width / 2) - (view.left + view.width / 2);
+    const card = slide.getBoundingClientRect();
+    return card.left + card.width / 2 - view.left - view.width / 2;
   }
 
-  function selectVisibleTopic() {
+  function updateIndicator() {
     let nearest = 0;
     let distance = Infinity;
-    cards.forEach((card, index) => {
-      const candidate = Math.abs(offset(card));
+    slides.forEach((slide, index) => {
+      const candidate = Math.abs(offset(slide));
       if (candidate < distance) {
         nearest = index;
         distance = candidate;
@@ -365,15 +368,13 @@ if (compactSupport) {
     buttons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === nearest)));
   }
 
-  topics.addEventListener('click', event => {
-    const button = event.target.closest('[data-compact-slide]');
-    if (!button) return;
-    track.scrollBy({
-      left: offset(cards[Number(button.dataset.compactSlide)]),
-      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
-    });
+  buttons.forEach((button, index) => {
+    button.addEventListener('click', () => track.scrollBy({
+      left: offset(slides[index]),
+      behavior: reduceMotion.matches ? 'instant' : 'smooth',
+    }));
   });
-  track.addEventListener('scroll', selectVisibleTopic, { passive: true });
-  new ResizeObserver(selectVisibleTopic).observe(track);
-  topics.hidden = false;
+  track.addEventListener('scroll', updateIndicator, { passive: true });
+  new ResizeObserver(updateIndicator).observe(track);
+  indicator.hidden = false;
 }
