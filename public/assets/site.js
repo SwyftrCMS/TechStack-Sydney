@@ -74,6 +74,8 @@ if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const maxInset = innerWidth < 768 ? 12 : 36;
     hero.style.setProperty('--hero-inset', progress * maxInset + 'px');
     hero.style.setProperty('--hero-radius', progress * 28 + 'px');
+    const cardProgress = Math.min(Math.max(scrollY / 275, 0), 1);
+    hero.style.setProperty('--hero-card-progress', String(cardProgress));
     pending = false;
   }
   function scheduleHeroUpdate() {

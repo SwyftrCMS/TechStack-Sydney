@@ -30,14 +30,70 @@
     </nav>
   </header>
   <main id="main">
-<section id="top" class="hero"><div class="hero-frame"><div class="hero-inner wrap">
+<section id="top" class="hero"><div class="hero-frame">
+<div class="hero-art" aria-hidden="true">
+  <div class="hero-card hero-card-revenue">
+    <div class="hero-card-heading"><p>Revenue</p><span class="hero-chart-legend">Lead</span></div>
+    <div class="hero-revenue-summary"><strong>$24.8k</strong><span>+12% this quarter</span></div>
+    <svg class="hero-chart" viewBox="0 0 244 96" preserveAspectRatio="none" focusable="false">
+      <defs>
+        <linearGradient id="hero-revenue-fill" x2="0" y2="1">
+          <stop stop-color="#64748b" stop-opacity=".2"/>
+          <stop offset="1" stop-color="#64748b" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="hero-chart-grid" d="M0 22H244 M0 53H244 M0 84H244"/>
+      <path fill="url(#hero-revenue-fill)" d="M0 73 C27 73 49 48 76 48 S118 62 142 58 S197 28 235 9 V86 H0Z"/>
+      <path class="hero-chart-line" d="M0 73 C27 73 49 48 76 48 S118 62 142 58 S197 28 235 9"/>
+      <path class="hero-chart-guide" d="M142 9V89"/>
+      <circle cx="142" cy="58" r="3.5" fill="#475569" stroke="white" stroke-width="1.5"/>
+    </svg>
+    <div class="hero-card-footer hero-chart-months"><span>Jun</span><span>Jul</span><span>Aug</span></div>
+  </div>
+  <div class="hero-card hero-card-workflow">
+    <div class="hero-card-heading"><p>Workflow triggers</p></div>
+    <div class="hero-workflow">
+      <svg class="hero-workflow-connectors" viewBox="0 0 244 90" preserveAspectRatio="none" focusable="false">
+        <path d="M31 45H47V23H66 M47 45V67H66"/>
+      </svg>
+      <span class="hero-workflow-trigger">
+        <svg viewBox="0 0 16 16" focusable="false"><ellipse cx="8" cy="4" rx="5" ry="2"/><path d="M3 4v7c0 2.7 10 2.7 10 0V4M3 8c0 2.7 10 2.7 10 0"/></svg>
+      </span>
+      <span class="hero-workflow-step"><b>↯</b> Automated workflow</span>
+      <span class="hero-workflow-step"><b>▤</b> Record synced</span>
+    </div>
+    <p class="hero-card-footer">Xero · HubSpot · SMS</p>
+  </div>
+  <div class="hero-card hero-card-code">
+    <div class="hero-editor">
+      <div class="hero-editor-bar"><i></i><i></i><i></i><span>Workflow.tsx</span></div>
+      <pre><code><span class="hero-editor-line"><span class="hero-editor-number">1</span><b class="hero-code-keyword">const</b> <b class="hero-code-property">dispatch</b> = () =&gt; {</span>
+<span class="hero-editor-line"><span class="hero-editor-number">2</span>  <b class="hero-code-keyword">const</b> quote = <b class="hero-code-string">'fixed-price'</b></span>
+<span class="hero-editor-line"><span class="hero-editor-number">3</span>  &lt;<b class="hero-code-tag">JobCard</b> <b class="hero-code-property">status</b>=<b class="hero-code-string">"active"</b> /&gt;</span>
+<span class="hero-editor-line"><span class="hero-editor-number">4</span>};</span>
+<span class="hero-editor-line"><span class="hero-editor-number">5</span><b class="hero-code-keyword">return</b> (</span>
+<span class="hero-editor-line"><span class="hero-editor-number">6</span>  &lt;<b class="hero-code-tag">Portal</b> <b class="hero-code-property">region</b>=<b class="hero-code-string">"AU"</b> /&gt;</span>
+<span class="hero-editor-line"><span class="hero-editor-number">7</span>);</span></code></pre>
+    </div>
+  </div>
+  <div class="hero-card hero-card-calendar">
+    <div class="hero-card-heading"><p>Calendar</p><svg viewBox="0 0 16 16" focusable="false"><rect x="2.5" y="3.5" width="11" height="10" rx="1.5"/><path d="M5.5 2v3m5-3v3M3 7h10"/></svg></div>
+    <div class="hero-week-days"><span>Sun<b>10</b></span><span>Mon<b>11</b></span><span>Tue<b>12</b></span><span>Wed<b>13</b></span><span>Thu<b>14</b></span></div>
+    <div class="hero-week">
+      <span>10 AM</span><div class="hero-week-events"><i class="hero-week-dispatch">Site dispatch</i></div>
+      <span>12 PM</span><div class="hero-week-events"><i>Client sync</i><i class="hero-week-review">QA review</i></div>
+      <span>2 PM</span><div class="hero-week-events"><i class="hero-week-dispatch">Project handover</i></div>
+    </div>
+  </div>
+</div>
+<div class="hero-inner wrap">
 <p class="hero-kicker">Australian web &amp; mobile app studio</p>
 <div class="hero-spectrum" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
-<h1>Bespoke software that fits the way your business works</h1>
+<h1><span class="hero-headline-accent">Bespoke software</span> that fits the way <span class="hero-headline-accent">your business</span> works</h1>
 <p class="lead">We design, build and support custom web and mobile apps for Australian SMEs — replacing spreadsheets and clunky off-the-shelf tools with software made for you.</p>
 <div class="hero-cta"><div><p class="eyebrow">Projects</p><p>Fixed-price quotes</p></div><a class="button" href="/contact">Book a free consult →</a></div>
 <p class="fine">Free 30-minute discovery call · No obligation</p>
-</div><div class="mock hero-label" aria-hidden="true">[Hero Background Video / Image]</div></div></section>
+</div></div></section>
 <div class="partners"><p class="eyebrow">Client logo placeholders</p><div class="marquee-mask"><div class="marquee" aria-hidden="true"><div class="mock " aria-hidden="true">[Client Logo 1]</div><div class="mock " aria-hidden="true">[Client Logo 2]</div><div class="mock " aria-hidden="true">[Client Logo 3]</div><div class="mock " aria-hidden="true">[Client Logo 4]</div><div class="mock " aria-hidden="true">[Client Logo 5]</div><div class="mock " aria-hidden="true">[Client Logo 6]</div><div class="mock " aria-hidden="true">[Client Logo 7]</div><div class="mock " aria-hidden="true">[Client Logo 8]</div><div class="mock " aria-hidden="true">[Client Logo 9]</div><div class="mock " aria-hidden="true">[Client Logo 10]</div><div class="mock " aria-hidden="true">[Client Logo 1]</div><div class="mock " aria-hidden="true">[Client Logo 2]</div><div class="mock " aria-hidden="true">[Client Logo 3]</div><div class="mock " aria-hidden="true">[Client Logo 4]</div><div class="mock " aria-hidden="true">[Client Logo 5]</div><div class="mock " aria-hidden="true">[Client Logo 6]</div><div class="mock " aria-hidden="true">[Client Logo 7]</div><div class="mock " aria-hidden="true">[Client Logo 8]</div><div class="mock " aria-hidden="true">[Client Logo 9]</div><div class="mock " aria-hidden="true">[Client Logo 10]</div></div></div></div><section id="industries" class="section "><div class="wrap"><header class="section-heading"><p class="eyebrow">Industries</p><h2>Software built around your industry</h2><p>Pick your industry to see the kinds of apps we build for businesses like yours.</p></header><div data-tabs><div class="tabs" role="tablist" aria-label="industry"><button type="button" role="tab" id="industry-tab-0" aria-controls="industry-panel-0" aria-selected="true" tabindex="0">Retail &amp; eCommerce</button>
 <button type="button" role="tab" id="industry-tab-1" aria-controls="industry-panel-1" aria-selected="false" tabindex="-1">Trades &amp; Construction</button>
 <button type="button" role="tab" id="industry-tab-2" aria-controls="industry-panel-2" aria-selected="false" tabindex="-1">Healthcare</button>
