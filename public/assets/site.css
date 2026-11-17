@@ -1241,4 +1241,86 @@ textarea { resize: vertical }
   .story-automation .support-node-merge { grid-area: 3 / 1 / 4 / 3 }
   .story-automation .support-node-process { grid-area: 4 / 1 / 5 / 3 }
   .story-automation .support-node-deliver { grid-area: 5 / 1 / 6 / 3 }
+
+  .story-figure {
+    --demo-ink: #eef4ff;
+    --demo-muted: #aebdd2;
+    --demo-panel: #152338;
+    --demo-line: #33445c;
+    color: var(--demo-ink);
+    border-color: var(--demo-line);
+    background:
+      linear-gradient(90deg, #eb4b77, #e99557, #fbd354, #7cd19f, #39a6de) top / 100% 2px no-repeat,
+      radial-gradient(ellipse at top right, #1b304b, transparent 68%),
+      #0c1424;
+    box-shadow: 0 .5rem 1rem #0d152422;
+  }
+  .story-figure figcaption {
+    color: var(--demo-muted);
+    box-shadow: 0 -1px 0 #33445c;
+  }
+  .story-funnel span, .story-funnel strong, .story-metrics > div, .story-steps li {
+    background: var(--demo-panel);
+    box-shadow: inset 0 0 0 1px var(--demo-line), inset 0 2px var(--demo-accent, var(--blue));
+  }
+  .story-figure :is(.story-funnel span, .story-metrics > div, .story-steps li):nth-child(2) { --demo-accent: var(--mint) }
+  .story-figure :is(.story-funnel span, .story-metrics > div, .story-steps li):nth-child(3) { --demo-accent: var(--amber) }
+  .story-funnel strong { --demo-accent: var(--rose); color: var(--demo-ink) }
+  .story-steps li + li::before { border-color: var(--blue) }
+  .story-wire-blue { stroke: var(--blue) }
+  .story-wire-mint { stroke: var(--mint) }
+  .story-wire-amber { stroke: var(--amber) }
+  .story-metrics dt, .story-kpi span { color: var(--demo-muted) }
+  .story-metrics dd, .story-kpi strong { color: var(--demo-accent, var(--mint)); font-variant-numeric: tabular-nums }
+  .story-chart {
+    --process-accent: var(--mint);
+    --process-accent-ink: var(--mint);
+    --demo-chart: var(--mint);
+  }
+  .story-chart:has(.story-metrics) { --demo-chart: var(--blue) }
+  .story-chart > svg [stroke="#e2e8f0"], .story-chart .support-chart-grid { stroke: var(--demo-line) }
+  .story-chart-guides { fill: none; stroke: #40526d; stroke-dasharray: 2 4 }
+  .story-chart-point { fill: var(--demo-chart); stroke: #101a2b; stroke-width: 1.5 }
+  .story-architecture .process-diagram {
+    isolation: isolate;
+    background: radial-gradient(circle, #384962 1px, transparent 1px) 0 0 / 14px 14px;
+  }
+  .story-architecture .process-diagram > svg { z-index: -1 }
+  .story-architecture .process-diagram[data-layer="api"] [data-link="api"] { stroke: var(--rose) }
+  .story-architecture .process-diagram[data-layer="api"] .process-commerce-link { stroke: var(--amber) }
+  .story-architecture .process-diagram [data-link="database"] { stroke: var(--blue) }
+  .story-architecture .process-diagram [data-link="hosting"] { stroke: var(--mint) }
+  .story-architecture .story-spoke, .story-architecture .process-core {
+    background: var(--demo-panel);
+    border-color: var(--demo-line);
+    box-shadow: inset 0 2px var(--demo-accent, var(--blue));
+  }
+  .story-architecture .process-spoke-xero { --demo-accent: var(--rose) }
+  .story-architecture .process-spoke-crm { --demo-accent: var(--amber) }
+  .story-architecture .process-spoke-cloud { --demo-accent: var(--mint) }
+  .story-architecture .process-core { --demo-accent: var(--yellow) }
+  .story-architecture .process-diagram small { color: var(--demo-muted) }
+  .story-checklist li { box-shadow: 0 1px #33445c }
+  .story-checklist li::before { color: var(--mint) }
+  .story-chat li { background: var(--demo-panel); box-shadow: inset 0 0 0 1px var(--demo-line) }
+  .story-chat li strong { color: var(--blue) }
+  .story-chat li:last-child { background: #112f35; color: var(--demo-ink) }
+  .story-chat li:last-child strong { color: var(--mint) }
+  .story-automation .support-flow-grid {
+    background-color: #101a2b;
+    background-image: radial-gradient(circle, #3b4c63 1px, transparent 1px);
+    border-color: var(--demo-line);
+  }
+  .story-automation .support-flow-grid > svg { stroke-width: 1.5 }
+  .story-automation .support-node { background: var(--demo-panel); border-color: var(--demo-line) }
+  .story-automation .support-node strong { background: transparent }
+  .story-automation .support-node-icon {
+    color: var(--demo-accent, var(--blue));
+    background: #0c1424;
+    border-color: var(--demo-line);
+  }
+  .story-automation .support-node-trigger { --demo-accent: var(--rose) }
+  .story-automation .support-node-sourceB { --demo-accent: var(--amber) }
+  .story-automation .support-node-merge { --demo-accent: var(--yellow) }
+  .story-automation .support-node-deliver { --demo-accent: var(--mint) }
 }
