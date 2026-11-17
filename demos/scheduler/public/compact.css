@@ -1,0 +1,12 @@
+@media (max-width: 300px) {
+  .top-bar { padding-inline: 10px; gap: 6px; }
+  .brand-button { min-width: 0; gap: 6px; padding-right: 0; }
+  .brand-mark { width: 22px; }
+  .brand-text { overflow: hidden; text-overflow: ellipsis; font-size: 14px; }
+  .top-actions { gap: 0; }
+  .bottom-nav { width: calc(100% - 20px); gap: 2px; }
+  .nav-item { min-width: 0; padding-inline: 0; }
+  .main-content { padding-inline: 10px; }
+  .kpi-grid { gap: 8px; }
+  .kpi-card { min-width: 0; padding-inline: 8px; }
+}
