@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=mobile-hero-spacing-1">
-  <script src="/assets/site.js?v=support-workflow-1" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=mobile-menu-sheet-3">
+  <script src="/assets/site.js?v=mobile-menu-sheet-3" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
@@ -25,11 +25,17 @@
   <header class="site-header">
     <nav class="wrap nav" aria-label="Main navigation">
       <a href="/" class="brand"><img class="brand-icon" src="/assets/techstack-sydney-logo.svg" width="30" height="30" alt="">TechStack Sydney</a>
-      <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" hidden>Menu</button>
+      <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" hidden><span class="menu-toggle-label">Menu</span><svg class="menu-toggle-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
       <div class="nav-menu" id="site-menu"><ul><li><a href="/services">Services</a></li>
 <li><a href="/#industries">Industries</a></li>
 <li><a href="/gym-app">DojoSwyft</a></li></ul><a class="button" href="/contact">Book a free consult</a></div>
     </nav>
+    <dialog id="mobile-menu-sheet" class="mobile-menu-sheet" aria-label="Main navigation" hidden>
+      <div class="mobile-menu-dismiss-area" aria-hidden="true"></div>
+      <div class="mobile-menu-panel">
+        <button class="mobile-menu-handle" type="button" aria-label="Close menu" autofocus></button>
+      </div>
+    </dialog>
   </header>
   <main id="main" class="home-main">
 <section id="top" class="hero"><div class="hero-frame">
