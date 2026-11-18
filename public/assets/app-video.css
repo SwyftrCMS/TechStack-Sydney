@@ -82,3 +82,12 @@
   .app-video-iframe,
   .app-video-placeholder { transition: none }
 }
+
+.app-showcase-cta {
+  display: flex;
+  justify-content: center;
+  margin: clamp(1.25rem, 2.5vw, 2rem) auto 0;
+}
+.app-showcase-cta .button {
+  max-width: 100%;
+}
