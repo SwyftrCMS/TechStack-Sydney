@@ -1056,6 +1056,14 @@ textarea { resize: vertical }
     box-shadow: 0 8px 18px #0f172a15;
   }
   .full-process-card > :nth-child(2) { flex: 1 }
+  #run .full-process-card > .full-process-description {
+    flex: 0 0 auto;
+    margin: 0;
+    padding: .75rem .875rem 0;
+    color: var(--process-muted);
+    font: 400 .875rem/1.45 "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+  #run .full-process-card > :nth-child(3) { flex: 1; min-height: 0 }
   .full-process-card .process-window-bar { gap: .5rem; padding-inline: .875rem }
   .full-process-number { margin-inline-start: auto; white-space: nowrap }
   .full-process-card .compact-discovery { display: block }
@@ -1286,3 +1294,8 @@ textarea { resize: vertical }
   .story-chat li { padding: .75rem .875rem }
   .story-checklist { gap: .75rem }
 }
+
+
+/* Shared consultation CTA below the How we build stage cards. */
+.process-cta { display: flex; justify-content: center; margin-top: 2rem }
+.process-cta .button { max-width: 100% }
