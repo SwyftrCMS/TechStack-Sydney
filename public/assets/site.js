@@ -345,7 +345,6 @@ if (supportPreview) {
       panel.querySelector('input').id = 'support-demo-reply-carousel';
       panel.querySelector('label').htmlFor = 'support-demo-reply-carousel';
     }
-    if (index === 0) panel.querySelector('.support-hosting > .support-options').remove();
     if (index === 2) panel.querySelector('.support-pipeline').remove();
     if (index === 4) {
       const workflow = panel.querySelector('[data-support-result="flow"][data-support-value="invoice-sync"]');
@@ -355,13 +354,10 @@ if (supportPreview) {
       lines.querySelector('path').setAttribute('d',
         'M100 40 C100 95 50 95 50 140 M100 40 C100 95 150 95 150 140 ' +
         'M50 140 C50 200 100 190 100 240 M150 140 C150 200 100 190 100 240 M100 240 V440');
-    }
-    if (index === 0 || index === 4) {
       for (const choice of panel.querySelectorAll('[data-support-choice]')) {
         choice.setAttribute('aria-pressed', 'false');
       }
-      const group = index === 0 ? 'hosting' : 'node-invoice-sync';
-      for (const detail of panel.querySelectorAll(`[data-support-result="${group}"]`)) {
+      for (const detail of panel.querySelectorAll('[data-support-result="node-invoice-sync"]')) {
         detail.hidden = true;
       }
     }
