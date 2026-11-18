@@ -283,7 +283,7 @@ if (supportPreview) {
       selectSupportStep(step);
       if (supportHistory) step.focus({ preventScroll: true });
     } else if (supportChoice) {
-      selectSupportChoice(supportChoice, supportValue, button.closest('.support-kpi-dashboard, .full-process-card') ?? undefined);
+      selectSupportChoice(supportChoice, supportValue, button.closest('.support-kpi-dashboard') ?? undefined);
     } else if (button.hasAttribute('data-support-next')) {
       const flows = choices.filter(choice => choice.dataset.supportChoice === 'flow');
       const active = flows.findIndex(choice => choice.getAttribute('aria-pressed') === 'true');
@@ -310,71 +310,6 @@ if (supportPreview) {
     composer.reset();
     reply.focus();
   }
-
-  const carousel = document.createElement('div');
-  carousel.className = 'full-process-carousel support-carousel';
-  carousel.dataset.fullProcessCarousel = '';
-  carousel.hidden = true;
-  carousel.innerHTML = `
-    <ol class="full-process-track" data-swipe-track tabindex="0" aria-label="Support and Scale previews"></ol>
-    <div class="swipe-indicator full-process-indicator" role="group" aria-label="Choose a support stage" hidden></div>
-  `;
-  const track = carousel.querySelector('[data-swipe-track]');
-  const indicator = carousel.querySelector('.swipe-indicator');
-
-  steps.forEach((step, index) => {
-    const name = step.querySelector('strong').textContent;
-    const slide = document.createElement('li');
-    slide.className = 'process-preview support-preview full-process-card';
-    const bar = supportPreview.querySelector('.process-window-bar').cloneNode(true);
-    const title = bar.querySelector('.process-preview-title');
-    title.removeAttribute('aria-live');
-    title.textContent = name;
-    const number = bar.querySelector('.process-phase');
-    number.className = 'full-process-number';
-    number.textContent = step.dataset.supportStep + ' / ' + steps.length.toString().padStart(2, '0');
-
-    const panel = panels[index].cloneNode(true);
-    panel.removeAttribute('id');
-    panel.hidden = false;
-    if (index === 1) {
-      panel.querySelector('.support-tickets > aside').remove();
-      panel.querySelector('.support-tickets').classList.remove('support-split');
-      panel.querySelectorAll('[data-support-result="ticket"]:not([data-support-value="quote-chat"])')
-        .forEach(thread => thread.remove());
-      panel.querySelector('input').id = 'support-demo-reply-carousel';
-      panel.querySelector('label').htmlFor = 'support-demo-reply-carousel';
-    }
-    if (index === 0) panel.querySelector('.support-hosting > .support-options').remove();
-    if (index === 4) {
-      const workflow = panel.querySelector('[data-support-result="flow"][data-support-value="invoice-sync"]');
-      panel.querySelector('.support-content').replaceChildren(workflow);
-      const lines = workflow.querySelector('.support-flow-grid > svg');
-      lines.setAttribute('viewBox', '0 0 200 500');
-      lines.querySelector('path').setAttribute('d',
-        'M100 40 C100 95 50 95 50 140 M100 40 C100 95 150 95 150 140 ' +
-        'M50 140 C50 200 100 190 100 240 M150 140 C150 200 100 190 100 240 M100 240 V440');
-    }
-    if (index === 0 || index === 4) {
-      for (const choice of panel.querySelectorAll('[data-support-choice]')) {
-        choice.setAttribute('aria-pressed', 'false');
-      }
-      const group = index === 0 ? 'hosting' : 'node-invoice-sync';
-      for (const detail of panel.querySelectorAll(`[data-support-result="${group}"]`)) {
-        detail.hidden = true;
-      }
-    }
-    slide.append(bar, panel);
-    track.append(slide);
-
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.setAttribute('aria-label', name);
-    button.setAttribute('aria-pressed', String(index === 0));
-    button.append(document.createElement('span'));
-    indicator.append(button);
-  });
-  supportPreview.querySelector('.support-layout').after(carousel);
 
   for (const composer of supportPreview.querySelectorAll('.support-compose')) {
     composer.addEventListener('submit', handleReply);
