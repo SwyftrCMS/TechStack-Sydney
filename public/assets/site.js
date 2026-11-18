@@ -235,7 +235,6 @@ const supportPreview = document.querySelector('.support-scale');
 if (supportPreview) {
   const steps = [...supportPreview.querySelectorAll('[data-support-step]')];
   const panels = steps.map(step => document.getElementById(step.getAttribute('aria-controls')));
-  const choices = [...supportPreview.querySelectorAll('[data-support-choice]')];
   const title = supportPreview.querySelector('[data-support-title]');
   const number = supportPreview.querySelector('[data-support-current]');
   const history = supportPreview.querySelector('.support-history');
@@ -284,10 +283,6 @@ if (supportPreview) {
       if (supportHistory) step.focus({ preventScroll: true });
     } else if (supportChoice) {
       selectSupportChoice(supportChoice, supportValue, button.closest('.support-kpi-dashboard') ?? undefined);
-    } else if (button.hasAttribute('data-support-next')) {
-      const flows = choices.filter(choice => choice.dataset.supportChoice === 'flow');
-      const active = flows.findIndex(choice => choice.getAttribute('aria-pressed') === 'true');
-      selectSupportChoice('flow', flows[(active + 1) % flows.length].dataset.supportValue);
     }
   });
 
