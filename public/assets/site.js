@@ -291,26 +291,6 @@ if (supportPreview) {
     }
   });
 
-  function handleReply(event) {
-    event.preventDefault();
-    const composer = event.currentTarget;
-    const reply = composer.querySelector('input');
-    const message = reply.value.trim();
-    if (!message) return;
-    const thread = composer.closest('.support-chat').querySelector('[data-support-result="ticket"]:not([hidden]) .support-thread');
-    const item = document.createElement('li');
-    const author = document.createElement('small');
-    const body = document.createElement('p');
-    item.className = 'support-message support-message-reply';
-    author.textContent = 'You · Just now';
-    body.textContent = message;
-    item.append(author, body);
-    thread.append(item);
-    thread.scrollTop = thread.scrollHeight;
-    composer.reset();
-    reply.focus();
-  }
-
   const carousel = document.createElement('div');
   carousel.className = 'full-process-carousel support-carousel';
   carousel.dataset.fullProcessCarousel = '';
@@ -337,14 +317,6 @@ if (supportPreview) {
     const panel = panels[index].cloneNode(true);
     panel.removeAttribute('id');
     panel.hidden = false;
-    if (index === 1) {
-      panel.querySelector('.support-tickets > aside').remove();
-      panel.querySelector('.support-tickets').classList.remove('support-split');
-      panel.querySelectorAll('[data-support-result="ticket"]:not([data-support-value="quote-chat"])')
-        .forEach(thread => thread.remove());
-      panel.querySelector('input').id = 'support-demo-reply-carousel';
-      panel.querySelector('label').htmlFor = 'support-demo-reply-carousel';
-    }
     if (index === 0) panel.querySelector('.support-hosting > .support-options').remove();
     if (index === 2) panel.querySelector('.support-pipeline').remove();
     if (index === 4) {
@@ -377,10 +349,26 @@ if (supportPreview) {
   });
   supportPreview.querySelector('.support-layout').after(carousel);
 
-  for (const composer of supportPreview.querySelectorAll('.support-compose')) {
-    composer.addEventListener('submit', handleReply);
-    composer.querySelector('input').disabled = false;
-    composer.querySelector('button').disabled = false;
+  if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const chatObserver = new IntersectionObserver((entries, observer) => {
+      const visibleChat = entries.find(entry => entry.intersectionRatio >= 0.6);
+      if (!visibleChat) return;
+      observer.disconnect();
+
+      if (!reduceMotion.matches) {
+        [...visibleChat.target.children].forEach((message, index) => {
+          message.animate([{ opacity: 0 }, { opacity: 1 }], {
+            duration: 200,
+            delay: index * 140,
+            easing: 'ease-out',
+            fill: 'backwards',
+          });
+        });
+      }
+    }, { threshold: 0.6 });
+
+    supportPreview.querySelectorAll('[data-support-chat]').forEach(chat => chatObserver.observe(chat));
   }
 }
 
