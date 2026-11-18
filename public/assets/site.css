@@ -80,6 +80,9 @@ section[id] { scroll-margin-top: 4.5rem }
   padding-block: 3rem;
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
 }
+@media (width < 40rem) {
+  .home-main .hero-inner { padding-block-start: 6rem }
+}
 .eyebrow, .mock-bar { font-family: var(--mono); color: var(--muted); font-size: .75rem }
 .eyebrow { text-transform: uppercase; letter-spacing: .1em }
 .badge { display: inline-block; border: 1px solid var(--border); border-radius: 2rem; padding: .25rem .75rem; background: var(--surface) }
