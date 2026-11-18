@@ -424,12 +424,12 @@ figcaption { font-size: .875rem; color: var(--muted) }
 .diagram { grid-template-columns: 1fr 1fr }
 .diagram .mock { min-height: 4.25rem; margin-bottom: .4rem }
 .mock-row { display: flex; align-items: center; gap: .4rem; margin-bottom: .35rem; padding: .45rem; background: var(--surface); border-radius: .45rem }
-.mock-row i, .phone-top i { width: 1.5rem; aspect-ratio: 1; border-radius: 50%; background: var(--mock-dark); flex: none }
+.mock-row i { width: 1.5rem; aspect-ratio: 1; border-radius: 50%; background: var(--mock-dark); flex: none }
 .mock-row b { width: 32% }
 .mock-row b:last-child { margin-left: auto; width: 18% }
 .calendar { grid-template-columns: repeat(7,minmax(0,1fr)) }
-.calendar i, .mock-grid i, .phone-dock i { display: grid; place-items: center; aspect-ratio: 1; border-radius: .35rem; background: var(--surface); font-style: normal }
-.calendar .dark, .phone-dock i { background: var(--mock-dark) }
+.calendar i, .mock-grid i { display: grid; place-items: center; aspect-ratio: 1; border-radius: .35rem; background: var(--surface); font-style: normal }
+.calendar .dark { background: var(--mock-dark) }
 .calendar .active { background: var(--ink); color: white }
 .mock-grid { grid-template-columns: repeat(3,minmax(0,1fr)) }
 .mock-grid .mock { min-height: 4rem }
@@ -440,17 +440,6 @@ figcaption { font-size: .875rem; color: var(--muted) }
 .callout h3 { margin-bottom: .55rem }
 .callout > span { display: block; margin-bottom: .7rem }
 .phone { order: -1; width: min(100%, 300px); height: 620px; margin-inline: auto; padding: .6rem; border-radius: 3rem; background: var(--ink); box-shadow: 0 1rem 2rem #0002 }
-.phone-screen { height: 100%; position: relative; display: flex; flex-direction: column; gap: .65rem; padding: 2.5rem 1rem 1rem; border-radius: 2.4rem; background: var(--paper); font: .66rem var(--mono) }
-.phone-screen::before { content: ""; position: absolute; top: .55rem; left: 50%; translate: -50%; width: 7rem; height: 1.4rem; border-radius: 2rem; background: var(--ink) }
-.phone-top, .phone-dock, .store-badges { display: flex; gap: .6rem; justify-content: space-between }
-.phone-card { padding: .75rem; border: 1px solid var(--border); background: var(--surface); border-radius: .75rem }
-.phone-card .calendar, .phone-card .mock-row, .quick-actions { margin-top: .5rem }
-.quick-actions { display: grid; gap: .45rem; grid-template-columns: 1fr 1fr }
-.quick-actions .mock { min-height: 3.2rem }
-.phone-dock { margin-top: auto; padding: .75rem; background: var(--surface); border-radius: .75rem }
-.phone-dock i { width: 1.2rem }
-.store-badges { margin-top: 1rem }
-.store-badges .mock { flex: 1; min-height: 3rem }
 .reviews { columns: 1; margin-top: 3rem; gap: 1rem }
 .reviews figure { break-inside: avoid; margin-bottom: 1rem }
 blockquote { margin-block: .75rem 1rem }

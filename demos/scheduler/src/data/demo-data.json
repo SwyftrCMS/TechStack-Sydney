@@ -1,0 +1,319 @@
+{
+  "activeTab": "home",
+  "selectedDayIndex": 1,
+  "selectedGraphDayIndex": 1,
+  "contactFilter": "All",
+  "contactQuery": "",
+  "leadFilter": "All",
+  "invoices": [
+    {
+      "id": "INV-1042",
+      "client": "Elena Rostova",
+      "amount": 1850,
+      "status": "paid",
+      "date": "Nov 15"
+    },
+    {
+      "id": "INV-1041",
+      "client": "Northgate Dental",
+      "amount": 4200,
+      "status": "paid",
+      "date": "Nov 12"
+    },
+    {
+      "id": "INV-1040",
+      "client": "Marcus Vance",
+      "amount": 3150,
+      "status": "paid",
+      "date": "Nov 09"
+    },
+    {
+      "id": "INV-1039",
+      "client": "Harborview Lofts",
+      "amount": 9250,
+      "status": "paid",
+      "date": "Nov 04"
+    },
+    {
+      "id": "INV-1045",
+      "client": "Daniel Park",
+      "amount": 1480,
+      "status": "unpaid",
+      "date": "Due Nov 19"
+    },
+    {
+      "id": "INV-1044",
+      "client": "Oakridge Bistro",
+      "amount": 1950,
+      "status": "unpaid",
+      "date": "Due Today"
+    },
+    {
+      "id": "INV-1043",
+      "client": "Claire Bennett",
+      "amount": 850,
+      "status": "unpaid",
+      "date": "Due Nov 22"
+    }
+  ],
+  "weekDays": [
+    {
+      "dow": "Mon",
+      "num": "16",
+      "full": "Monday, Nov 16",
+      "revenue": 3200
+    },
+    {
+      "dow": "Tue",
+      "num": "17",
+      "full": "Tuesday, Nov 17",
+      "revenue": 5400
+    },
+    {
+      "dow": "Wed",
+      "num": "18",
+      "full": "Wednesday, Nov 18",
+      "revenue": 2850
+    },
+    {
+      "dow": "Thu",
+      "num": "19",
+      "full": "Thursday, Nov 19",
+      "revenue": 4100
+    },
+    {
+      "dow": "Fri",
+      "num": "20",
+      "full": "Friday, Nov 20",
+      "revenue": 3650
+    },
+    {
+      "dow": "Sat",
+      "num": "21",
+      "full": "Saturday, Nov 21",
+      "revenue": 1400
+    },
+    {
+      "dow": "Sun",
+      "num": "22",
+      "full": "Sunday, Nov 22",
+      "revenue": 900
+    }
+  ],
+  "jobs": [
+    {
+      "id": "job-1",
+      "dayIndex": 1,
+      "time": "08:30 AM",
+      "duration": "1.5h",
+      "title": "HVAC Compressor Tune-Up",
+      "client": "Elena Rostova",
+      "address": "412 Oakridge Ave",
+      "status": "In Progress",
+      "notes": "Annual filter and refrigerant pressure inspection."
+    },
+    {
+      "id": "job-2",
+      "dayIndex": 1,
+      "time": "11:00 AM",
+      "duration": "2h",
+      "title": "Panel Upgrade Inspection",
+      "client": "Oakridge Bistro",
+      "address": "89 Market St, Suite B",
+      "status": "Confirmed",
+      "notes": "Meet kitchen manager at rear loading dock before shutting off sub-panel."
+    },
+    {
+      "id": "job-3",
+      "dayIndex": 1,
+      "time": "02:15 PM",
+      "duration": "1h",
+      "title": "Smart Thermostat Install",
+      "client": "Daniel Park",
+      "address": "1204 Cedar Lane",
+      "status": "Scheduled",
+      "notes": "Customer requested dual-zone sensor pairing in upstairs hallway."
+    },
+    {
+      "id": "job-4",
+      "dayIndex": 1,
+      "time": "04:30 PM",
+      "duration": "1.5h",
+      "title": "Backflow Valve Replacement",
+      "client": "Northgate Dental",
+      "address": "305 Pinecrest Blvd",
+      "status": "Scheduled",
+      "notes": "Bring 3/4-inch brass assembly and pressure test gauge."
+    },
+    {
+      "id": "job-5",
+      "dayIndex": 0,
+      "time": "09:30 AM",
+      "duration": "2h",
+      "title": "Rooftop Unit Maintenance",
+      "client": "Harborview Lofts",
+      "address": "720 Bayshore Dr",
+      "status": "Completed",
+      "notes": "Replaced belt and cleared condensate drain line."
+    },
+    {
+      "id": "job-6",
+      "dayIndex": 2,
+      "time": "10:00 AM",
+      "duration": "3h",
+      "title": "Tankless Water Heater Flush",
+      "client": "Claire Bennett",
+      "address": "58 Elmwood Ct",
+      "status": "Confirmed",
+      "notes": "Garage utility closet on the left side."
+    },
+    {
+      "id": "job-7",
+      "dayIndex": 3,
+      "time": "01:00 PM",
+      "duration": "2.5h",
+      "title": "Lighting Circuit Rewire",
+      "client": "Marcus Vance",
+      "address": "910 Maple Terrace",
+      "status": "Scheduled",
+      "notes": "Install dimmer bank in main studio."
+    }
+  ],
+  "contacts": [
+    {
+      "id": "c-1",
+      "name": "Elena Rostova",
+      "type": "Residential",
+      "phone": "(415) 555-0148",
+      "email": "elena.rostova@example.com",
+      "address": "412 Oakridge Ave",
+      "lastJob": "HVAC Tune-Up · Today"
+    },
+    {
+      "id": "c-2",
+      "name": "Oakridge Bistro",
+      "type": "Commercial",
+      "phone": "(415) 555-0192",
+      "email": "ops@example.com",
+      "address": "89 Market St, Suite B",
+      "lastJob": "Panel Inspection · Today"
+    },
+    {
+      "id": "c-3",
+      "name": "Daniel Park",
+      "type": "Residential",
+      "phone": "(415) 555-0163",
+      "email": "dpark@example.com",
+      "address": "1204 Cedar Lane",
+      "lastJob": "Thermostat Install · Today"
+    },
+    {
+      "id": "c-4",
+      "name": "Northgate Dental",
+      "type": "Commercial",
+      "phone": "(415) 555-0117",
+      "email": "facilities@example.com",
+      "address": "305 Pinecrest Blvd",
+      "lastJob": "Valve Replacement · Today"
+    },
+    {
+      "id": "c-5",
+      "name": "Claire Bennett",
+      "type": "Residential",
+      "phone": "(415) 555-0174",
+      "email": "claire.bennett@example.com",
+      "address": "58 Elmwood Ct",
+      "lastJob": "Water Heater · Nov 18"
+    },
+    {
+      "id": "c-6",
+      "name": "Harborview Lofts",
+      "type": "Commercial",
+      "phone": "(415) 555-0185",
+      "email": "hoa@example.com",
+      "address": "720 Bayshore Dr",
+      "lastJob": "Rooftop Unit · Nov 16"
+    }
+  ],
+  "leads": [
+    {
+      "id": "l-1",
+      "name": "Sofia Alvarez",
+      "service": "EV Charger 240V Drop",
+      "value": 1650,
+      "stage": "New",
+      "source": "Web Form",
+      "age": "2h ago",
+      "phone": "(415) 555-0211",
+      "notes": "Wants Wallbox installed inside attached 2-car garage."
+    },
+    {
+      "id": "l-2",
+      "name": "Westside Coffee Co.",
+      "service": "Commercial Espresso Plumbing",
+      "value": 3400,
+      "stage": "Quoted",
+      "source": "Referral",
+      "age": "1d ago",
+      "phone": "(415) 555-0234",
+      "notes": "Sent estimate #Q-209. Follow up Thursday morning."
+    },
+    {
+      "id": "l-3",
+      "name": "Liam O’Connor",
+      "service": "Heat Pump Conversion",
+      "value": 8900,
+      "stage": "Quoted",
+      "source": "Google Maps",
+      "age": "3d ago",
+      "phone": "(415) 555-0279",
+      "notes": "Reviewing rebate options with homeowner."
+    },
+    {
+      "id": "l-4",
+      "name": "Hannah Kim",
+      "service": "Kitchen Recessed Lighting",
+      "value": 2100,
+      "stage": "Won",
+      "source": "Repeat Client",
+      "age": "4d ago",
+      "phone": "(415) 555-0295",
+      "notes": "Approved deposit. Ready to add to next week schedule."
+    },
+    {
+      "id": "l-5",
+      "name": "Summit Gym",
+      "service": "Locker Room Exhaust Fan",
+      "value": 2750,
+      "stage": "New",
+      "source": "Phone Call",
+      "age": "5h ago",
+      "phone": "(415) 555-0260",
+      "notes": "Needs site walk before 11 AM."
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n-1",
+      "title": "Oakridge Bistro confirmed 11:00 AM slot",
+      "time": "14m ago",
+      "unread": true
+    },
+    {
+      "id": "n-2",
+      "title": "Invoice #1042 paid ($1,850)",
+      "time": "2h ago",
+      "unread": true
+    },
+    {
+      "id": "n-3",
+      "title": "New lead from Sofia Alvarez",
+      "time": "2h ago",
+      "unread": false
+    }
+  ],
+  "profile": {
+    "initials": "JF",
+    "name": "Jordan Fields"
+  }
+}
