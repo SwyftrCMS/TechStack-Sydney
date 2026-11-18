@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=support-kpis-2">
-  <script src="/assets/site.js?v=support-kpis-2" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=support-workflow-1">
+  <script src="/assets/site.js?v=support-workflow-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
@@ -479,15 +479,39 @@
       <li class="story-stage">
         <h3>Take repeat admin off your list</h3>
         <p>We can help automate routine tasks, like sending a customer their receipt once payment comes through.</p>
-        <figure class="story-figure story-automation"><div class="support-flow-grid">
-      <svg viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path class="story-wire-blue" d="M100 50 C100 95 50 105 50 150 C50 195 100 205 100 250"/><path class="story-wire-amber" d="M100 50 C100 95 150 105 150 150 C150 195 100 205 100 250"/><path class="story-wire-mint" d="M100 250 V450"/></svg>
-      <div class="support-node support-node-trigger" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Webhook on job sign-off</strong></div>
-<div class="support-node support-node-sourceA" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch job &amp; parts</strong></div>
-<div class="support-node support-node-sourceB" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Check Xero rates</strong></div>
-<div class="support-node support-node-merge" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; validate</strong></div>
-<div class="support-node support-node-process" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Draft completion note</strong></div>
-<div class="support-node support-node-deliver" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email receipt via Sender</strong></div>
-    </div><figcaption>From job sign-off to customer receipt</figcaption></figure>
+        <figure class="support-receipt">
+  <figcaption>Automatic receipt workflow</figcaption>
+  <div class="support-receipt-diagram">
+    <svg class="support-receipt-lines-vertical" viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path d="M100 50V100H50V200H150V100H100M100 200V450"/></svg>
+    <svg class="support-receipt-lines-horizontal" viewBox="0 0 500 200" preserveAspectRatio="none" aria-hidden="true"><path d="M50 100H100V50H200V150H100V100M200 100H450"/></svg>
+    <ol>
+      <li class="support-receipt-payment">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 8h14m-10 4h2"/></svg>
+        <strong>Payment received</strong>
+      </li>
+      <li class="support-receipt-details">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h7l3 3v11H5zM8 9h4m-4 3h4"/></svg>
+        <strong>Get payment details</strong>
+      </li>
+      <li class="support-receipt-customer">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>
+        <strong>Get customer details</strong>
+      </li>
+      <li class="support-receipt-check">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 4h10v13H5zM7 10l2 2 4-4"/></svg>
+        <strong>Check details</strong>
+      </li>
+      <li class="support-receipt-receipt">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h10v14l-2-1.5L10 17l-3-1.5L5 17zM8 7h4m-4 3h4"/></svg>
+        <strong>Create receipt</strong>
+      </li>
+      <li class="support-receipt-email">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 6l7 5 7-5"/></svg>
+        <strong>Email receipt</strong>
+      </li>
+    </ol>
+  </div>
+</figure>
       </li>
     </ol>
     <div class="process-layout support-layout">
@@ -686,146 +710,39 @@
 </div>
 </div>
 <div id="support-panel-05" hidden>
-<div class="support-content support-automation">
-  <div class="process-label"><strong>Workflow library</strong><span>Automation preview</span></div>
-  <div class="support-selector"><button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="invoice-sync" data-accent="pink" aria-pressed="true">Xero &amp; Sender</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="lead-triage" data-accent="amber" aria-pressed="false">Enquiry Triage</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="sla-watch" data-accent="sky" aria-pressed="false">SLA Watch</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="weekly-digest" data-accent="green" aria-pressed="false">Weekly Briefing</button></div>
-  <div data-support-result="flow" data-support-value="invoice-sync">
-<div class="support-surface support-flow" data-accent="pink">
-    <div class="process-label"><strong>Job Complete to Xero &amp; Sender</strong><span>Real-time webhook</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-invoice-sync" data-support-value="trigger" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Webhook on job sign-off</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-invoice-sync" data-support-value="sourceA" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch job &amp; parts</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-invoice-sync" data-support-value="sourceB" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Check Xero rates</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-invoice-sync" data-support-value="merge" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; validate</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-invoice-sync" data-support-value="process" data-accent="pink" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Draft note w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-invoice-sync" data-support-value="deliver" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email receipt via Sender</strong></button>
-    </div>
-    <div data-support-result="node-invoice-sync" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Webhook on job sign-off</strong><small>Fires immediately when a field technician records client sign-off.</small><span class="support-tag">Supabase Webhook</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch job &amp; parts</strong><small>Pulls approved labour hours, site notes, and parts consumed.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Check Xero rates</strong><small>Verifies GST codes, customer terms, and contract rate card.</small><span class="support-tag">Xero API</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge &amp; validate</strong><small>Reconciles quote line items against actuals inside n8n.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="process">
-<div class="support-detail"><strong>Draft note w/ Claude AI</strong><small>Formats clear, client-friendly completion notes from tech logs.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Email receipt via Sender</strong><small>Creates draft Xero invoice and emails branded receipt via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Sender · Supabase · 18 hrs / mo saved</p>
+<figure class="support-receipt">
+  <figcaption>Automatic receipt workflow</figcaption>
+  <div class="support-receipt-diagram">
+    <svg class="support-receipt-lines-vertical" viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path d="M100 50V100H50V200H150V100H100M100 200V450"/></svg>
+    <svg class="support-receipt-lines-horizontal" viewBox="0 0 500 200" preserveAspectRatio="none" aria-hidden="true"><path d="M50 100H100V50H200V150H100V100M200 100H450"/></svg>
+    <ol>
+      <li class="support-receipt-payment">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 8h14m-10 4h2"/></svg>
+        <strong>Payment received</strong>
+      </li>
+      <li class="support-receipt-details">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h7l3 3v11H5zM8 9h4m-4 3h4"/></svg>
+        <strong>Get payment details</strong>
+      </li>
+      <li class="support-receipt-customer">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>
+        <strong>Get customer details</strong>
+      </li>
+      <li class="support-receipt-check">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 4h10v13H5zM7 10l2 2 4-4"/></svg>
+        <strong>Check details</strong>
+      </li>
+      <li class="support-receipt-receipt">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h10v14l-2-1.5L10 17l-3-1.5L5 17zM8 7h4m-4 3h4"/></svg>
+        <strong>Create receipt</strong>
+      </li>
+      <li class="support-receipt-email">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 6l7 5 7-5"/></svg>
+        <strong>Email receipt</strong>
+      </li>
+    </ol>
   </div>
-</div>
-<div data-support-result="flow" data-support-value="lead-triage" hidden>
-<div class="support-surface support-flow" data-accent="amber">
-    <div class="process-label"><strong>Enquiry Triage &amp; Quote Prep</strong><span>Instant triage</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-lead-triage" data-support-value="trigger" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>New web or email enquiry</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-lead-triage" data-support-value="sourceA" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Verify ABN &amp; region</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-lead-triage" data-support-value="sourceB" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Pull past quotes</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-lead-triage" data-support-value="merge" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge sources</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-lead-triage" data-support-value="process" data-accent="amber" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Scope w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-lead-triage" data-support-value="deliver" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Send reply via Sender</strong></button>
-    </div>
-    <div data-support-result="node-lead-triage" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>New web or email enquiry</strong><small>Captures inbound project requests within seconds of submission.</small><span class="support-tag">n8n Trigger</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Verify ABN &amp; region</strong><small>Checks Australian business registration and service state.</small><span class="support-tag">AU Registry</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Pull past quotes</strong><small>Loads comparable historical scopes and delivery timelines.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge sources</strong><small>Combines client context, ABN check, and historical pricing.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="process">
-<div class="support-detail"><strong>Scope w/ Claude AI</strong><small>Extracts technical requirements and drafts a structured scope summary.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Send reply via Sender</strong><small>Logs CRM deal and dispatches tailored acknowledgement via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Claude AI · Sender · 12 hrs / mo saved</p>
-  </div>
-</div>
-<div data-support-result="flow" data-support-value="sla-watch" hidden>
-<div class="support-surface support-flow" data-accent="sky">
-    <div class="process-label"><strong>At-Risk SLA Escalation</strong><span>Every 15 mins</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-sla-watch" data-support-value="trigger" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Every 15 mins AEST</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-sla-watch" data-support-value="sourceA" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch open SLA jobs</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-sla-watch" data-support-value="sourceB" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Fetch crew roster</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-sla-watch" data-support-value="merge" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; score risk</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-sla-watch" data-support-value="process" data-accent="sky" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Rank w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-sla-watch" data-support-value="deliver" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Alert ops via Sender</strong></button>
-    </div>
-    <div data-support-result="node-sla-watch" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Every 15 mins AEST</strong><small>Runs scheduled Australian business-hours compliance sweeps.</small><span class="support-tag">n8n Schedule</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch open SLA jobs</strong><small>Queries active jobs within 2 hours of their contractual window.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Fetch crew roster</strong><small>Checks live technician availability and proximity by postcode.</small><span class="support-tag">Dispatch API</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge &amp; score risk</strong><small>Matches unallocated jobs against nearest available field crew.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="process">
-<div class="support-detail"><strong>Rank w/ Claude AI</strong><small>Prioritises reassignment options and drafts handover context.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Alert ops via Sender</strong><small>Notifies state operations lead immediately with 1-click reassign.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Supabase · Sender · Zero missed SLAs</p>
-  </div>
-</div>
-<div data-support-result="flow" data-support-value="weekly-digest" hidden>
-<div class="support-surface support-flow" data-accent="green">
-    <div class="process-label"><strong>Executive Operations Digest</strong><span>Fridays 16:00 AEST</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-weekly-digest" data-support-value="trigger" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Fridays at 16:00 AEST</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-weekly-digest" data-support-value="sourceA" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch Supabase KPIs</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-weekly-digest" data-support-value="sourceB" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Fetch deploy notes</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-weekly-digest" data-support-value="merge" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge weekly data</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-weekly-digest" data-support-value="process" data-accent="green" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Summarise w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-weekly-digest" data-support-value="deliver" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email briefing via Sender</strong></button>
-    </div>
-    <div data-support-result="node-weekly-digest" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Fridays at 16:00 AEST</strong><small>Triggers weekly executive rollup before end of business Friday.</small><span class="support-tag">n8n Schedule</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch Supabase KPIs</strong><small>Aggregates completed jobs, WIP margin, and SLA attainment.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Fetch deploy notes</strong><small>Collects merged releases and resolved support tickets for the week.</small><span class="support-tag">GitHub · GitLab</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge weekly data</strong><small>Aligns operational metrics and engineering milestones in one payload.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="process">
-<div class="support-detail"><strong>Summarise w/ Claude AI</strong><small>Synthesises executive highlights, bottlenecks, and margin trends.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Email briefing via Sender</strong><small>Delivers the formatted Friday briefing to directors via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Claude AI · Sender · 6 hrs / mo saved</p>
-  </div>
-</div>
-  <button type="button" class="button support-next" data-support-next aria-label="Next example workflow">+</button>
-</div>
+</figure>
 </div>
         </div>
       </div>
