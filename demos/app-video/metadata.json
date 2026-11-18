@@ -1,6 +1,0 @@
-{
-  "name": "Support & Scale — AI Code to CRM Showcase Video",
-  "description": "12-second (360-frame, 30fps) looping 2D/3D UI showcase video transitioning from dark-blue AI code generation into a production CRM across five scaling stages.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
