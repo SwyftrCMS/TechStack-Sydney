@@ -1306,3 +1306,36 @@ textarea { resize: vertical }
 /* Shared consultation CTA below the How we build stage cards. */
 .process-cta { display: flex; justify-content: center; margin-top: 2rem }
 .process-cta .button { max-width: 100% }
+
+.support-kpi-dashboard { min-width: 0; padding: 1rem; color: var(--process-ink, #0f172a) }
+.story-stage > .support-kpi-dashboard {
+  margin-top: .875rem; border: 1px solid var(--process-line); border-radius: .75rem; background: #fff;
+}
+.support-kpi-options {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .375rem; margin-block: .75rem;
+}
+.support-kpi-options .support-choice {
+  display: grid; align-content: start; gap: .25rem; padding: .5rem .375rem; text-align: left;
+}
+.support-kpi-options strong { font-size: clamp(1rem, 3vw, 1.25rem); line-height: 1.2; color: var(--process-accent-ink) }
+.support-kpi-options button > span:last-child { font-size: .6875rem; line-height: 1.35 }
+.support-kpi-trend { margin: 0; padding: .625rem }
+.support-kpi-trend figcaption { display: grid; gap: .125rem; font-size: .75rem }
+.support-kpi-trend figcaption span { color: var(--process-muted); font-size: .6875rem }
+.support-kpi-graph {
+  display: grid; grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: .375rem; align-items: stretch; margin-top: .5rem;
+}
+.support-kpi-graph > svg { display: block; width: 100%; height: 6rem }
+.support-kpi-scale {
+  display: flex; flex-direction: column; justify-content: space-between; padding-block: .15rem;
+}
+.support-kpi-scale, .support-kpi-weeks { color: var(--process-muted); font-size: .625rem }
+.support-kpi-weeks {
+  grid-column: 2; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); text-align: center;
+}
+.support-kpi-graph .support-chart-line { stroke-linejoin: round }
+.support-kpi-point {
+  stroke: var(--process-accent-ink); stroke-width: 5; stroke-linecap: round; vector-effect: non-scaling-stroke;
+}
+.support-kpi-trend p { margin: .5rem 0 0; font-size: .75rem; line-height: 1.45 }
