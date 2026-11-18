@@ -1,29 +1,96 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('#site-menu');
 
+const menuLabel = menuToggle.querySelector('.menu-toggle-label') ?? menuToggle;
+const menuNav = menu.parentElement;
+const menuSheet = document.querySelector('#mobile-menu-sheet');
+const sheetViewport = matchMedia('(width < 40rem)');
+const desktop = matchMedia('(min-width: 64rem)');
+const canShowSheet = typeof menuSheet?.showModal === 'function';
+
 function setMenu(open) {
-  menu.hidden = !open;
+  if (canShowSheet && sheetViewport.matches) {
+    if (open && !menuSheet.open) menuSheet.showModal();
+    if (!open && menuSheet.open) menuSheet.close();
+  } else {
+    menu.hidden = !open;
+    menuLabel.textContent = open ? 'Close menu' : 'Menu';
+  }
   menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.textContent = open ? 'Close menu' : 'Menu';
 }
 
-const desktop = matchMedia('(min-width: 64rem)');
 function resetMenu() {
+  const useSheet = canShowSheet && sheetViewport.matches;
+  if (canShowSheet) {
+    if (menuSheet.open) menuSheet.close();
+    menuSheet.hidden = !useSheet;
+    if (useSheet) menuSheet.querySelector('.mobile-menu-panel').append(menu);
+    else menuNav.append(menu);
+  }
   menuToggle.hidden = desktop.matches;
+  menuToggle.setAttribute('aria-controls', useSheet ? menuSheet.id : menu.id);
+  if (useSheet) {
+    menu.hidden = false;
+    menuToggle.setAttribute('aria-label', 'Open menu');
+  } else {
+    menuToggle.removeAttribute('aria-label');
+  }
   setMenu(desktop.matches);
 }
+
 resetMenu();
 desktop.addEventListener('change', resetMenu);
-menuToggle.addEventListener('click', () => setMenu(menu.hidden));
+if (canShowSheet) sheetViewport.addEventListener('change', resetMenu);
+menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
 menu.addEventListener('click', event => {
   if (!desktop.matches && event.target.closest('a')) setMenu(false);
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !desktop.matches && !menu.hidden) {
+  if (event.key === 'Escape' && !desktop.matches && menuToggle.getAttribute('aria-expanded') === 'true' && !menuSheet?.open) {
     setMenu(false);
     menuToggle.focus();
   }
 });
+
+if (canShowSheet) {
+  menuSheet.addEventListener('close', () => {
+    if (!sheetViewport.matches || menuSheet.open) return;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.focus({ preventScroll: true });
+  });
+
+  let pressedBackdrop = false;
+  menuSheet.addEventListener('pointerdown', event => {
+    pressedBackdrop = event.target === menuSheet;
+  });
+  menuSheet.addEventListener('click', event => {
+    if (pressedBackdrop && event.target === menuSheet) setMenu(false);
+    pressedBackdrop = false;
+  });
+
+  const handle = menuSheet.querySelector('.mobile-menu-handle');
+  let swipeStart;
+  let draggedHandle = false;
+  handle.addEventListener('click', event => {
+    if (event.detail === 0 || !draggedHandle) setMenu(false);
+  });
+  handle.addEventListener('pointerdown', event => {
+    if (!event.isPrimary) return;
+    draggedHandle = false;
+    if (event.pointerType === 'mouse') return;
+    swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+    handle.setPointerCapture(event.pointerId);
+  });
+  handle.addEventListener('pointerup', event => {
+    if (swipeStart?.id !== event.pointerId) return;
+    const distance = event.clientY - swipeStart.y;
+    const sideways = Math.abs(event.clientX - swipeStart.x);
+    swipeStart = undefined;
+    draggedHandle = Math.abs(distance) > 10 || sideways > 10;
+    if (distance >= 48 && distance > sideways) setMenu(false);
+  });
+  handle.addEventListener('lostpointercapture', () => { swipeStart = undefined; });
+}
 
 for (const group of document.querySelectorAll('[data-tabs]')) {
   const tabs = [...group.querySelectorAll('[role=tab]')];
