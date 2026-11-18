@@ -11,16 +11,18 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=full-process-carousel-3-brand-logo-fixed-nav-support-carousel-details-mobile-story-light-tiles-phone-nav">
-  <script src="/assets/site.js?v=full-process-carousel-1-support-carousel-details-phone-nav" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=hero-overlay-header-2">
+  <script src="/assets/site.js?v=transparent-scroll-header-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
   <script src="/assets/scheduler-phone.js" defer></script>
+  <link rel="stylesheet" href="/assets/app-video.css?v=app-video-1">
+  <script src="/assets/app-video.js?v=app-video-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header site-header--scroll">
+  <header class="site-header">
     <nav class="wrap nav" aria-label="Main navigation">
       <a href="/" class="brand"><img class="brand-icon" src="/assets/techstack-sydney-logo.svg" width="30" height="30" alt="">TechStack Sydney</a>
       <button class="menu-toggle" type="button" aria-controls="site-menu" aria-expanded="false" hidden>Menu</button>
@@ -357,6 +359,27 @@
         <button type="button" aria-label="Design &amp; Build" aria-controls="full-process-slide-3" aria-pressed="false"><span></span></button>
         <button type="button" aria-label="Integrations" aria-controls="full-process-slide-4" aria-pressed="false"><span></span></button>
         <button type="button" aria-label="Testing &amp; Launch" aria-controls="full-process-slide-5" aria-pressed="false"><span></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="app-showcase" class="section app-showcase" aria-labelledby="app-showcase-title">
+  <div class="wrap">
+    <header class="section-heading">
+      <p class="eyebrow">App showcase</p>
+      <h2 id="app-showcase-title">See your software come to life</h2>
+      <p>A quick look at the connected web and mobile tools we build around the way your business works.</p>
+    </header>
+    <div class="app-video-player" data-app-video>
+      <div class="app-video-viewport" data-app-video-viewport>
+        <div class="app-video-placeholder" data-app-video-placeholder role="status">
+          <span class="app-video-play" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8 5.8c0-.8.9-1.3 1.6-.9l9.1 5.1a1.1 1.1 0 0 1 0 1.9l-9.1 5.2c-.7.4-1.6-.1-1.6-.9V5.8Z" fill="currentColor"/></svg></span>
+          <span>App showcase preview</span>
+        </div>
+      </div>
+      <div class="app-video-error" data-app-video-error role="status" hidden>
+        <span>The preview is taking longer to load.</span>
+        <button type="button" class="button" data-app-video-retry>Retry preview</button>
       </div>
     </div>
   </div>
