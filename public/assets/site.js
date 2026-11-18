@@ -59,6 +59,16 @@ if (canShowSheet) {
     menuToggle.focus({ preventScroll: true });
   });
 
+  const header = menuSheet.closest('.site-header');
+  const markPointer = () => { header.dataset.menuPointer = ''; };
+  menuToggle.addEventListener('pointerdown', markPointer);
+  menuSheet.addEventListener('pointerdown', markPointer);
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Tab' || event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
+      delete header.dataset.menuPointer;
+    }
+  });
+
   let pressedBackdrop = false;
   menuSheet.addEventListener('pointerdown', event => {
     pressedBackdrop = event.target === menuSheet;
@@ -81,15 +91,36 @@ if (canShowSheet) {
     swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
     handle.setPointerCapture(event.pointerId);
   });
+  function resetDrag() {
+    swipeStart = undefined;
+    delete menuSheet.dataset.dragging;
+    menuSheet.style.removeProperty('--mobile-menu-offset');
+  }
+
+  handle.addEventListener('pointermove', event => {
+    if (swipeStart?.id !== event.pointerId) return;
+    const distance = event.clientY - swipeStart.y;
+    const sideways = Math.abs(event.clientX - swipeStart.x);
+    if (Math.abs(distance) > 10 || sideways > 10) draggedHandle = true;
+    if (distance > 0 && distance > sideways) {
+      menuSheet.dataset.dragging = '';
+      menuSheet.style.setProperty('--mobile-menu-offset', `${distance}px`);
+    } else if (menuSheet.hasAttribute('data-dragging')) {
+      menuSheet.style.setProperty('--mobile-menu-offset', '0px');
+    }
+  });
   handle.addEventListener('pointerup', event => {
     if (swipeStart?.id !== event.pointerId) return;
     const distance = event.clientY - swipeStart.y;
     const sideways = Math.abs(event.clientX - swipeStart.x);
-    swipeStart = undefined;
-    draggedHandle = Math.abs(distance) > 10 || sideways > 10;
+    if (Math.abs(distance) > 10 || sideways > 10) draggedHandle = true;
     if (distance >= 48 && distance > sideways) setMenu(false);
+    resetDrag();
   });
-  handle.addEventListener('lostpointercapture', () => { swipeStart = undefined; });
+  handle.addEventListener('lostpointercapture', event => {
+    if (swipeStart?.id === event.pointerId) resetDrag();
+  });
+  menuSheet.addEventListener('close', resetDrag);
 }
 
 for (const group of document.querySelectorAll('[data-tabs]')) {
