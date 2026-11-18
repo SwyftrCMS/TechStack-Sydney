@@ -42,22 +42,3 @@ h2, p {
   height: 1440px;
   transform-origin: top left;
 }
-
-#promo-playback {
-  position: absolute;
-  right: .625rem;
-  bottom: .625rem;
-  min-height: 2.75rem;
-  padding: .45rem .8rem;
-  border: 1px solid #e2e0f4;
-  border-radius: .5rem;
-  color: #0f0d24;
-  background: #fff;
-  font: 600 .8125rem "Plus Jakarta Sans", system-ui, sans-serif;
-  cursor: pointer;
-}
-
-#promo-playback:focus-visible {
-  outline: 2px solid #4f46e5;
-  outline-offset: 2px;
-}

@@ -4,7 +4,6 @@ import { sceneDefinitions } from './promo-scenes.js';
 // Playback and DOM rendering for the four scenes in websiteDesign-services.
 const canvas = document.querySelector('#promo-canvas');
 const player = document.querySelector('#promo-player');
-const button = document.querySelector('#promo-playback');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const svgNamespace = 'http://www.w3.org/2000/svg';
 const unitless = new Set(['flex', 'flexGrow', 'flexShrink', 'fontWeight', 'lineHeight', 'opacity', 'scale', 'zIndex']);
@@ -147,13 +146,11 @@ const { Scene4Live } = load('scenes/Scene4Live');
 const scenes = [
   [0, Scene1DiscoveryCall], [90, Scene2Scope], [180, Scene3AiBuild], [360, Scene4Live]
 ];
-const lastFrame = 479;
+const frameCount = 480;
 let previous;
-let frame = 0;
 let paintedFrame = -1;
-let playing = false;
-let request = 0;
-let lastTime = 0;
+let request;
+let startedAt;
 
 function draw(nextFrame) {
   if (nextFrame === paintedFrame) return;
@@ -169,48 +166,27 @@ function resize() {
   canvas.style.transform = 'scale(' + player.clientWidth / 1080 + ')';
 }
 
-function stop() {
-  playing = false;
-  cancelAnimationFrame(request);
-  button.textContent = frame >= lastFrame ? 'Replay' : 'Play';
-}
-
 function advance(time) {
-  frame = Math.min(lastFrame, frame + (time - lastTime) * 0.03);
-  lastTime = time;
-  draw(Math.floor(frame));
-  if (frame >= lastFrame) stop();
-  else request = requestAnimationFrame(advance);
-}
-
-function play() {
-  if (frame >= lastFrame) frame = 0;
-  draw(Math.floor(frame));
-  playing = true;
-  lastTime = performance.now();
-  button.textContent = 'Pause';
+  startedAt ??= time;
+  const elapsedFrames = Math.floor((time - startedAt) * 30 / 1000);
+  draw(elapsedFrames % frameCount);
   request = requestAnimationFrame(advance);
 }
 
-button.addEventListener('click', () => {
-  if (playing) stop();
-  else play();
-});
-reducedMotion.addEventListener('change', () => {
-  if (!reducedMotion.matches) return;
-  frame = lastFrame;
-  stop();
-  draw(frame);
-});
+function syncMotion() {
+  cancelAnimationFrame(request);
+  startedAt = undefined;
+  if (reducedMotion.matches) {
+    draw(frameCount - 1);
+  } else {
+    draw(0);
+    request = requestAnimationFrame(advance);
+  }
+}
+
+reducedMotion.addEventListener('change', syncMotion);
 new ResizeObserver(resize).observe(player);
 resize();
-if (reducedMotion.matches) {
-  frame = lastFrame;
-  draw(frame);
-  stop();
-} else {
-  draw(0);
-  play();
-}
+syncMotion();
 
 })();
