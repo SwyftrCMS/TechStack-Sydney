@@ -1,0 +1,41 @@
+.still-scene { display: block; width: 100%; }
+.still-canvas { position: relative; width: 1080px; height: 1440px; --font-demo: "Lexend Deca", system-ui, sans-serif; --font-display: "Plus Jakarta Sans", system-ui, sans-serif; --font-sans: var(--font-display); }
+.still-0{position:absolute;inset:0;display:flex;flex-direction:column;background-color:#FFFFFF}
+.still-1{position:absolute;inset:0;display:flex;flex-direction:column;background-color:#FFFFFF;overflow:hidden}
+.still-2{position:absolute;inset:0}
+.still-3{position:absolute;inset:0;display:flex;flex-direction:column;perspective:1400px;perspective-origin:540px 840px;overflow:visible}
+.still-4{width:100%;height:100%;transform-origin:540px 840px;transform:translate3d(0px, 0px, 0px) scale(1.04) rotateX(1deg) rotateY(-1deg) rotateZ(0deg);transform-style:preserve-3d;will-change:transform}
+.still-5{font-variant-numeric:tabular-nums}
+.still-6{font-variant-numeric:tabular-nums}
+.still-7{font-variant-numeric:tabular-nums}
+.still-8{font-variant-numeric:tabular-nums}
+.still-9{font-variant-numeric:tabular-nums}
+.still-10{font-variant-numeric:tabular-nums}
+.still-11{font-variant-numeric:tabular-nums}
+.still-12{font-variant-numeric:tabular-nums}
+.still-13{font-variant-numeric:tabular-nums}
+.still-14{font-variant-numeric:tabular-nums}
+.still-15{font-variant-numeric:tabular-nums}
+.still-16{position:absolute;inset:0;display:flex;flex-direction:column;pointer-events:none}
+.still-17{position:absolute;top:28px;left:72px;right:72px;display:flex;align-items:center;justify-content:space-between;border-top:2px solid #E5E7EB;border-bottom:1px solid #ECEBF5;padding-top:18px;padding-bottom:18px;font-family:var(--font-sans)}
+.still-18{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600;color:#47436B}
+.still-19{font-family:var(--font-sans);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;color:#78739B}
+.still-20{font-family:var(--font-sans)}
+.still-21{font-family:var(--font-sans);font-size:18px;color:#CBD5E1}
+.still-22{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600;color:#47436B}
+.still-23{font-family:var(--font-sans);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;color:#78739B}
+.still-24{font-family:var(--font-sans)}
+.still-25{font-family:var(--font-sans);font-size:18px;color:#CBD5E1}
+.still-26{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:600;color:#47436B}
+.still-27{font-family:var(--font-sans);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;color:#78739B}
+.still-28{font-family:var(--font-sans)}
+.still-29{font-family:var(--font-sans);font-size:18px;color:#CBD5E1}
+.still-30{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;color:#0F0D24}
+.still-31{font-family:var(--font-sans);font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;color:#10B981}
+.still-32{font-family:var(--font-sans)}
+.still-33{position:absolute;top:126px;left:72px;right:72px;text-align:center;opacity:1;font-family:var(--font-sans)}
+.still-34{font-family:var(--font-sans);font-size:20px;font-weight:700;color:#10B981;margin-bottom:12px;letter-spacing:0.02em;font-variant-numeric:tabular-nums;transform:translate3d(0, 0px, 0)}
+.still-35{overflow:hidden}
+.still-36{margin:0 auto;max-width:920px;font-family:var(--font-sans);font-size:56px;font-weight:800;line-height:1.08;letter-spacing:-0.03em;color:#0F0D24;transform:translate3d(0, 0px, 0);text-wrap:balance}
+.still-37{overflow:hidden;margin-top:14px}
+.still-38{margin:0 auto;max-width:840px;font-family:var(--font-sans);font-size:24px;font-weight:500;line-height:1.38;color:#47436B;transform:translate3d(0, 0px, 0);opacity:1}
