@@ -69,14 +69,8 @@ if (canShowSheet) {
     }
   });
 
-  let pressedBackdrop = false;
-  menuSheet.addEventListener('pointerdown', event => {
-    pressedBackdrop = event.target === menuSheet;
-  });
-  menuSheet.addEventListener('click', event => {
-    if (pressedBackdrop && event.target === menuSheet) setMenu(false);
-    pressedBackdrop = false;
-  });
+  const dismissArea = menuSheet.querySelector('.mobile-menu-dismiss-area');
+  dismissArea.addEventListener('click', () => setMenu(false));
 
   const handle = menuSheet.querySelector('.mobile-menu-handle');
   let swipeStart;
