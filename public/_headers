@@ -42,3 +42,23 @@
 
 /app-video-demo/assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+/ai-built-sites
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com
+
+/ai-built-sites.html
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' https://challenges.cloudflare.com; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' https://challenges.cloudflare.com; frame-src 'self' https://challenges.cloudflare.com
+
+/ai-built-sites-preview/
+  ! X-Frame-Options
+  X-Frame-Options: SAMEORIGIN
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'self'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'
+
+/ai-built-sites-preview/index.html
+  ! X-Frame-Options
+  X-Frame-Options: SAMEORIGIN
+  ! Content-Security-Policy
+  Content-Security-Policy: default-src 'none'; base-uri 'none'; frame-ancestors 'self'; form-action 'none'; script-src 'self'; style-src 'self'; font-src 'self'

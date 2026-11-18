@@ -1,0 +1,34 @@
+.ai-sites-main {
+  background: #fff;
+}
+
+.ai-sites-hero {
+  padding-inline: clamp(.5rem, 2vw, 1.5rem);
+}
+
+.ai-sites-frame {
+  display: block;
+  width: min(100%, clamp(22rem, calc((100svh - 9rem) * .75), 35rem));
+  height: auto;
+  aspect-ratio: 3 / 4;
+  margin-inline: auto;
+  border: 0;
+  background: #fff;
+}
+
+.ai-sites-cta {
+  display: flex;
+  justify-content: center;
+  padding: clamp(.75rem, 2vw, 1.25rem) 1rem clamp(2rem, 5vw, 4rem);
+}
+
+.ai-sites-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
