@@ -291,9 +291,7 @@ if (supportPreview) {
     }
   });
 
-  function handleReply(event) {
-    event.preventDefault();
-    const composer = event.currentTarget;
+  function appendDemoReply(composer) {
     const reply = composer.querySelector('input');
     const message = reply.value.trim();
     if (!message) return;
@@ -307,7 +305,7 @@ if (supportPreview) {
     item.append(author, body);
     thread.append(item);
     thread.scrollTop = thread.scrollHeight;
-    composer.reset();
+    reply.value = '';
     reply.focus();
   }
 
@@ -377,10 +375,17 @@ if (supportPreview) {
   });
   supportPreview.querySelector('.support-layout').after(carousel);
 
-  for (const composer of supportPreview.querySelectorAll('.support-compose')) {
-    composer.addEventListener('submit', handleReply);
-    composer.querySelector('input').disabled = false;
-    composer.querySelector('button').disabled = false;
+  for (const composer of supportPreview.querySelectorAll('.support-compose[role="group"]')) {
+    const reply = composer.querySelector('input');
+    const send = composer.querySelector('button');
+    send.addEventListener('click', () => appendDemoReply(composer));
+    reply.addEventListener('keydown', event => {
+      if (event.key !== 'Enter' || event.isComposing) return;
+      event.preventDefault();
+      appendDemoReply(composer);
+    });
+    reply.disabled = false;
+    send.disabled = false;
   }
 }
 
