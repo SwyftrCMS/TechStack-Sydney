@@ -3,15 +3,15 @@ const menu = document.querySelector('#site-menu');
 
 const menuLabel = menuToggle.querySelector('.menu-toggle-label') ?? menuToggle;
 const menuNav = menu.parentElement;
-const menuSheet = document.querySelector('#mobile-menu-sheet');
-const sheetViewport = matchMedia('(width < 40rem)');
+const menuDrawer = document.querySelector('#mobile-menu-drawer');
+const drawerViewport = matchMedia('(width < 40rem)');
 const desktop = matchMedia('(min-width: 64rem)');
-const canShowSheet = typeof menuSheet?.showModal === 'function';
+const canShowDrawer = typeof menuDrawer?.showModal === 'function';
 
 function setMenu(open) {
-  if (canShowSheet && sheetViewport.matches) {
-    if (open && !menuSheet.open) menuSheet.showModal();
-    if (!open && menuSheet.open) menuSheet.close();
+  if (canShowDrawer && drawerViewport.matches) {
+    if (open && !menuDrawer.open) menuDrawer.showModal();
+    if (!open && menuDrawer.open) menuDrawer.close();
   } else {
     menu.hidden = !open;
     menuLabel.textContent = open ? 'Close menu' : 'Menu';
@@ -20,101 +20,48 @@ function setMenu(open) {
 }
 
 function resetMenu() {
-  const useSheet = canShowSheet && sheetViewport.matches;
-  if (canShowSheet) {
-    if (menuSheet.open) menuSheet.close();
-    menuSheet.hidden = !useSheet;
-    if (useSheet) menuSheet.querySelector('.mobile-menu-panel').append(menu);
+  const useDrawer = canShowDrawer && drawerViewport.matches;
+  if (canShowDrawer) {
+    if (menuDrawer.open) menuDrawer.close();
+    menuDrawer.hidden = !useDrawer;
+    if (useDrawer) menuDrawer.querySelector('.mobile-menu-drawer-nav').append(menu);
     else menuNav.append(menu);
   }
   menuToggle.hidden = desktop.matches;
-  menuToggle.setAttribute('aria-controls', useSheet ? menuSheet.id : menu.id);
-  if (useSheet) {
+  menuToggle.setAttribute('aria-controls', useDrawer ? menuDrawer.id : menu.id);
+  if (useDrawer) {
     menu.hidden = false;
     menuToggle.setAttribute('aria-label', 'Open menu');
+    menuToggle.setAttribute('aria-haspopup', 'dialog');
   } else {
     menuToggle.removeAttribute('aria-label');
+    menuToggle.removeAttribute('aria-haspopup');
   }
   setMenu(desktop.matches);
 }
 
 resetMenu();
 desktop.addEventListener('change', resetMenu);
-if (canShowSheet) sheetViewport.addEventListener('change', resetMenu);
+if (canShowDrawer) drawerViewport.addEventListener('change', resetMenu);
 menuToggle.addEventListener('click', () => setMenu(menuToggle.getAttribute('aria-expanded') !== 'true'));
 menu.addEventListener('click', event => {
   if (!desktop.matches && event.target.closest('a')) setMenu(false);
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && !desktop.matches && menuToggle.getAttribute('aria-expanded') === 'true' && !menuSheet?.open) {
+  if (event.key === 'Escape' && !desktop.matches && menuToggle.getAttribute('aria-expanded') === 'true' && !menuDrawer?.open) {
     setMenu(false);
     menuToggle.focus();
   }
 });
 
-if (canShowSheet) {
-  menuSheet.addEventListener('close', () => {
-    if (!sheetViewport.matches || menuSheet.open) return;
+if (canShowDrawer) {
+  menuDrawer.addEventListener('close', () => {
+    if (!drawerViewport.matches || menuDrawer.open) return;
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.focus({ preventScroll: true });
   });
 
-  const header = menuSheet.closest('.site-header');
-  const markPointer = () => { header.dataset.menuPointer = ''; };
-  menuToggle.addEventListener('pointerdown', markPointer);
-  menuSheet.addEventListener('pointerdown', markPointer);
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Tab' || event.key === 'Escape' || event.key === 'Enter' || event.key === ' ') {
-      delete header.dataset.menuPointer;
-    }
-  });
-
-  const dismissArea = menuSheet.querySelector('.mobile-menu-dismiss-area');
-  dismissArea.addEventListener('click', () => setMenu(false));
-
-  const handle = menuSheet.querySelector('.mobile-menu-handle');
-  let swipeStart;
-  let draggedHandle = false;
-  handle.addEventListener('click', event => {
-    if (event.detail === 0 || !draggedHandle) setMenu(false);
-  });
-  handle.addEventListener('pointerdown', event => {
-    if (!event.isPrimary) return;
-    draggedHandle = false;
-    if (event.pointerType === 'mouse') return;
-    swipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
-    handle.setPointerCapture(event.pointerId);
-  });
-  function resetDrag() {
-    swipeStart = undefined;
-    delete menuSheet.dataset.dragging;
-    menuSheet.style.removeProperty('--mobile-menu-offset');
-  }
-
-  handle.addEventListener('pointermove', event => {
-    if (swipeStart?.id !== event.pointerId) return;
-    const distance = event.clientY - swipeStart.y;
-    const sideways = Math.abs(event.clientX - swipeStart.x);
-    if (Math.abs(distance) > 10 || sideways > 10) draggedHandle = true;
-    if (distance > 0 && distance > sideways) {
-      menuSheet.dataset.dragging = '';
-      menuSheet.style.setProperty('--mobile-menu-offset', `${distance}px`);
-    } else if (menuSheet.hasAttribute('data-dragging')) {
-      menuSheet.style.setProperty('--mobile-menu-offset', '0px');
-    }
-  });
-  handle.addEventListener('pointerup', event => {
-    if (swipeStart?.id !== event.pointerId) return;
-    const distance = event.clientY - swipeStart.y;
-    const sideways = Math.abs(event.clientX - swipeStart.x);
-    if (Math.abs(distance) > 10 || sideways > 10) draggedHandle = true;
-    if (distance >= 48 && distance > sideways) setMenu(false);
-    resetDrag();
-  });
-  handle.addEventListener('lostpointercapture', event => {
-    if (swipeStart?.id === event.pointerId) resetDrag();
-  });
-  menuSheet.addEventListener('close', resetDrag);
+  menuDrawer.querySelector('.mobile-menu-close').addEventListener('click', () => setMenu(false));
 }
 
 for (const group of document.querySelectorAll('[data-tabs]')) {
