@@ -325,30 +325,29 @@ if (supportPreview) {
     }
   });
 
-  function handleReply(event) {
-    event.preventDefault();
-    const composer = event.currentTarget;
-    const reply = composer.querySelector('input');
-    const message = reply.value.trim();
-    if (!message) return;
-    const thread = composer.closest('.support-chat').querySelector('[data-support-result="ticket"]:not([hidden]) .support-thread');
-    const item = document.createElement('li');
-    const author = document.createElement('small');
-    const body = document.createElement('p');
-    item.className = 'support-message support-message-reply';
-    author.textContent = 'You · Just now';
-    body.textContent = message;
-    item.append(author, body);
-    thread.append(item);
-    thread.scrollTop = thread.scrollHeight;
-    composer.reset();
-    reply.focus();
-  }
+  if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    const chatObserver = new IntersectionObserver((entries, observer) => {
+      const visibleChat = entries.find(entry => entry.intersectionRatio >= 0.6);
+      if (!visibleChat) return;
+      observer.disconnect();
 
-  for (const composer of supportPreview.querySelectorAll('.support-compose')) {
-    composer.addEventListener('submit', handleReply);
-    composer.querySelector('input').disabled = false;
-    composer.querySelector('button').disabled = false;
+      if (!reduceMotion.matches) {
+        [...visibleChat.target.children].forEach((message, index) => {
+          message.animate([
+            { transform: 'translateY(0)' },
+            { transform: 'translateY(-4px)', offset: 0.55 },
+            { transform: 'translateY(0)' },
+          ], {
+            duration: 260,
+            delay: index * 120,
+            easing: 'ease-in-out',
+          });
+        });
+      }
+    }, { threshold: 0.6 });
+
+    supportPreview.querySelectorAll('[data-support-chat]').forEach(chat => chatObserver.observe(chat));
   }
 }
 
