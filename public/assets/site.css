@@ -879,6 +879,18 @@ textarea { resize: vertical }
 .support-content, .support-hosting { padding: 1rem }
 .support-split { display: grid; gap: .75rem }
 .support-surface { min-width: 0; padding: .875rem; border: 1px solid var(--process-line); border-radius: .75rem; background: var(--process-surface) }
+.support-hosting-options {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.25rem), 1fr)); gap: .5rem;
+}
+.support-hosting-options .support-choice {
+  display: grid; justify-items: center; align-content: center; gap: .375rem;
+  min-height: 4rem; padding: .5rem .25rem; text-align: center;
+}
+.support-hosting-options .support-choice[aria-pressed="false"] .process-icon {
+  background: white; color: var(--process-muted);
+}
+.support-hosting-detail { margin-top: .75rem }
+.support-hosting-detail > p { margin: 0 }
 .support-options, .support-selector { display: grid; gap: .5rem; align-content: start }
 .support-selector { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-block: .75rem }
 .support-choice {
@@ -894,13 +906,13 @@ textarea { resize: vertical }
 .support-tile-detail { padding-top: .375rem; border-top: 1px solid var(--process-line) }
 .support-history { display: flex; flex-wrap: wrap; gap: .375rem; margin-bottom: .5rem }
 .support-history button { width: auto; padding: .25rem .625rem; font-size: .6875rem }
-.support-server-grid, .support-flow-grid {
+.support-flow-grid {
   position: relative; display: grid; gap: .5rem; margin-block: .75rem;
   background: radial-gradient(circle, #cbd5e1 1px, transparent 1px) 0 0 / 12px 12px;
 }
-.support-server-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: .375rem }
-.support-server-grid > svg, .support-flow-grid > svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #a5b4cf; pointer-events: none }
-.support-server-grid .support-choice, .support-flow-grid .support-choice { position: relative; background: #fff }
+
+.support-flow-grid > svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #a5b4cf; pointer-events: none }
+.support-flow-grid .support-choice { position: relative; background: #fff }
 .support-detail { padding: .625rem .75rem; border: 1px solid var(--process-line); border-radius: .625rem; background: #fff; overflow-wrap: anywhere }
 .support-tickets { padding: 1rem }
 .support-chat { min-width: 0; padding: .25rem 0 }
@@ -933,7 +945,7 @@ textarea { resize: vertical }
 .support-next { width: auto; margin-top: .75rem }
 @media (min-width: 40rem) {
   .support-content, .support-hosting, .support-tickets { padding: 1.25rem }
-  .support-hosting, .support-analytics { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) }
+  .support-analytics { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) }
   .support-tickets { grid-template-columns: minmax(0, 2fr) minmax(0, 4fr) }
   .support-selector { grid-template-columns: repeat(4, minmax(0, 1fr)) }
 }
