@@ -283,7 +283,7 @@ if (supportPreview) {
       selectSupportStep(step);
       if (supportHistory) step.focus({ preventScroll: true });
     } else if (supportChoice) {
-      selectSupportChoice(supportChoice, supportValue, button.closest('.full-process-card') ?? undefined);
+      selectSupportChoice(supportChoice, supportValue, button.closest('.support-kpi-dashboard, .full-process-card') ?? undefined);
     } else if (button.hasAttribute('data-support-next')) {
       const flows = choices.filter(choice => choice.dataset.supportChoice === 'flow');
       const active = flows.findIndex(choice => choice.getAttribute('aria-pressed') === 'true');
@@ -346,7 +346,6 @@ if (supportPreview) {
       panel.querySelector('label').htmlFor = 'support-demo-reply-carousel';
     }
     if (index === 0) panel.querySelector('.support-hosting > .support-options').remove();
-    if (index === 2) panel.querySelector('.support-pipeline').remove();
     if (index === 4) {
       const workflow = panel.querySelector('[data-support-result="flow"][data-support-value="invoice-sync"]');
       panel.querySelector('.support-content').replaceChildren(workflow);
