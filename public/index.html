@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=mobile-menu-drawer-1">
-  <script src="/assets/site.js?v=mobile-menu-drawer-1" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=support-stages-01-02">
+  <script src="/assets/site.js?v=support-stages-01-02" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
@@ -416,7 +416,13 @@
       <li class="story-stage">
         <h3>Get help from the team that built it</h3>
         <p>When something needs fixing or updating, you can come straight to the people who already know your software.</p>
-        <figure class="story-figure "><ul class="story-chat"><li><strong><svg class="story-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h14v10H8l-4 3v-3H3zM6 8h8m-8 3h5"/></svg>Client</strong><p>Can we test the new quote follow-ups before they go live?</p></li><li><strong><svg class="story-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 4h14v10H8l-4 3v-3H3zM6 8h8m-8 3h5"/></svg>TechStack Sydney</strong><p>Yes. They’re ready on your test site for you to review.</p></li></ul><figcaption>Support conversation</figcaption></figure>
+        <figure class="story-figure">
+          <ol class="story-chat" data-support-chat aria-label="Example support conversation">
+            <li><strong><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>Jack</strong><p>Can we test the new quote follow-ups before they go live?</p></li>
+            <li><strong><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11V9a6 6 0 1 1 12 0v2M4 10H3v4h4v-4H4Zm12 0h1v4h-4v-4h3Zm0 4c0 2-2 3-5 3"/></svg>Liam · TechStack Sydney</strong><p>Yes. They’re ready on your test site for you to review.</p></li>
+          </ol>
+          <figcaption>Support conversation</figcaption>
+        </figure>
       </li>
       <li class="story-stage">
         <h3>See what’s holding things up</h3>
@@ -536,86 +542,35 @@
         <div class="process-preview support-preview">
           <div class="process-window-bar"><span class="process-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="process-preview-title" aria-live="polite">Platform Preview — <span data-support-title>We look after your hosting</span></span><span class="process-phase"><i aria-hidden="true"></i> Stage <span data-support-current>01</span> of 05</span></div>
           <div id="support-panel-01">
-<div class="support-hosting support-split">
-  <div class="support-surface support-topology"><div class="process-label"><strong>AU Infrastructure</strong><span>Sydney · Melbourne</span></div>
-    <div class="support-server-grid">
-      <svg viewBox="0 0 240 180" preserveAspectRatio="none" aria-hidden="true"><path d="M60 24V156M180 24V156M60 60H180M60 120H180"/></svg>
-      <button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="au-cloud" data-accent="amber" aria-pressed="true"><strong>Cloudflare WAF</strong><small>Edge traffic</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="au-cloud" data-accent="amber" aria-pressed="true"><strong>Anycast Load Balancer</strong><small>AU edge routing</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="au-cloud" data-accent="amber" aria-pressed="true"><strong>App Server Node</strong><small>Production runtime</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="monitoring" data-accent="sky" aria-pressed="false"><strong>Edge Health Monitor</strong><small>Uptime and alerts</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="backups" data-accent="green" aria-pressed="false"><strong>Supabase AU Database</strong><small>Sydney PostgreSQL</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="backups" data-accent="green" aria-pressed="false"><strong>AU Backup Vault</strong><small>Point-in-time recovery</small></button>
-    </div>
-    <div data-support-result="hosting" data-support-value="au-cloud">
-<div class="support-detail"><strong>Cloudflare Edge</strong><small>Sydney &amp; Melbourne POPs · WAF active</small><span class="support-tag">99.99% SLA</span></div>
-</div>
-<div data-support-result="hosting" data-support-value="backups" hidden>
-<div class="support-detail"><strong>Supabase Sydney</strong><small>Managed Postgres · AU residency</small><span class="support-tag">Verified</span></div>
-</div>
-<div data-support-result="hosting" data-support-value="monitoring" hidden>
-<div class="support-detail"><strong>Uptime Monitor</strong><small>Continuous synthetic probes</small><span class="support-tag">Watched</span></div>
-</div>
+<div class="support-hosting">
+  <div class="support-hosting-options" role="group" aria-label="Managed hosting services">
+    <button type="button" class="process-choice support-choice" data-support-choice="hosting" data-support-value="au-cloud" data-accent="amber" aria-pressed="true">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h11a4 4 0 0 0 .5-8 6 6 0 0 0-11.6-1.5A4.8 4.8 0 0 0 7 18Z"/></svg></span>
+      <strong>Hosting</strong>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="hosting" data-support-value="backups" data-accent="green" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5c0 1.7-3.6 3-8 3S4 6.7 4 5s3.6-3 8-3 8 1.3 8 3ZM4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+      <strong>Backups</strong>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="hosting" data-support-value="monitoring" data-accent="sky" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h5l3-7 4 14 3-7h5"/></svg></span>
+      <strong>Monitoring</strong>
+    </button>
   </div>
-  <div class="support-options"><button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="au-cloud" data-accent="amber" aria-pressed="true"><strong>Cloudflare Edge &amp; CDN</strong><small>Sydney · Melbourne · Zero-Trust WAF</small><span class="support-tag">99.99% SLA</span><small class="support-tile-detail">11ms AU edge routing · Automated DDoS &amp; SSL shield</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="backups" data-accent="green" aria-pressed="false"><strong>Supabase AU Database</strong><small>Sydney ap-southeast-2 · PostgreSQL</small><span class="support-tag">Verified</span><small class="support-tile-detail">15-minute point-in-time recovery · Row-level security &amp; AES-256</small></button>
-<button type="button" class="process-choice support-choice " data-support-choice="hosting" data-support-value="monitoring" data-accent="sky" aria-pressed="false"><strong>24/7 Health Monitoring</strong><small>Cloudflare Analytics · Uptime probes</small><span class="support-tag">Watched</span><small class="support-tile-detail">Sub-60s anomaly alerts · Automated TLS &amp; DNS checks</small></button></div>
-</div><footer class="process-meta"><span>Cloudflare · Supabase AU</span><strong>Infrastructure preview</strong></footer>
+  <div class="support-detail support-hosting-detail" aria-live="polite" aria-atomic="true">
+    <p data-support-result="hosting" data-support-value="au-cloud">We run the hosting that keeps your software online.</p>
+    <p data-support-result="hosting" data-support-value="backups" hidden>We keep backups so your data can be restored if something goes wrong.</p>
+    <p data-support-result="hosting" data-support-value="monitoring" hidden>We watch for issues so we can investigate when something goes wrong.</p>
+  </div>
+</div>
+<footer class="process-meta"><strong>Infrastructure preview</strong></footer>
 </div>
 <div id="support-panel-02" hidden>
-<div class="support-tickets support-split">
-  <aside class="support-surface support-options"><div class="process-label"><strong>Customer issues</strong><span>4 threads</span></div>
-    <button type="button" class="process-choice support-choice " data-support-choice="ticket" data-support-value="quote-chat" data-accent="pink" aria-pressed="true"><strong>Live chat &amp; quote automations</strong><small>Jack M. · Parramatta</small><span class="support-tag">Active</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="ticket" data-support-value="xero-retry" data-accent="amber" aria-pressed="false"><strong>Xero invoice retry queue</strong><small>Sarah T. · Brisbane</small><span class="support-tag">Resolved</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="ticket" data-support-value="sec-patch" data-accent="green" aria-pressed="false"><strong>Security &amp; runtime patch</strong><small>Dave R. · Melbourne</small><span class="support-tag">Patched</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="ticket" data-support-value="role-perm" data-accent="sky" aria-pressed="false"><strong>Manager $15k quote sign-off</strong><small>Mitch B. · Newcastle</small><span class="support-tag">Resolved</span></button>
-  </aside>
-  <div class="support-chat">
-    <div data-support-result="ticket" data-support-value="quote-chat">
-<div class="process-label"><strong>Live chat &amp; quote automations</strong><span>Active</span></div>
-      <p class="support-context">Add live chat widget and automated emails for unfinished quote requests.</p>
-      <ol class="support-thread" aria-label="Conversation" aria-live="polite">
-        <li class="support-message support-message-customer"><small>Jack M. · 10:14 AM</small><p>hey mate, can u add live chat and email follow ups for unfinished quote requests?</p></li>
-<li class="support-message support-message-team"><small>Liam K. · Sydney · 10:18 AM</small><p>No worries Jack. I've added live chat to your site and set up an n8n workflow with Sender to email unfinished quote requests after 48 hours.</p></li>
-<li class="support-message support-message-customer"><small>Jack M. · 10:20 AM</small><p>nice, can we test it first before it goes live?</p></li>
-<li class="support-message support-message-team"><small>Liam K. · Sydney · 10:21 AM</small><p>Too easy. It is live on your test link in GitLab now. Have a look and let me know when to push it live.</p></li>
-      </ol>
-      <small>n8n · Sender · Supabase</small>
-</div>
-<div data-support-result="ticket" data-support-value="xero-retry" hidden>
-<div class="process-label"><strong>Xero invoice retry queue</strong><span>Resolved</span></div>
-      <p class="support-context">Month-end Xero invoice batch timed out at 9am.</p>
-      <ol class="support-thread" aria-label="Conversation" aria-live="polite">
-        <li class="support-message support-message-customer"><small>Sarah T. · 09:04 AM</small><p>hey r u available to check Xero? our 9am invoices timed out</p></li>
-<li class="support-message support-message-team"><small>Priya S. · Sydney · 09:12 AM</small><p>On it Sarah. I updated the retry rule in VS Code and re-ran the queue. All 142 invoices are now in Xero.</p></li>
-<li class="support-message support-message-customer"><small>Sarah T. · 09:15 AM</small><p>awesome thanks for sorting that fast</p></li>
-      </ol>
-      <small>VS Code · GitHub Actions</small>
-</div>
-<div data-support-result="ticket" data-support-value="sec-patch" hidden>
-<div class="process-label"><strong>Security &amp; runtime patch</strong><span>Patched</span></div>
-      <p class="support-context">Security update applied across production servers.</p>
-      <ol class="support-thread" aria-label="Conversation" aria-live="polite">
-        <li class="support-message support-message-team"><small>Priya S. · Sydney · 08:30 AM</small><p>Morning Dave. GitHub flagged a security update earlier today, so we tested it in GitLab and pushed it live with no downtime.</p></li>
-<li class="support-message support-message-customer"><small>Dave R. · 08:41 AM</small><p>cheers priya, didnt notice any issues here</p></li>
-      </ol>
-      <small>GitLab CI · Dependabot</small>
-</div>
-<div data-support-result="ticket" data-support-value="role-perm" hidden>
-<div class="process-label"><strong>Manager $15k quote sign-off</strong><span>Resolved</span></div>
-      <p class="support-context">Raise branch manager quote approval limit from $5k to $15k.</p>
-      <ol class="support-thread" aria-label="Conversation" aria-live="polite">
-        <li class="support-message support-message-customer"><small>Mitch B. · Yesterday</small><p>hey can u raise manager quote approvals up to $15k for newcastle?</p></li>
-<li class="support-message support-message-team"><small>Liam K. · Sydney · Yesterday</small><p>All done Mitch. Updated the Supabase rules and pushed it live via GitHub, so your leads can approve up to $15k now.</p></li>
-      </ol>
-      <small>Supabase RLS · GitHub</small>
-</div>
-    <form class="support-compose">
-      <label for="support-demo-reply">Try a reply in the demo</label>
-      <div><input id="support-demo-reply" type="text" maxlength="240" placeholder="Reply in the demo…" required autocomplete="off" disabled><button type="submit" class="button" disabled>Send <span aria-hidden="true">↗</span></button></div>
-    </form>
-  </div>
-</div><footer class="process-meta"><span>Example conversation</span><strong>Replies stay in this preview</strong></footer>
+  <ol class="support-thread" data-support-chat aria-label="Example support conversation">
+    <li class="support-message"><strong><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>Jack</strong><p>Can we test the new quote follow-ups before they go live?</p></li>
+    <li class="support-message support-message-team"><strong><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11V9a6 6 0 1 1 12 0v2M4 10H3v4h4v-4H4Zm12 0h1v4h-4v-4h3Zm0 4c0 2-2 3-5 3"/></svg>Liam · TechStack Sydney</strong><p>Yes. They’re ready on your test site for you to review.</p></li>
+  </ol>
+  <footer class="process-meta"><span>Example conversation</span></footer>
 </div>
 <div id="support-panel-03" hidden>
 <div class="support-kpi-dashboard">
