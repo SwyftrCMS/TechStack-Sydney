@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=reviewed-homepage-copy-1">
-  <script src="/assets/site.js?v=transparent-scroll-header-1" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=support-workflow-1">
+  <script src="/assets/site.js?v=support-workflow-1" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
@@ -412,7 +412,64 @@
       <li class="story-stage">
         <h3>See what’s holding things up</h3>
         <p>Spot quotes waiting for a follow-up or invoices still unpaid, so you know where to focus next.</p>
-        <figure class="story-figure story-chart"><div class="story-kpi"><strong>84%</strong><span><svg class="story-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 3h10v14l-3-2-2 2-2-2-3 2zM8 7h4m-4 4h4"/></svg>of invoices paid</span></div><svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="story-chart-guides" d="M62 0V88 M124 0V88 M186 0V88 M248 0V88"/><path class="support-chart-fill" d="M0 64 C35 58, 72 48, 110 42 C148 36, 188 26, 226 18 C258 13, 286 11, 310 9 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 64 C35 58, 72 48, 110 42 C148 36, 188 26, 226 18 C258 13, 286 11, 310 9"/><circle class="story-chart-point" cx="110" cy="42" r="3"/><circle class="story-chart-point" cx="226" cy="18" r="3"/></svg><figcaption>Demo data · Share of invoices paid over time</figcaption></figure>
+        <div class="support-kpi-dashboard">
+  <div class="process-label"><strong>Process dashboard</strong><span>Example data</span></div>
+  <div class="support-kpi-options" role="group" aria-label="Process metrics">
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="enquiries" data-accent="sky" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h14v10H8l-5 3V4Zm4 4h6m-6 3h4"/></svg></span>
+      <strong>3 hrs</strong><span>Enquiry response time</span>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="quotes" data-accent="amber" aria-pressed="true">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h7l3 3v11H5V3Zm7 0v4h3M8 10h4m-4 3h4"/></svg></span>
+      <strong>4 days</strong><span>Quote approval time</span>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="handover" data-accent="green" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h14v10H3V6Zm4 0V3h6v3M3 10h14m-7-1v3"/></svg></span>
+      <strong>2 days</strong><span>Job handover time</span>
+    </button>
+  </div>
+  <div aria-live="polite" aria-atomic="true">
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="enquiries" data-accent="sky" hidden>
+      <figcaption><strong>Average enquiry response time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>8h</span><span>4h</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Enquiry response time, weeks 1 to 4: 6, 5, 5, 3 hours">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,30 105,40 175,40 245,60"/>
+          <path class="support-kpi-point" d="M35 30h0.1"/><path class="support-kpi-point" d="M105 40h0.1"/><path class="support-kpi-point" d="M175 40h0.1"/><path class="support-kpi-point" d="M245 60h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Enquiries took 3 hours to answer last week, down from 5.</p>
+    </figure>
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="quotes" data-accent="amber">
+      <figcaption><strong>Average quote approval time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>6d</span><span>3d</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Quote approval time, weeks 1 to 4: 2, 3, 2, 4 days">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,63.33333333333333 105,50 175,63.33333333333333 245,36.666666666666664"/>
+          <path class="support-kpi-point" d="M35 63.33333333333333h0.1"/><path class="support-kpi-point" d="M105 50h0.1"/><path class="support-kpi-point" d="M175 63.33333333333333h0.1"/><path class="support-kpi-point" d="M245 36.666666666666664h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Quotes took 4 days to approve last week, up from 2.</p>
+    </figure>
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="handover" data-accent="green" hidden>
+      <figcaption><strong>Average job handover time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>6d</span><span>3d</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Job handover time, weeks 1 to 4: 4, 3, 3, 2 days">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,36.666666666666664 105,50 175,50 245,63.33333333333333"/>
+          <path class="support-kpi-point" d="M35 36.666666666666664h0.1"/><path class="support-kpi-point" d="M105 50h0.1"/><path class="support-kpi-point" d="M175 50h0.1"/><path class="support-kpi-point" d="M245 63.33333333333333h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Job handovers took 2 days last week, down from 3.</p>
+    </figure>
+  </div>
+</div>
       </li>
       <li class="story-stage">
         <h3>Add what your business needs next</h3>
@@ -422,15 +479,39 @@
       <li class="story-stage">
         <h3>Take repeat admin off your list</h3>
         <p>We can help automate routine tasks, like sending a customer their receipt once payment comes through.</p>
-        <figure class="story-figure story-automation"><div class="support-flow-grid">
-      <svg viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path class="story-wire-blue" d="M100 50 C100 95 50 105 50 150 C50 195 100 205 100 250"/><path class="story-wire-amber" d="M100 50 C100 95 150 105 150 150 C150 195 100 205 100 250"/><path class="story-wire-mint" d="M100 250 V450"/></svg>
-      <div class="support-node support-node-trigger" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Webhook on job sign-off</strong></div>
-<div class="support-node support-node-sourceA" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch job &amp; parts</strong></div>
-<div class="support-node support-node-sourceB" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Check Xero rates</strong></div>
-<div class="support-node support-node-merge" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; validate</strong></div>
-<div class="support-node support-node-process" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Draft completion note</strong></div>
-<div class="support-node support-node-deliver" data-accent="pink"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email receipt via Sender</strong></div>
-    </div><figcaption>From job sign-off to customer receipt</figcaption></figure>
+        <figure class="support-receipt">
+  <figcaption>Automatic receipt workflow</figcaption>
+  <div class="support-receipt-diagram">
+    <svg class="support-receipt-lines-vertical" viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path d="M100 50V100H50V200H150V100H100M100 200V450"/></svg>
+    <svg class="support-receipt-lines-horizontal" viewBox="0 0 500 200" preserveAspectRatio="none" aria-hidden="true"><path d="M50 100H100V50H200V150H100V100M200 100H450"/></svg>
+    <ol>
+      <li class="support-receipt-payment">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 8h14m-10 4h2"/></svg>
+        <strong>Payment received</strong>
+      </li>
+      <li class="support-receipt-details">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h7l3 3v11H5zM8 9h4m-4 3h4"/></svg>
+        <strong>Get payment details</strong>
+      </li>
+      <li class="support-receipt-customer">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>
+        <strong>Get customer details</strong>
+      </li>
+      <li class="support-receipt-check">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 4h10v13H5zM7 10l2 2 4-4"/></svg>
+        <strong>Check details</strong>
+      </li>
+      <li class="support-receipt-receipt">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h10v14l-2-1.5L10 17l-3-1.5L5 17zM8 7h4m-4 3h4"/></svg>
+        <strong>Create receipt</strong>
+      </li>
+      <li class="support-receipt-email">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 6l7 5 7-5"/></svg>
+        <strong>Email receipt</strong>
+      </li>
+    </ol>
+  </div>
+</figure>
       </li>
     </ol>
     <div class="process-layout support-layout">
@@ -528,56 +609,62 @@
 </div><footer class="process-meta"><span>Example conversation</span><strong>Replies stay in this preview</strong></footer>
 </div>
 <div id="support-panel-03" hidden>
-<div class="support-content">
-  <div class="process-label"><strong>Operations workspace</strong><span>Example data</span></div>
-  <div class="support-selector"><button type="button" class="process-choice support-choice " data-support-choice="kpi" data-support-value="invoices" data-accent="green" aria-pressed="true"><strong>Invoices Paid</strong><small>$9,450 unpaid</small><span class="support-tag">$48,200</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="kpi" data-support-value="jobs" data-accent="blue" aria-pressed="false"><strong>Jobs Completed</strong><small>14 active in field</small><span class="support-tag">128</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="kpi" data-support-value="quotes" data-accent="amber" aria-pressed="false"><strong>Unfinished Quotes</strong><small>$34,600 pending</small><span class="support-tag">9 open</span></button>
-<button type="button" class="process-choice support-choice " data-support-choice="kpi" data-support-value="pipeline" data-accent="pink" aria-pressed="false"><strong>Active Pipeline</strong><small>36 open deals</small><span class="support-tag">$82,800</span></button></div>
-  <div class="support-analytics support-split">
-    <div data-support-result="kpi" data-support-value="invoices">
-<div class="support-surface support-chart" data-accent="green">
-      <div class="process-label"><strong>Invoices Paid vs. Unpaid</strong><span>84% collected · 3 awaiting payment</span></div>
-      <svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 64 C35 58, 72 48, 110 42 C148 36, 188 26, 226 18 C258 13, 286 11, 310 9 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 64 C35 58, 72 48, 110 42 C148 36, 188 26, 226 18 C258 13, 286 11, 310 9"/></svg>
-      <ul class="support-records"><li><span><strong>Bayside Plumbing</strong><small>INV-1042 · Paid 14 Nov</small></span><span><strong>$4,200</strong><small data-accent="green">Paid</small></span></li>
-<li><span><strong>Northside Electrical</strong><small>INV-1045 · Due in 3 days</small></span><span><strong>$3,850</strong><small data-accent="amber">Unpaid</small></span></li>
-<li><span><strong>Coastline HVAC</strong><small>INV-1039 · Overdue 4 days</small></span><span><strong>$1,400</strong><small data-accent="pink">Overdue</small></span></li></ul>
-    </div>
-</div>
-<div data-support-result="kpi" data-support-value="jobs" hidden>
-<div class="support-surface support-chart" data-accent="blue">
-      <div class="process-label"><strong>Jobs Completed &amp; Active</strong><span>90% completed on schedule (AEST)</span></div>
-      <svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 70 C36 64, 74 54, 112 46 C150 38, 186 24, 224 18 C258 14, 286 10, 310 8 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 70 C36 64, 74 54, 112 46 C150 38, 186 24, 224 18 C258 14, 286 10, 310 8"/></svg>
-      <ul class="support-records"><li><span><strong>Parramatta Medical Fitout</strong><small>JOB-884 · Signed off today</small></span><span><strong>6.5 hrs</strong><small data-accent="green">Completed</small></span></li>
-<li><span><strong>Bondi Strata Maintenance</strong><small>JOB-887 · Crew on site</small></span><span><strong>3.0 hrs</strong><small data-accent="blue">In field</small></span></li>
-<li><span><strong>Alexandria Coldroom</strong><small>JOB-889 · 08:00 AEST slot</small></span><span><strong>Booked</strong><small data-accent="sky">Queued</small></span></li></ul>
-    </div>
-</div>
-<div data-support-result="kpi" data-support-value="quotes" hidden>
-<div class="support-surface support-chart" data-accent="amber">
-      <div class="process-label"><strong>Unfinished &amp; Open Quotes</strong><span>Follow up via Sender to close</span></div>
-      <svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 44 C38 38, 74 50, 112 42 C150 34, 188 28, 226 36 C258 42, 286 30, 310 24 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 44 C38 38, 74 50, 112 42 C150 34, 188 28, 226 36 C258 42, 286 30, 310 24"/></svg>
-      <ul class="support-records"><li><span><strong>Westfield Retail Tenancy</strong><small>QT-318 · Opened 2x by client</small></span><span><strong>$16,400</strong><small data-accent="amber">Awaiting sign</small></span></li>
-<li><span><strong>Harbour Strata Group</strong><small>QT-321 · Sent 3 days ago</small></span><span><strong>$9,800</strong><small data-accent="pink">Follow up</small></span></li>
-<li><span><strong>Metro Warehouse Upgrade</strong><small>QT-324 · Draft · 65% scoped</small></span><span><strong>$8,400</strong><small data-accent="sky">Draft</small></span></li></ul>
-    </div>
-</div>
-<div data-support-result="kpi" data-support-value="pipeline" hidden>
-<div class="support-surface support-chart" data-accent="pink">
-      <div class="process-label"><strong>CRM Sales &amp; Job Pipeline</strong><span>34% quote-to-paid conversion</span></div>
-      <svg viewBox="0 0 310 88" preserveAspectRatio="none" aria-hidden="true"><path class="support-chart-grid" d="M0 20H310 M0 44H310 M0 68H310"/><path class="support-chart-fill" d="M0 68 C36 60, 74 52, 112 44 C150 34, 188 26, 226 20 C258 15, 286 12, 310 10 L310 88 L0 88 Z"/><path class="support-chart-line" d="M0 68 C36 60, 74 52, 112 44 C150 34, 188 26, 226 20 C258 15, 286 12, 310 10"/></svg>
-      <ul class="support-records"><li><span><strong>New Web &amp; Phone Enquiries</strong><small>STAGE 1 · Avg 18m response</small></span><span><strong>18 leads</strong><small data-accent="sky">Enquiry</small></span></li>
-<li><span><strong>Unfinished Quotes Sent</strong><small>STAGE 2 · $34.6k open value</small></span><span><strong>9 quotes</strong><small data-accent="amber">Pending</small></span></li>
-<li><span><strong>Approved &amp; In Progress</strong><small>STAGE 3 · Avg $4.4k per job</small></span><span><strong>14 jobs</strong><small data-accent="green">Won</small></span></li></ul>
-    </div>
-</div>
-    <div class="support-surface support-pipeline"><div class="process-label"><strong>Sales &amp; job pipeline</strong><span>Example CRM</span></div>
-      <ul><li data-accent="sky"><div class="process-label"><strong>New Enquiries</strong><span>18 · $54.0k</span></div><meter aria-label="New Enquiries" min="0" max="100" value="94"></meter></li>
-<li data-accent="amber"><div class="process-label"><strong>Unfinished Quotes</strong><span>9 · $34.6k</span></div><meter aria-label="Unfinished Quotes" min="0" max="100" value="66"></meter></li>
-<li data-accent="blue"><div class="process-label"><strong>Jobs Completed</strong><span>128 · $62.4k</span></div><meter aria-label="Jobs Completed" min="0" max="100" value="88"></meter></li>
-<li data-accent="green"><div class="process-label"><strong>Invoices Paid</strong><span>32 · $48.2k</span></div><meter aria-label="Invoices Paid" min="0" max="100" value="82"></meter></li>
-<li data-accent="pink"><div class="process-label"><strong>Unpaid Balance</strong><span>3 · $9.4k</span></div><meter aria-label="Unpaid Balance" min="0" max="100" value="28"></meter></li></ul>
-    </div>
+<div class="support-kpi-dashboard">
+  <div class="process-label"><strong>Process dashboard</strong><span>Example data</span></div>
+  <div class="support-kpi-options" role="group" aria-label="Process metrics">
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="enquiries" data-accent="sky" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h14v10H8l-5 3V4Zm4 4h6m-6 3h4"/></svg></span>
+      <strong>3 hrs</strong><span>Enquiry response time</span>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="quotes" data-accent="amber" aria-pressed="true">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h7l3 3v11H5V3Zm7 0v4h3M8 10h4m-4 3h4"/></svg></span>
+      <strong>4 days</strong><span>Quote approval time</span>
+    </button>
+    <button type="button" class="process-choice support-choice" data-support-choice="kpi" data-support-value="handover" data-accent="green" aria-pressed="false">
+      <span class="process-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h14v10H3V6Zm4 0V3h6v3M3 10h14m-7-1v3"/></svg></span>
+      <strong>2 days</strong><span>Job handover time</span>
+    </button>
+  </div>
+  <div aria-live="polite" aria-atomic="true">
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="enquiries" data-accent="sky" hidden>
+      <figcaption><strong>Average enquiry response time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>8h</span><span>4h</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Enquiry response time, weeks 1 to 4: 6, 5, 5, 3 hours">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,30 105,40 175,40 245,60"/>
+          <path class="support-kpi-point" d="M35 30h0.1"/><path class="support-kpi-point" d="M105 40h0.1"/><path class="support-kpi-point" d="M175 40h0.1"/><path class="support-kpi-point" d="M245 60h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Enquiries took 3 hours to answer last week, down from 5.</p>
+    </figure>
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="quotes" data-accent="amber">
+      <figcaption><strong>Average quote approval time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>6d</span><span>3d</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Quote approval time, weeks 1 to 4: 2, 3, 2, 4 days">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,63.33333333333333 105,50 175,63.33333333333333 245,36.666666666666664"/>
+          <path class="support-kpi-point" d="M35 63.33333333333333h0.1"/><path class="support-kpi-point" d="M105 50h0.1"/><path class="support-kpi-point" d="M175 63.33333333333333h0.1"/><path class="support-kpi-point" d="M245 36.666666666666664h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Quotes took 4 days to approve last week, up from 2.</p>
+    </figure>
+    <figure class="support-surface support-kpi-trend" data-support-result="kpi" data-support-value="handover" data-accent="green" hidden>
+      <figcaption><strong>Average job handover time</strong><span>Last 4 completed weeks</span></figcaption>
+      <div class="support-kpi-graph">
+        <div class="support-kpi-scale" aria-hidden="true"><span>6d</span><span>3d</span><span>0</span></div>
+        <svg viewBox="0 0 280 100" preserveAspectRatio="none" role="img" aria-label="Job handover time, weeks 1 to 4: 4, 3, 3, 2 days">
+          <path class="support-chart-grid" d="M0 10H280 M0 50H280 M0 90H280"/>
+          <polyline class="support-chart-line" points="35,36.666666666666664 105,50 175,50 245,63.33333333333333"/>
+          <path class="support-kpi-point" d="M35 36.666666666666664h0.1"/><path class="support-kpi-point" d="M105 50h0.1"/><path class="support-kpi-point" d="M175 50h0.1"/><path class="support-kpi-point" d="M245 63.33333333333333h0.1"/>
+        </svg>
+        <div class="support-kpi-weeks" aria-hidden="true"><span>Week 1</span><span>Week 2</span><span>Week 3</span><span>Week 4</span></div>
+      </div>
+      <p>Job handovers took 2 days last week, down from 3.</p>
+    </figure>
   </div>
 </div>
 </div>
@@ -623,146 +710,39 @@
 </div>
 </div>
 <div id="support-panel-05" hidden>
-<div class="support-content support-automation">
-  <div class="process-label"><strong>Workflow library</strong><span>Automation preview</span></div>
-  <div class="support-selector"><button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="invoice-sync" data-accent="pink" aria-pressed="true">Xero &amp; Sender</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="lead-triage" data-accent="amber" aria-pressed="false">Enquiry Triage</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="sla-watch" data-accent="sky" aria-pressed="false">SLA Watch</button>
-<button type="button" class="process-choice support-choice " data-support-choice="flow" data-support-value="weekly-digest" data-accent="green" aria-pressed="false">Weekly Briefing</button></div>
-  <div data-support-result="flow" data-support-value="invoice-sync">
-<div class="support-surface support-flow" data-accent="pink">
-    <div class="process-label"><strong>Job Complete to Xero &amp; Sender</strong><span>Real-time webhook</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-invoice-sync" data-support-value="trigger" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Webhook on job sign-off</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-invoice-sync" data-support-value="sourceA" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch job &amp; parts</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-invoice-sync" data-support-value="sourceB" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Check Xero rates</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-invoice-sync" data-support-value="merge" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; validate</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-invoice-sync" data-support-value="process" data-accent="pink" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Draft note w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-invoice-sync" data-support-value="deliver" data-accent="pink" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email receipt via Sender</strong></button>
-    </div>
-    <div data-support-result="node-invoice-sync" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Webhook on job sign-off</strong><small>Fires immediately when a field technician records client sign-off.</small><span class="support-tag">Supabase Webhook</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch job &amp; parts</strong><small>Pulls approved labour hours, site notes, and parts consumed.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Check Xero rates</strong><small>Verifies GST codes, customer terms, and contract rate card.</small><span class="support-tag">Xero API</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge &amp; validate</strong><small>Reconciles quote line items against actuals inside n8n.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="process">
-<div class="support-detail"><strong>Draft note w/ Claude AI</strong><small>Formats clear, client-friendly completion notes from tech logs.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-invoice-sync" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Email receipt via Sender</strong><small>Creates draft Xero invoice and emails branded receipt via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Sender · Supabase · 18 hrs / mo saved</p>
+<figure class="support-receipt">
+  <figcaption>Automatic receipt workflow</figcaption>
+  <div class="support-receipt-diagram">
+    <svg class="support-receipt-lines-vertical" viewBox="0 0 200 500" preserveAspectRatio="none" aria-hidden="true"><path d="M100 50V100H50V200H150V100H100M100 200V450"/></svg>
+    <svg class="support-receipt-lines-horizontal" viewBox="0 0 500 200" preserveAspectRatio="none" aria-hidden="true"><path d="M50 100H100V50H200V150H100V100M200 100H450"/></svg>
+    <ol>
+      <li class="support-receipt-payment">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 8h14m-10 4h2"/></svg>
+        <strong>Payment received</strong>
+      </li>
+      <li class="support-receipt-details">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h7l3 3v11H5zM8 9h4m-4 3h4"/></svg>
+        <strong>Get payment details</strong>
+      </li>
+      <li class="support-receipt-customer">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M13 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM4 17a6 6 0 0 1 12 0"/></svg>
+        <strong>Get customer details</strong>
+      </li>
+      <li class="support-receipt-check">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 4h10v13H5zM7 10l2 2 4-4"/></svg>
+        <strong>Check details</strong>
+      </li>
+      <li class="support-receipt-receipt">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 3h10v14l-2-1.5L10 17l-3-1.5L5 17zM8 7h4m-4 3h4"/></svg>
+        <strong>Create receipt</strong>
+      </li>
+      <li class="support-receipt-email">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14v10H3zM3 6l7 5 7-5"/></svg>
+        <strong>Email receipt</strong>
+      </li>
+    </ol>
   </div>
-</div>
-<div data-support-result="flow" data-support-value="lead-triage" hidden>
-<div class="support-surface support-flow" data-accent="amber">
-    <div class="process-label"><strong>Enquiry Triage &amp; Quote Prep</strong><span>Instant triage</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-lead-triage" data-support-value="trigger" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>New web or email enquiry</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-lead-triage" data-support-value="sourceA" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Verify ABN &amp; region</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-lead-triage" data-support-value="sourceB" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Pull past quotes</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-lead-triage" data-support-value="merge" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge sources</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-lead-triage" data-support-value="process" data-accent="amber" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Scope w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-lead-triage" data-support-value="deliver" data-accent="amber" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Send reply via Sender</strong></button>
-    </div>
-    <div data-support-result="node-lead-triage" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>New web or email enquiry</strong><small>Captures inbound project requests within seconds of submission.</small><span class="support-tag">n8n Trigger</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Verify ABN &amp; region</strong><small>Checks Australian business registration and service state.</small><span class="support-tag">AU Registry</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Pull past quotes</strong><small>Loads comparable historical scopes and delivery timelines.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge sources</strong><small>Combines client context, ABN check, and historical pricing.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="process">
-<div class="support-detail"><strong>Scope w/ Claude AI</strong><small>Extracts technical requirements and drafts a structured scope summary.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-lead-triage" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Send reply via Sender</strong><small>Logs CRM deal and dispatches tailored acknowledgement via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Claude AI · Sender · 12 hrs / mo saved</p>
-  </div>
-</div>
-<div data-support-result="flow" data-support-value="sla-watch" hidden>
-<div class="support-surface support-flow" data-accent="sky">
-    <div class="process-label"><strong>At-Risk SLA Escalation</strong><span>Every 15 mins</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-sla-watch" data-support-value="trigger" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Every 15 mins AEST</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-sla-watch" data-support-value="sourceA" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch open SLA jobs</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-sla-watch" data-support-value="sourceB" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Fetch crew roster</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-sla-watch" data-support-value="merge" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge &amp; score risk</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-sla-watch" data-support-value="process" data-accent="sky" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Rank w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-sla-watch" data-support-value="deliver" data-accent="sky" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Alert ops via Sender</strong></button>
-    </div>
-    <div data-support-result="node-sla-watch" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Every 15 mins AEST</strong><small>Runs scheduled Australian business-hours compliance sweeps.</small><span class="support-tag">n8n Schedule</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch open SLA jobs</strong><small>Queries active jobs within 2 hours of their contractual window.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Fetch crew roster</strong><small>Checks live technician availability and proximity by postcode.</small><span class="support-tag">Dispatch API</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge &amp; score risk</strong><small>Matches unallocated jobs against nearest available field crew.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="process">
-<div class="support-detail"><strong>Rank w/ Claude AI</strong><small>Prioritises reassignment options and drafts handover context.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-sla-watch" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Alert ops via Sender</strong><small>Notifies state operations lead immediately with 1-click reassign.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Supabase · Sender · Zero missed SLAs</p>
-  </div>
-</div>
-<div data-support-result="flow" data-support-value="weekly-digest" hidden>
-<div class="support-surface support-flow" data-accent="green">
-    <div class="process-label"><strong>Executive Operations Digest</strong><span>Fridays 16:00 AEST</span></div>
-    <div class="support-flow-grid">
-      <svg viewBox="0 0 500 144" preserveAspectRatio="none" aria-hidden="true"><path d="M50 72C105 72 98 36 150 36S195 72 250 72H450M50 72C105 72 98 108 150 108S195 72 250 72"/></svg>
-      <button type="button" class="process-choice support-choice support-node support-node-trigger" data-support-choice="node-weekly-digest" data-support-value="trigger" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3Zm0 2v3l2 1"/></svg></span><strong>Fridays at 16:00 AEST</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceA" data-support-choice="node-weekly-digest" data-support-value="sourceA" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5c0-3 10-3 10 0v6c0 3-10 3-10 0Zm0 0c0 3 10 3 10 0m-10 3c0 3 10 3 10 0"/></svg></span><strong>Fetch Supabase KPIs</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-sourceB" data-support-choice="node-weekly-digest" data-support-value="sourceB" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2h5l3 3v9H4m5-12v4h3M2 9l2 2 3-4"/></svg></span><strong>Fetch deploy notes</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-merge" data-support-choice="node-weekly-digest" data-support-value="merge" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3v3c0 3 7 2 7 5m-7-5v5M3 2h2v2H3zm0 9h2v2H3zm7 0h2v2h-2z"/></svg></span><strong>Merge weekly data</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-process" data-support-choice="node-weekly-digest" data-support-value="process" data-accent="green" aria-pressed="true"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 2 1.5 4.5L14 8l-4.5 1.5L8 14l-1.5-4.5L2 8l4.5-1.5Z"/></svg></span><strong>Summarise w/ Claude AI</strong></button>
-<button type="button" class="process-choice support-choice support-node support-node-deliver" data-support-choice="node-weekly-digest" data-support-value="deliver" data-accent="green" aria-pressed="false"><span class="support-node-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 4h12v8H2zm0 0 6 5 6-5"/></svg></span><strong>Email briefing via Sender</strong></button>
-    </div>
-    <div data-support-result="node-weekly-digest" data-support-value="trigger" hidden>
-<div class="support-detail"><strong>Fridays at 16:00 AEST</strong><small>Triggers weekly executive rollup before end of business Friday.</small><span class="support-tag">n8n Schedule</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="sourceA" hidden>
-<div class="support-detail"><strong>Fetch Supabase KPIs</strong><small>Aggregates completed jobs, WIP margin, and SLA attainment.</small><span class="support-tag">Supabase DB</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="sourceB" hidden>
-<div class="support-detail"><strong>Fetch deploy notes</strong><small>Collects merged releases and resolved support tickets for the week.</small><span class="support-tag">GitHub · GitLab</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="merge" hidden>
-<div class="support-detail"><strong>Merge weekly data</strong><small>Aligns operational metrics and engineering milestones in one payload.</small><span class="support-tag">n8n Merge</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="process">
-<div class="support-detail"><strong>Summarise w/ Claude AI</strong><small>Synthesises executive highlights, bottlenecks, and margin trends.</small><span class="support-tag">Claude AI</span></div>
-</div>
-<div data-support-result="node-weekly-digest" data-support-value="deliver" hidden>
-<div class="support-detail"><strong>Email briefing via Sender</strong><small>Delivers the formatted Friday briefing to directors via Sender.</small><span class="support-tag">Sender</span></div>
-</div>
-    <p class="support-context">n8n · Claude AI · Sender · 6 hrs / mo saved</p>
-  </div>
-</div>
-  <button type="button" class="button support-next" data-support-next aria-label="Next example workflow">+</button>
-</div>
+</figure>
 </div>
         </div>
       </div>
