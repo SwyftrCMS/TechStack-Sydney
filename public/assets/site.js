@@ -358,11 +358,14 @@ if (supportPreview) {
 
       if (!reduceMotion.matches) {
         [...visibleChat.target.children].forEach((message, index) => {
-          message.animate([{ opacity: 0 }, { opacity: 1 }], {
-            duration: 200,
-            delay: index * 140,
-            easing: 'ease-out',
-            fill: 'backwards',
+          message.animate([
+            { transform: 'translateY(0)' },
+            { transform: 'translateY(-4px)', offset: 0.55 },
+            { transform: 'translateY(0)' },
+          ], {
+            duration: 260,
+            delay: index * 120,
+            easing: 'ease-in-out',
           });
         });
       }
