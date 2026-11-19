@@ -213,6 +213,19 @@ if (processSection) {
   const previewTitle = processSection.querySelector('[data-process-title]');
   const previewPhase = processSection.querySelector('[data-process-phase]');
   const diagram = processSection.querySelector('.process-diagram');
+  const planningPhase = processSection.querySelector('#process-phase-02');
+  const processPreview = processSection.querySelector('.process-preview');
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  if (planningPhase && processPreview && !reduceMotion.matches && 'IntersectionObserver' in window) {
+    const previewObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      processPreview.classList.add('stage02-window-visible');
+      observer.disconnect();
+    }, { threshold: 0.12 });
+    previewObserver.observe(planningPhase);
+  } else if (processPreview) {
+    processPreview.classList.add('stage02-window-visible');
+  }
 
   processSection.addEventListener('click', event => {
     const button = event.target.closest('button');
@@ -228,6 +241,13 @@ if (processSection) {
       }
       previewTitle.textContent = button.querySelector('strong').textContent;
       previewPhase.textContent = button.dataset.processStep;
+      if (button.dataset.processStep === '02') {
+        const preview = processSection.querySelector('.process-preview');
+        preview.scrollIntoView({
+          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          block: 'center'
+        });
+      }
       return;
     }
 
