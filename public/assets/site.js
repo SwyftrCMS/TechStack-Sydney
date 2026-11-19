@@ -109,7 +109,7 @@ for (const pillar of document.querySelectorAll('[data-steps]')) {
 
 const hero = document.querySelector('.hero-frame');
 const desktopHero = matchMedia('(min-width: 64rem)');
-if (hero && desktopHero.matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let pending = false;
   function updateHero() {
     const cardProgress = Math.min(Math.max(scrollY / 275, 0), 1);
@@ -121,9 +121,19 @@ if (hero && desktopHero.matches && !matchMedia('(prefers-reduced-motion: reduce)
     pending = true;
     requestAnimationFrame(updateHero);
   }
-  updateHero();
-  addEventListener('scroll', scheduleHeroUpdate, { passive: true });
-  addEventListener('resize', scheduleHeroUpdate);
+  function setHeroMotion() {
+    if (desktopHero.matches) {
+      updateHero();
+      addEventListener('scroll', scheduleHeroUpdate, { passive: true });
+      addEventListener('resize', scheduleHeroUpdate);
+    } else {
+      removeEventListener('scroll', scheduleHeroUpdate);
+      removeEventListener('resize', scheduleHeroUpdate);
+      hero.style.removeProperty('--hero-card-progress');
+    }
+  }
+  setHeroMotion();
+  desktopHero.addEventListener('change', setHeroMotion);
 }
 
 const contact = document.querySelector('[data-contact]');
