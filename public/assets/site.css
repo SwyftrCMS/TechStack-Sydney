@@ -1655,11 +1655,11 @@ textarea { resize: vertical }
   #run #process-phase-03 .stage03-client-review {
     display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(12rem, .9fr);
     gap: .875rem; height: 100%; min-height: 0; padding: .875rem;
-    background: #f4f6fa;
+    background: #fff;
   }
   #run .review-app {
     display: flex; flex-direction: column; min-width: 0; overflow: hidden;
-    border: 1px solid #e3e7ef; border-radius: .75rem; background: #fff;
+    border: 1px solid #e3e7ef; border-radius: .75rem; background: #f3f5f9;
     box-shadow: 0 5px 15px #1822380a;
   }
   #run .review-app-header {
@@ -1713,8 +1713,8 @@ textarea { resize: vertical }
   #run .review-app-foot i { width: .375rem; height: .375rem; border-radius: 50%; background: #22a77a }
   #run .review-feedback {
     position: relative; display: flex; flex-direction: column; justify-content: center;
-    min-width: 0; padding: 1rem; border: 1px solid #e6e1ff; border-radius: .75rem;
-    background: linear-gradient(145deg, #fff 0%, #f8f6ff 100%);
+    min-width: 0; padding: 1rem; border: 1px solid #e3e7ef; border-radius: .75rem;
+    background: #f3f5f9;
   }
   #run .review-feedback-heading { display: flex; align-items: center; gap: .5rem }
   #run .review-feedback-avatar {
