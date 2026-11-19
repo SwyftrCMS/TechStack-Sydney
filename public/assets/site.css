@@ -1480,3 +1480,31 @@ textarea { resize: vertical }
 @media (prefers-reduced-motion: reduce) {
   #run .discovery-agenda.is-visible .discovery-agenda-card { animation: none }
 }
+
+
+/* Desktop Stage 01 agenda treatment */
+@media (min-width: 64rem) {
+  #run .process-preview:has(> #process-phase-01:not([hidden])) {
+    display: block; height: auto; min-height: 0; overflow: visible;
+    border: 0; border-radius: 0; background: transparent; box-shadow: none;
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) > #process-phase-01 {
+    display: block; height: auto; min-height: 0;
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda { padding: 0 }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-heading { display: none }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-grid {
+    grid-template-columns: 1fr; gap: .75rem;
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-card {
+    align-items: center; min-height: 5.25rem; padding: 1rem 1.125rem;
+    border-color: color-mix(in srgb, var(--process-accent) 58%, white); background: white;
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-icon {
+    display: block; flex: none; width: 1.75rem; height: 1.75rem; color: var(--process-accent);
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-card h4 {
+    margin: 0 0 .25rem; font-size: .9375rem;
+  }
+  #run .process-preview:has(> #process-phase-01:not([hidden])) .discovery-agenda-card p { font-size: .8125rem }
+}
