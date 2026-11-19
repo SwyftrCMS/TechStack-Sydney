@@ -241,13 +241,6 @@ if (processSection) {
       }
       previewTitle.textContent = button.querySelector('strong').textContent;
       previewPhase.textContent = button.dataset.processStep;
-      if (button.dataset.processStep === '02') {
-        const preview = processSection.querySelector('.process-preview');
-        preview.scrollIntoView({
-          behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-          block: 'center'
-        });
-      }
       return;
     }
 
