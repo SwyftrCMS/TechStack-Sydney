@@ -1,12 +1,12 @@
 #app .mobile-showcase { grid-template-columns: minmax(0, 1fr) }
 #app .mobile-showcase > * { min-width: 0 }
 @media (min-width: 64rem) {
-  #app .mobile-showcase { grid-template-columns: minmax(0, 1fr) 350px minmax(0, 1fr) }
+  #app .mobile-showcase { grid-template-columns: minmax(0, 1fr) 330px minmax(0, 1fr) }
 }
 .phone.scheduler-phone {
-  width: min(100%, 350px);
+  width: min(100%, 330px);
   height: auto;
-  aspect-ratio: 350 / 715;
+  aspect-ratio: 330 / 674;
   display: grid;
   grid-template-rows: 36px minmax(0, 1fr);
   overflow: hidden;
