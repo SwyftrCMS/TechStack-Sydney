@@ -1655,11 +1655,11 @@ textarea { resize: vertical }
   #run #process-phase-03 .stage03-client-review {
     display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(12rem, .9fr);
     gap: .875rem; height: 100%; min-height: 0; padding: .875rem;
-    background: #f4f6fa;
+    background: #fff;
   }
   #run .review-app {
     display: flex; flex-direction: column; min-width: 0; overflow: hidden;
-    border: 1px solid #e3e7ef; border-radius: .75rem; background: #fff;
+    border: 1px solid #e3e7ef; border-radius: .75rem; background: #f3f5f9;
     box-shadow: 0 5px 15px #1822380a;
   }
   #run .review-app-header {
@@ -1699,10 +1699,13 @@ textarea { resize: vertical }
   #run .review-job > div { display: grid; gap: .125rem; min-width: 0 }
   #run .review-job strong { overflow: hidden; color: #263249; font-size: .625rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap }
   #run .review-job small { overflow: hidden; color: #7c8799; font-size: .5rem; text-overflow: ellipsis; white-space: nowrap }
-  #run .review-job-priority { border-color: #c9c0ff; background: #faf9ff; box-shadow: inset 2px 0 #7663e8 }
+  #run .review-job-priority {
+    border-color: #a8dcf1; background: #f4fbff;
+    box-shadow: inset 2px 0 #39a6de, 0 0 0 2px #39a6de1a;
+  }
   #run .review-job-tag {
-    padding: .25rem .375rem; border-radius: 999px; background: #eeebff;
-    color: #5c4bc4; font-size: .4375rem; font-weight: 750; white-space: nowrap;
+    padding: .25rem .375rem; border-radius: 999px; background: #e3f4fb;
+    color: #176083; font-size: .4375rem; font-weight: 750; white-space: nowrap;
   }
   #run .review-job-status { color: #788397; font-size: .5rem; white-space: nowrap }
   #run .review-app-foot {
@@ -1713,8 +1716,8 @@ textarea { resize: vertical }
   #run .review-app-foot i { width: .375rem; height: .375rem; border-radius: 50%; background: #22a77a }
   #run .review-feedback {
     position: relative; display: flex; flex-direction: column; justify-content: center;
-    min-width: 0; padding: 1rem; border: 1px solid #e6e1ff; border-radius: .75rem;
-    background: linear-gradient(145deg, #fff 0%, #f8f6ff 100%);
+    min-width: 0; padding: 1rem; border: 1px solid #e3e7ef; border-radius: .75rem;
+    background: #f3f5f9;
   }
   #run .review-feedback-heading { display: flex; align-items: center; gap: .5rem }
   #run .review-feedback-avatar {
@@ -1742,4 +1745,12 @@ textarea { resize: vertical }
   #run .review-feedback-link { display: flex; gap: .25rem; margin-top: auto; padding-top: .875rem }
   #run .review-feedback-link i { width: .25rem; height: .25rem; border-radius: 50%; background: #cbc4ed }
   #run .review-feedback-link i:first-child { width: .875rem; border-radius: 999px; background: #7663e8 }
+}
+@media (min-width: 64rem) {
+  #run .process-preview:has(> #process-phase-03:not([hidden])) {
+    animation: stage02-window-enter 620ms cubic-bezier(.16, 1, .3, 1) both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #run .process-preview:has(> #process-phase-03:not([hidden])) { animation: none }
 }
