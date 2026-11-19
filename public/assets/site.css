@@ -1627,3 +1627,119 @@ textarea { resize: vertical }
     animation: none;
   }
 }
+
+
+/* Desktop Stage 03: show the working product and one clear feedback loop. */
+#run .stage03-client-review { display: none }
+@media (min-width: 64rem) {
+  #run .process-layout:has(> .process-preview > #process-phase-03:not([hidden])) {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: stretch; gap: 3rem; min-height: 31rem;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-03:not([hidden])) > .process-steps {
+    align-self: start;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-03:not([hidden])) > .process-preview {
+    width: min(94%, 56rem); height: 21rem; align-self: center; justify-self: center;
+  }
+  #run .process-preview:has(> #process-phase-03:not([hidden])) > .process-window-bar {
+    justify-content: flex-start; min-height: 2.75rem;
+  }
+  #run .process-preview:has(> #process-phase-03:not([hidden])) > .process-window-bar > :not(.process-window-dots) {
+    display: none;
+  }
+  #run #process-phase-03 > .process-build {
+    display: block; flex: 1; min-height: 0; padding: 0;
+  }
+  #run #process-phase-03 > .process-build > :not(.stage03-client-review) { display: none }
+  #run #process-phase-03 .stage03-client-review {
+    display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(12rem, .9fr);
+    gap: .875rem; height: 100%; min-height: 0; padding: .875rem;
+    background: #f4f6fa;
+  }
+  #run .review-app {
+    display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+    border: 1px solid #e3e7ef; border-radius: .75rem; background: #fff;
+    box-shadow: 0 5px 15px #1822380a;
+  }
+  #run .review-app-header {
+    display: flex; align-items: center; gap: .875rem; min-height: 2.625rem;
+    padding: 0 .875rem; border-bottom: 1px solid #edf0f5; color: #657187;
+    font-size: .5625rem;
+  }
+  #run .review-app-brand {
+    display: inline-flex; align-items: center; gap: .375rem; flex: none;
+    color: #202b41; font-size: .5625rem; font-weight: 800; letter-spacing: .055em;
+  }
+  #run .review-app-brand i {
+    width: .5rem; height: .5rem; border-radius: .15rem; background: #7663e8;
+    box-shadow: 0 0 0 3px #7663e81a;
+  }
+  #run .review-app-header nav { display: flex; align-items: center; gap: .875rem; min-width: 0 }
+  #run .review-app-header nav span { white-space: nowrap }
+  #run .review-app-header nav .is-current { color: #5b4bc4; font-weight: 700 }
+  #run .review-app-user {
+    display: grid; place-items: center; width: 1.5rem; height: 1.5rem; margin-left: auto;
+    border-radius: 50%; background: #e8e4ff; color: #5141b4; font-size: .5rem; font-weight: 750;
+  }
+  #run .review-app-main { display: flex; flex: 1; flex-direction: column; min-height: 0; padding: .875rem }
+  #run .review-app-title { display: flex; align-items: end; justify-content: space-between; gap: .5rem; margin-bottom: .625rem }
+  #run .review-app-title p {
+    margin: 0 0 .125rem; color: #7b8495; font-size: .5rem; font-weight: 750; letter-spacing: .09em;
+  }
+  #run .review-app-title h3 { margin: 0; color: #1b263b; font-size: 1rem; line-height: 1.25 }
+  #run .review-date { color: #7a8496; font-size: .5625rem; white-space: nowrap }
+  #run .review-job-list { display: grid; gap: .375rem; margin: 0; padding: 0; list-style: none }
+  #run .review-job {
+    display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; align-items: center;
+    gap: .5rem; min-width: 0; padding: .5rem .625rem;
+    border: 1px solid #edf0f5; border-radius: .5rem; background: #fff;
+  }
+  #run .review-job time { color: #69758a; font: 600 .5625rem/1.2 "JetBrains Mono", var(--mono) }
+  #run .review-job > div { display: grid; gap: .125rem; min-width: 0 }
+  #run .review-job strong { overflow: hidden; color: #263249; font-size: .625rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap }
+  #run .review-job small { overflow: hidden; color: #7c8799; font-size: .5rem; text-overflow: ellipsis; white-space: nowrap }
+  #run .review-job-priority { border-color: #c9c0ff; background: #faf9ff; box-shadow: inset 2px 0 #7663e8 }
+  #run .review-job-tag {
+    padding: .25rem .375rem; border-radius: 999px; background: #eeebff;
+    color: #5c4bc4; font-size: .4375rem; font-weight: 750; white-space: nowrap;
+  }
+  #run .review-job-status { color: #788397; font-size: .5rem; white-space: nowrap }
+  #run .review-app-foot {
+    display: flex; justify-content: space-between; gap: .5rem; margin-top: auto; padding-top: .5rem;
+    color: #7b8699; font-size: .5rem;
+  }
+  #run .review-app-foot span:first-child { display: flex; align-items: center; gap: .3rem }
+  #run .review-app-foot i { width: .375rem; height: .375rem; border-radius: 50%; background: #22a77a }
+  #run .review-feedback {
+    position: relative; display: flex; flex-direction: column; justify-content: center;
+    min-width: 0; padding: 1rem; border: 1px solid #e6e1ff; border-radius: .75rem;
+    background: linear-gradient(145deg, #fff 0%, #f8f6ff 100%);
+  }
+  #run .review-feedback-heading { display: flex; align-items: center; gap: .5rem }
+  #run .review-feedback-avatar {
+    display: grid; place-items: center; width: 1.75rem; height: 1.75rem; flex: none;
+    border: 2px solid white; border-radius: 50%; background: #ddd6fe;
+    color: #5141b4; font-size: .625rem; font-weight: 750; box-shadow: 0 0 0 1px #d9d3f7;
+  }
+  #run .review-feedback-heading > span:last-child,
+  #run .review-feedback-result > span:last-child { display: grid; gap: .125rem }
+  #run .review-feedback-heading strong { color: #29344a; font-size: .625rem }
+  #run .review-feedback-heading small { color: #818a9a; font-size: .5rem }
+  #run .review-feedback blockquote {
+    margin: 1rem 0; color: #27334a; font-size: .8125rem; font-weight: 650; line-height: 1.45;
+  }
+  #run .review-feedback-result {
+    display: flex; align-items: flex-start; gap: .5rem; padding-top: .75rem;
+    border-top: 1px solid #e8e5f5;
+  }
+  #run .review-feedback-check {
+    display: grid; place-items: center; width: 1.125rem; height: 1.125rem; flex: none;
+    border-radius: 50%; background: #e2f5ed; color: #14825e; font-size: .625rem; font-weight: 800;
+  }
+  #run .review-feedback-result strong { color: #22795d; font-size: .5625rem }
+  #run .review-feedback-result small { color: #707b8f; font-size: .5rem; line-height: 1.4 }
+  #run .review-feedback-link { display: flex; gap: .25rem; margin-top: auto; padding-top: .875rem }
+  #run .review-feedback-link i { width: .25rem; height: .25rem; border-radius: 50%; background: #cbc4ed }
+  #run .review-feedback-link i:first-child { width: .875rem; border-radius: 999px; background: #7663e8 }
+}
