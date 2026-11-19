@@ -108,7 +108,8 @@ for (const pillar of document.querySelectorAll('[data-steps]')) {
 
 
 const hero = document.querySelector('.hero-frame');
-if (hero && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+const desktopHero = matchMedia('(min-width: 64rem)');
+if (hero && desktopHero.matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   let pending = false;
   function updateHero() {
     const cardProgress = Math.min(Math.max(scrollY / 275, 0), 1);
