@@ -1906,5 +1906,6 @@ textarea { resize: vertical }
   100% { box-shadow: 0 0 0 0 #39a6de00; transform: scale(1) }
 }
 @media (prefers-reduced-motion: reduce) {
+  #run .process-preview:has(> #process-phase-05:not([hidden])) { animation: none }
   #run .stage05-release-live { animation: none }
 }
