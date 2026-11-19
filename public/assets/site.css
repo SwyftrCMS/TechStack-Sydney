@@ -1754,3 +1754,92 @@ textarea { resize: vertical }
 @media (prefers-reduced-motion: reduce) {
   #run .process-preview:has(> #process-phase-03:not([hidden])) { animation: none }
 }
+
+
+/* Stage 02: replace the desktop app frame with a clear stack of delivery cards. */
+#run .process-preview:has(> #process-phase-02:not([hidden])) > .process-window-bar { display: none }
+@media (min-width: 64rem) {
+  #run .process-preview:has(> #process-phase-02:not([hidden])) {
+    height: auto; min-height: 0; overflow: visible; border: 0; border-radius: 0;
+    background: transparent; box-shadow: none;
+  }
+  #run .process-preview:has(> #process-phase-02:not([hidden])) > #process-phase-02 {
+    display: block; height: auto; min-height: 0; padding: 0;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-02:not([hidden])) {
+    min-height: 31rem;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-02:not([hidden])) > .process-preview {
+    width: min(94%, 38rem); height: auto; align-self: center; justify-self: center;
+  }
+}
+#run .stage02-card-stack {
+  display: grid; gap: .75rem; margin: 0; padding: .375rem .25rem .625rem;
+  list-style: none;
+}
+#run .stage02-card {
+  position: relative; display: grid; gap: .75rem; min-width: 0; padding: .875rem 1rem;
+  border: 1px solid #e3e7ef; border-radius: .875rem; background: #fff;
+  box-shadow: 0 8px 20px #1822380d, 0 2px 5px #18223808;
+}
+#run .stage02-card:nth-child(2) { margin-inline: .375rem }
+#run .stage02-card:nth-child(3) { margin-inline: .75rem }
+#run .stage02-card-heading { display: flex; align-items: center; gap: .75rem; min-width: 0 }
+#run .stage02-card-heading > div { min-width: 0; flex: 1 }
+#run .stage02-card-heading p {
+  margin: 0 0 .2rem; color: #7a8496; font-size: .625rem; font-weight: 650; line-height: 1.3;
+}
+#run .stage02-card-heading h3 {
+  margin: 0; color: #1b263b; font-size: .9375rem; font-weight: 750; line-height: 1.3;
+}
+#run .stage02-card-icon {
+  display: grid; place-items: center; flex: none; width: 2rem; height: 2rem;
+  border-radius: .625rem; background: #f0edff; color: #6954d4; font-size: 1rem; font-weight: 800;
+}
+#run .stage02-live {
+  display: inline-flex; align-items: center; gap: .375rem; flex: none; padding: .3rem .5rem;
+  border: 1px solid #bdebd8; border-radius: 999px; background: #effbf5;
+  color: #137653; font-size: .625rem; font-weight: 750; text-transform: uppercase; letter-spacing: .04em;
+}
+#run .stage02-live i { width: .4rem; height: .4rem; border-radius: 50%; background: #18a878 }
+#run .stage02-card-live { border-color: #cfe9dc }
+#run .stage02-card-footer, #run .stage02-handover-items {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .375rem;
+}
+#run .stage02-card-footer span, #run .stage02-handover-items span {
+  padding: .3rem .5rem; border-radius: 999px; background: #f2f4f8; color: #596579;
+  font-size: .5625rem; font-weight: 650; line-height: 1.2;
+}
+#run .stage02-dashboard-preview {
+  display: grid; grid-template-columns: 1fr 1fr minmax(5rem, .7fr); align-items: center; gap: .5rem;
+  padding: .625rem .75rem; border: 1px solid #edf0f5; border-radius: .625rem; background: #f8f9fc;
+}
+#run .stage02-dashboard-preview > span:not(.stage02-dashboard-chart) { display: grid; gap: .15rem }
+#run .stage02-dashboard-preview small { color: #778297; font-size: .5625rem }
+#run .stage02-dashboard-preview strong { color: #263249; font-size: .875rem; line-height: 1.1 }
+#run .stage02-dashboard-chart {
+  display: flex; align-items: end; justify-content: center; gap: .25rem; height: 2rem;
+}
+#run .stage02-dashboard-chart i {
+  width: .35rem; height: 38%; border-radius: 999px 999px .125rem .125rem; background: #8c7bf0;
+}
+#run .stage02-dashboard-chart i:nth-child(2) { height: 58% }
+#run .stage02-dashboard-chart i:nth-child(3) { height: 48% }
+#run .stage02-dashboard-chart i:nth-child(4) { height: 75% }
+#run .stage02-dashboard-chart i:nth-child(5) { height: 62% }
+#run .stage02-dashboard-chart i:nth-child(6) { height: 88% }
+#run .stage02-dashboard-chart i:nth-child(7) { height: 100%; background: #5c49d6 }
+#run .stage02-card-handover .stage02-card-icon { background: #eaf7f2; color: #18805c }
+@media (max-width: 40rem) {
+  #run .stage02-card-stack { gap: .5rem; padding: .25rem 0 .5rem }
+  #run .stage02-card { gap: .5rem; padding: .75rem; border-radius: .75rem }
+  #run .stage02-card:nth-child(2) { margin-inline: .25rem }
+  #run .stage02-card:nth-child(3) { margin-inline: .5rem }
+  #run .stage02-card-heading { gap: .5rem }
+  #run .stage02-card-heading h3 { font-size: .8125rem }
+  #run .stage02-card-footer span, #run .stage02-handover-items span { font-size: .5rem; padding: .25rem .375rem }
+  #run .stage02-dashboard-preview { grid-template-columns: 1fr 1fr minmax(3.5rem, .6fr); gap: .375rem; padding: .5rem }
+}
+@media (prefers-reduced-motion: reduce) {
+  #run .stage02-card { scroll-behavior: auto }
+}
