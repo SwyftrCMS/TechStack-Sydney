@@ -11,8 +11,8 @@
   <meta property="og:title" content="Web &amp; Mobile App Development | TechStack Sydney">
   <meta property="og:description" content="TechStack Sydney designs, builds and supports custom web and mobile apps for Australian small and medium businesses.">
   <meta property="og:url" content="https://techstacksydney.com/">
-  <link rel="stylesheet" href="/assets/site.css?v=discovery-agenda-01-jira-roadmap-02">
-  <script src="/assets/site.js?v=discovery-agenda-01-jira-roadmap-02" defer></script>
+  <link rel="stylesheet" href="/assets/site.css?v=discovery-agenda-01-jira-board-03">
+  <script src="/assets/site.js?v=discovery-agenda-01-jira-board-03" defer></script>
   
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TechStack Sydney","url":"https://techstacksydney.com","slogan":"Dream Code Deploy","areaServed":"Australia"}</script>
   <link rel="stylesheet" href="/assets/scheduler-phone.css?v=phone-layout-phone-nav">
@@ -208,56 +208,58 @@
 </div>
 </div>
         <div id="process-phase-02" hidden>
-<div class="project-board" aria-label="Field service platform project roadmap">
+<div class="project-board" aria-label="Field Service Platform project board">
   <header class="project-board-header">
     <div>
-      <p class="project-board-eyebrow">PROJECT ROADMAP</p>
+      <p class="project-board-eyebrow">FIELD OPS · PROJECT BOARD</p>
       <h3>Field Service Platform</h3>
     </div>
-    <div class="project-board-current">
-      <span>Sprint 03 of 06</span>
-      <strong><i aria-hidden="true"></i>In progress</strong>
-    </div>
+    <span class="project-board-sprint">Sprint 03 <span>of 06</span></span>
   </header>
-  <div class="project-sprint-list" aria-label="Sprint plan">
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s1" data-status="done" aria-pressed="false">
-      <span class="project-sprint-key">01</span>
-      <span class="project-sprint-copy"><strong>Core setup &amp; access</strong><small>6 tasks</small></span>
-      <span class="project-sprint-state">Done</span>
-    </button>
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s2" data-status="done" aria-pressed="false">
-      <span class="project-sprint-key">02</span>
-      <span class="project-sprint-copy"><strong>Client &amp; job portal</strong><small>8 tasks</small></span>
-      <span class="project-sprint-state">Done</span>
-    </button>
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s3" data-status="progress" aria-pressed="true">
-      <span class="project-sprint-key">03</span>
-      <span class="project-sprint-copy"><strong>Dispatch &amp; scheduling</strong><small>7 tasks</small></span>
-      <span class="project-sprint-state">In progress</span>
-    </button>
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s4" data-status="next" aria-pressed="false">
-      <span class="project-sprint-key">04</span>
-      <span class="project-sprint-copy"><strong>Mobile field app</strong><small>6 tasks</small></span>
-      <span class="project-sprint-state">Up next</span>
-    </button>
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s5" data-status="next" aria-pressed="false">
-      <span class="project-sprint-key">05</span>
-      <span class="project-sprint-copy"><strong>Xero &amp; CRM sync</strong><small>5 tasks</small></span>
-      <span class="project-sprint-state">Up next</span>
-    </button>
-    <button type="button" class="project-sprint" data-process-choice="sprint" data-value="s6" data-status="next" aria-pressed="false">
-      <span class="project-sprint-key">06</span>
-      <span class="project-sprint-copy"><strong>Testing &amp; go live</strong><small>4 tasks</small></span>
-      <span class="project-sprint-state">Up next</span>
-    </button>
-  </div>
-  <div class="project-sprint-detail" aria-live="polite">
-    <div data-process-result="sprint" data-value="s1" hidden><strong>Sprint tasks</strong><span>Database schema · User roles · Staging setup</span></div>
-    <div data-process-result="sprint" data-value="s2" hidden><strong>Sprint tasks</strong><span>Job records · Quote builder · Client views</span></div>
-    <div data-process-result="sprint" data-value="s3"><strong>Sprint tasks</strong><span>Live roster board · Calendar sync · Notifications</span></div>
-    <div data-process-result="sprint" data-value="s4" hidden><strong>Sprint tasks</strong><span>Offline checklists · Photo capture · Sign-off</span></div>
-    <div data-process-result="sprint" data-value="s5" hidden><strong>Sprint tasks</strong><span>Invoice sync · CRM updates · Webhook logs</span></div>
-    <div data-process-result="sprint" data-value="s6" hidden><strong>Sprint tasks</strong><span>User testing · Team training · Production launch</span></div>
+  <div class="project-board-columns" aria-label="Project work by status">
+    <section class="project-board-column" aria-labelledby="project-done-title">
+      <header><h4 id="project-done-title">Done</h4><span>2</span></header>
+      <div class="project-board-cards">
+        <button type="button" class="project-issue" data-process-choice="sprint" data-value="s1" data-status="done" aria-pressed="false">
+          <span class="project-issue-key">OPS-101</span>
+          <strong>Core setup &amp; access</strong>
+        </button>
+        <button type="button" class="project-issue" data-process-choice="sprint" data-value="s2" data-status="done" aria-pressed="false">
+          <span class="project-issue-key">OPS-102</span>
+          <strong>Client &amp; job portal</strong>
+        </button>
+      </div>
+    </section>
+    <section class="project-board-column project-board-column-active" aria-labelledby="project-progress-title">
+      <header><h4 id="project-progress-title">In progress</h4><span>1</span></header>
+      <div class="project-board-cards">
+        <button type="button" class="project-issue project-issue-active" data-process-choice="sprint" data-value="s3" data-status="progress" aria-pressed="true">
+          <span class="project-issue-key">OPS-103</span>
+          <strong>Dispatch &amp; scheduling</strong>
+          <span class="project-issue-progress">
+            <span class="project-progress-label">4 of 7 tasks complete</span>
+            <span class="project-progress-track" aria-hidden="true"><i></i></span>
+          </span>
+        </button>
+      </div>
+    </section>
+    <section class="project-board-column" aria-labelledby="project-todo-title">
+      <header><h4 id="project-todo-title">To do</h4><span>3</span></header>
+      <div class="project-board-cards">
+        <button type="button" class="project-issue" data-process-choice="sprint" data-value="s4" data-status="next" aria-pressed="false">
+          <span class="project-issue-key">OPS-104</span>
+          <strong>Mobile field app</strong>
+        </button>
+        <button type="button" class="project-issue" data-process-choice="sprint" data-value="s5" data-status="next" aria-pressed="false">
+          <span class="project-issue-key">OPS-105</span>
+          <strong>Xero &amp; CRM sync</strong>
+        </button>
+        <button type="button" class="project-issue" data-process-choice="sprint" data-value="s6" data-status="next" aria-pressed="false">
+          <span class="project-issue-key">OPS-106</span>
+          <strong>Testing &amp; go live</strong>
+        </button>
+      </div>
+    </section>
   </div>
 </div>
         </div>
