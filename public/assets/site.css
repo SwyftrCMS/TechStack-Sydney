@@ -1598,3 +1598,28 @@ textarea { resize: vertical }
     display: block; width: 57%; height: 100%; border-radius: inherit; background: #7562e8;
   }
 }
+
+/* Stage 02 window sits below the stage list on desktop. */
+@media (min-width: 64rem) {
+  #run .process-layout:has(> .process-preview > #process-phase-02:not([hidden])) {
+    display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-02:not([hidden])) > .process-steps {
+    width: min(100%, 48rem); margin-inline: auto;
+  }
+  #run .process-layout:has(> .process-preview > #process-phase-02:not([hidden])) > .process-preview {
+    width: min(100%, 56rem); height: 24rem; align-self: center;
+  }
+  #run .process-preview:has(> #process-phase-02:not([hidden])).stage02-window-visible {
+    animation: stage02-window-enter 620ms cubic-bezier(.16, 1, .3, 1) both;
+  }
+}
+@keyframes stage02-window-enter {
+  from { opacity: 0; transform: translate3d(0, 18px, 0); filter: blur(5px) }
+  to { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0) }
+}
+@media (prefers-reduced-motion: reduce) {
+  #run .process-preview:has(> #process-phase-02:not([hidden])).stage02-window-visible {
+    animation: none;
+  }
+}
