@@ -431,3 +431,18 @@ for (const carousel of document.querySelectorAll('[data-full-process-carousel]')
   indicator.hidden = false;
   if (track.clientWidth) updateIndicator();
 }
+
+
+const discoveryAgendas = document.querySelectorAll('[data-discovery-agenda]');
+if (discoveryAgendas.length && 'IntersectionObserver' in window &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const discoveryAgendaObserver = new IntersectionObserver((entries, observer) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: 0.2 });
+
+  discoveryAgendas.forEach(agenda => discoveryAgendaObserver.observe(agenda));
+}
