@@ -494,8 +494,11 @@
   }
 
   function updateMidScreenReveals() {
-    const revealY = (window.innerHeight || 800) * SCREEN_MID_RATIO;
-    requestedStage = stages.findLast((stage) => stage.getBoundingClientRect().top <= revealY) ?? null;
+    const viewportHeight = window.innerHeight;
+    requestedStage = stages.findLast((stage) => {
+      const rect = stage.getBoundingClientRect();
+      return rect.top <= Math.max(0, (viewportHeight - rect.height) / 2) + 1;
+    }) ?? null;
     showRequestedStage();
   }
 
