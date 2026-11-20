@@ -293,6 +293,15 @@
   margin: 0;
 }
 
+#process-journey.journey-ready .stage {
+  position: sticky;
+  top: 0;
+}
+
+#process-journey.journey-ready .stage:not(:last-child) {
+  margin-bottom: -65svh;
+}
+
 #process-journey .stage .stage-container {
   width: 100%;
   opacity: 0;
