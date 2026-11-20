@@ -37,11 +37,12 @@
   
   --text-gradient: linear-gradient(
     60deg,
-    #4338ca,
-    #7c3aed,
-    #0284c7,
-    #7c3aed,
-    #4338ca
+    #4338ca 0%,
+    #7c3aed 20%,
+    #0369a1 36%,
+    #4f46e5 50%,
+    #7c3aed 72%,
+    #4338ca 100%
   );
   --scale-start: 0.5;
   --scale-end: 1.001;
@@ -306,7 +307,7 @@
 
 #process-journey .pop-headline {
   background-image: var(--text-gradient);
-  background-size: 400%;
+  background-size: 220% 100%;
   background-position: 0% center;
   background-clip: text;
   -webkit-background-clip: text;
@@ -319,7 +320,7 @@
 #process-journey .stage:focus-within .pop-headline {
   animation:
     journey-pop 600ms var(--ease-elastic) forwards,
-    journey-text-gradient 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+    journey-text-gradient 1.65s ease-in-out forwards;
 }
 
 @keyframes journey-pop {
@@ -336,7 +337,7 @@
     background-position: 0% center;
   }
   100% {
-    background-position: 150% center;
+    background-position: 100% center;
   }
 }
 
@@ -852,7 +853,7 @@
   display: block;
   min-height: 0;
   padding-top: clamp(4.75rem, 13svh, 8rem);
-  padding-bottom: clamp(4.75rem, 14svh, 8.5rem);
+  padding-bottom: clamp(7rem, 17svh, 10rem);
 }
 
 #process-journey .golive-inner {
@@ -1034,7 +1035,7 @@
     display: block;
     min-height: 0;
     padding-top: clamp(5rem, 13svh, 7.5rem);
-    padding-bottom: clamp(5.5rem, 16svh, 9.5rem);
+    padding-bottom: clamp(8rem, 19svh, 12rem);
   }
 
 #process-journey .golive-inner {
@@ -1077,9 +1078,17 @@
 }
 
 @media (min-width: 1024px) {
-#process-journey .stage {
-    min-height: clamp(380px, 52svh, 500px);
-    padding: 5.75rem 0;
+  #process-journey .stage:not(.stage-opening, .stage-golive) {
+    min-height: clamp(21rem, 45svh, 26rem);
+    padding-block: clamp(2.5rem, 6svh, 4rem);
+  }
+
+  #process-journey .stage-opening {
+    padding-block: clamp(6rem, 17svh, 9rem) clamp(3rem, 7svh, 4.5rem);
+  }
+
+  #process-journey .section-headline {
+    font-size: clamp(2rem, 3.15vw, 2.85rem);
   }
 
 #process-journey .stage-split {
@@ -1096,9 +1105,8 @@
 }
 
 @media (min-width: 1280px) {
-#process-journey .stage {
-    min-height: clamp(400px, 54svh, 520px);
-    padding: 6rem 0;
+  #process-journey .stage:not(.stage-opening, .stage-golive) {
+    min-height: clamp(23rem, 45svh, 28rem);
   }
 
 #process-journey .stage-split {

@@ -32,7 +32,7 @@
 
   let pathTotalLength = 0;
   let waypointPositions = [];
-  let introRestY = 120;
+  const ENTRY_PATH_Y = -24;
   let targetDrawLen = 0;
   let smoothDrawLen = 0;
   let trailAnchorLen = 0;
@@ -179,12 +179,11 @@
 
     const golivePt = points[points.length - 1];
     const obs0 = obstacles[0];
-    const topStartY = 8;
-    introRestY = obs0
+    const introRestY = obs0
       ? Math.max(76, Math.min(obs0.top - 48, Math.round(obs0.top * 0.72)))
       : 120;
 
-    pushAnchor(centerX, topStartY);
+    pushAnchor(centerX, ENTRY_PATH_Y);
     pushAnchor(centerX, introRestY);
 
     if (isMobile) {
@@ -759,10 +758,12 @@
 
     const midScreenYInStage = -stageRect.top + viewportH * SCREEN_MID_RATIO;
 
-    const startBlend = Math.min(1, localScroll / 140);
-    const rawTargetY = Math.max(introRestY, introRestY + (midScreenYInStage - introRestY) * startBlend);
+    // Advance the orb from behind the section boundary as the journey enters the viewport.
+    const entryProgress = Math.min(1, Math.max(0, (viewportH - stageRect.top) / viewportH));
+    const entryLead = (viewportH * (1 - SCREEN_MID_RATIO) + ENTRY_PATH_Y) * (1 - entryProgress);
+    const rawTargetY = midScreenYInStage + entryLead;
     const arrivalBlend = scrollProgress > 0.9 ? (scrollProgress - 0.9) / 0.1 : 0;
-    const clampedY = Math.max(introRestY, Math.min(arrivalY, rawTargetY));
+    const clampedY = Math.max(ENTRY_PATH_Y, Math.min(arrivalY, rawTargetY));
     const targetYInStage = clampedY + (arrivalY - clampedY) * arrivalBlend;
 
     const drawLen =
@@ -772,7 +773,7 @@
 
     targetDrawLen = drawLen;
     if (!trailInitialized) {
-      if (localScroll <= 4) {
+      if (entryProgress === 0) {
         smoothDrawLen = 0;
         trailAnchorLen = 0;
       } else {
