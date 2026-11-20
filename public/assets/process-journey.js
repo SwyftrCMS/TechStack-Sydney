@@ -29,6 +29,10 @@
   const MAX_TRAIL_SPREAD = 104;
   const COMET_TRAIL_LENGTH = 620;
   const SCREEN_MID_RATIO = 0.5;
+  const stages = Array.from(root.querySelectorAll('.stage[data-stage]'));
+  let visibleStage = null;
+  let requestedStage = null;
+  let fadingOut = false;
 
   let pathTotalLength = 0;
   let waypointPositions = [];
@@ -456,29 +460,43 @@
     });
   }
 
-  function updateMidScreenReveals() {
-    const viewportH = window.innerHeight || 800;
-    const midY = viewportH * SCREEN_MID_RATIO;
-    const stages = Array.from(root.querySelectorAll('.stage[data-stage]'));
+  function showRequestedStage() {
+    if (fadingOut || visibleStage === requestedStage) return;
 
-    stages.forEach((sec) => {
-      const anchorEl = getSectionAnchorEl(sec);
-      if (!anchorEl) return;
+    if (visibleStage) {
+      const outgoing = visibleStage;
+      const container = outgoing.querySelector('.stage-container');
+      outgoing.inert = true;
+      outgoing.classList.remove('is-revealed');
+      visibleStage = null;
 
-      const rect = anchorEl.getBoundingClientRect();
-      const anchorViewportY = rect.top + rect.height / 2;
-      const wasRevealed = sec.classList.contains('is-revealed');
-
-      const shouldReveal = wasRevealed
-        ? anchorViewportY <= midY + viewportH * 0.06
-        : anchorViewportY <= midY + viewportH * 0.01;
-
-      if (shouldReveal && !wasRevealed) {
-        triggerMilestoneRipple(rect.left + rect.width / 2, anchorViewportY);
+      const exit = prefersReducedMotion.matches ? null : container.getAnimations().find(
+        (animation) => animation.transitionProperty === 'opacity'
+      );
+      if (exit) {
+        fadingOut = true;
+        const finishExit = () => {
+          fadingOut = false;
+          showRequestedStage();
+        };
+        exit.finished.then(finishExit, finishExit);
+        return;
       }
+    }
 
-      sec.classList.toggle('is-revealed', shouldReveal);
-    });
+    visibleStage = requestedStage;
+    if (visibleStage) {
+      visibleStage.inert = false;
+      visibleStage.classList.add('is-revealed');
+      const rect = getSectionAnchorEl(visibleStage).getBoundingClientRect();
+      triggerMilestoneRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    }
+  }
+
+  function updateMidScreenReveals() {
+    const revealY = (window.innerHeight || 800) * SCREEN_MID_RATIO;
+    requestedStage = stages.findLast((stage) => stage.getBoundingClientRect().top <= revealY) ?? null;
+    showRequestedStage();
   }
 
   // =========================================================================
@@ -669,15 +687,13 @@
     const scrollProgress = Math.min(1, localScroll / finishScroll);
     currentScrollProgress = scrollProgress;
 
-    const allSections = Array.from(root.querySelectorAll('.stage'));
-
     if (prefersReducedMotion.matches) {
       targetDrawLen = pathTotalLength;
       smoothDrawLen = pathTotalLength;
       trailAnchorLen = pathTotalLength;
       renderOrbAndTrail();
       drawBackdropFrame(0);
-      allSections.forEach((sec) => sec.classList.add('is-revealed'));
+      updateMidScreenReveals();
       return;
     }
 
@@ -883,6 +899,7 @@
     window.addEventListener('load', buildJourneyPath);
   }
   buildJourneyPath();
+  stages.forEach((stage) => { stage.inert = stage !== visibleStage; });
   root.classList.add('journey-ready');
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(updateBackdropLoop).observe(root);
