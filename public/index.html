@@ -19,6 +19,8 @@
   <script src="/assets/scheduler-phone.js" defer></script>
   <link rel="stylesheet" href="/assets/app-video.css?v=app-video-copy-1">
   <script src="/assets/app-video.js?v=app-video-1" defer></script>
+  <link rel="stylesheet" href="/assets/process-journey.css">
+  <script src="/assets/process-journey.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -104,6 +106,351 @@
 <div class="hero-cta"><div><p class="eyebrow">Projects</p><p>Fixed-price quotes</p></div><a class="button" href="/contact">Book a free consult →</a></div>
 <p class="fine">Free 30-minute discovery call · No obligation</p>
 </div></div></section>
+<section id="process-journey" aria-label="Process Journey">
+  <div class="journey-canvas-layer" aria-hidden="true">
+    <canvas id="journey-backdrop-canvas" class="journey-backdrop-canvas"></canvas>
+  </div>
+  <div class="journey-canvas-layer journey-confetti-layer" aria-hidden="true">
+    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+  </div>
+  <div id="journey-main" class="journey-stage">
+      <!-- Sweeping Mathematical Spine: Glowing White Orb -> Purple -> Grey -> Fade Out -->
+      <svg class="journey-svg" id="journey-svg" aria-hidden="true" visibility="hidden">
+        <defs>
+          <linearGradient id="trail-comet-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100">
+            <stop offset="0%" stop-color="#94a3b8" stop-opacity="0" />
+            <stop offset="34%" stop-color="#94a3b8" stop-opacity="0.52" />
+            <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.76" />
+            <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.96" />
+          </linearGradient>
+          <linearGradient id="purple-glow-grad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="100">
+            <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0" />
+            <stop offset="52%" stop-color="#8b5cf6" stop-opacity="0" />
+            <stop offset="78%" stop-color="#8b5cf6" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.95" />
+          </linearGradient>
+        </defs>
+        <path id="journey-purple-glow" class="journey-purple-glow" d="" fill="none" stroke="url(#purple-glow-grad)" />
+        <path id="journey-guide-path" class="journey-comet-path" d="" fill="none" stroke="url(#trail-comet-grad)" />
+      </svg>
+
+      <!-- Motion-blurred white circle + 6-dot RGB-fringed lighter tail -->
+      <div class="light-runner-layer" id="light-runner-layer" aria-hidden="true" hidden>
+        <span class="trail-dot" data-trail-index="5"></span>
+        <span class="trail-dot" data-trail-index="4"></span>
+        <span class="trail-dot" data-trail-index="3"></span>
+        <span class="trail-dot" data-trail-index="2"></span>
+        <span class="trail-dot" data-trail-index="1"></span>
+        <span class="trail-dot" data-trail-index="0"></span>
+        <div class="light-orb" id="light-orb">
+          <span class="lead-circle"></span>
+        </div>
+      </div>
+
+      <section class="stage stage-intro" id="stage-intro" data-stage="stage-intro" aria-labelledby="stage-intro-title">
+        <div class="stage-container journey-intro">
+          <p class="eyebrow">How we build</p>
+          <h2 id="stage-intro-title" class="section-headline pop-headline">Dream. Code. Deploy</h2>
+          <p>See how we plan, build and deliver</p>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           STAGE 1: ONE FOCUSED CALL. TOTAL CLARITY.
+           ========================================================= -->
+      <section class="stage stage-opening" id="stage-discovery" data-stage="stage-discovery">
+        <div class="stage-container stage-split">
+          <div class="split-slot slot-copy align-right">
+            <h2 class="section-headline pop-headline">One focus.<br>Total clarity.</h2>
+          </div>
+          <div class="axis-slot" aria-hidden="true">
+            <span class="axis-anchor offset-left" data-waypoint="w-discovery"></span>
+          </div>
+          <div class="split-slot slot-visual">
+            <div class="stage-showcase" aria-label="Discovery call agenda">
+              <div class="showcase-head">
+                <span class="showcase-title">Discovery call</span>
+                <span class="showcase-meta">30 min · No obligation</span>
+              </div>
+              <ol class="minimal-agenda">
+                <li class="agenda-item">
+                  <span class="agenda-index">01</span>
+                  <div>
+                    <div class="agenda-title">Map how work flows today</div>
+                    <div class="agenda-sub">Pinpoint the bottlenecks slowing your team down.</div>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-index">02</span>
+                  <div>
+                    <div class="agenda-title">Spot what can run itself</div>
+                    <div class="agenda-sub">Replace repetitive admin, double-entry and follow-ups.</div>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-index">03</span>
+                  <div>
+                    <div class="agenda-title">Shape the ideal experience</div>
+                    <div class="agenda-sub">Align on key features, user roles and must-haves.</div>
+                  </div>
+                </li>
+                <li class="agenda-item">
+                  <span class="agenda-index">04</span>
+                  <div>
+                    <div class="agenda-title">Receive a tailored fixed-price plan</div>
+                    <div class="agenda-sub">Prepared and agreed before any work begins.</div>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           STAGE 2: YOUR VISION BECOMES THE BLUEPRINT.
+           ========================================================= -->
+      <section class="stage" id="stage-preparation" data-stage="stage-preparation">
+        <div class="stage-container stage-split is-reversed">
+          <div class="split-slot slot-visual">
+            <div class="stage-showcase" aria-label="Automated workflow blueprint">
+              <div class="showcase-head">
+                <span class="showcase-title">Workflow blueprint</span>
+                <span class="showcase-meta">Triggers · Logic · Actions</span>
+              </div>
+              <div class="minimal-arch">
+                <div class="wf-node wf-trigger">
+                  <span class="wf-icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                  </span>
+                  <div class="wf-copy">
+                    <span class="arch-name">New client inquiry arrives</span>
+                    <span class="arch-role">Web form, booking or portal event</span>
+                  </div>
+                </div>
+
+                <svg class="wf-stem" viewBox="0 0 24 22" aria-hidden="true">
+                  <line x1="12" y1="0" x2="12" y2="18" stroke="rgba(124, 58, 237, 0.42)" stroke-width="1.4" />
+                  <path d="M8.5 14.5 L12 19.5 L15.5 14.5" fill="none" stroke="rgba(124, 58, 237, 0.55)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+                <div class="wf-node is-core">
+                  <span class="wf-icon is-accent" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="18" cy="5" r="3" />
+                      <circle cx="6" cy="12" r="3" />
+                      <circle cx="18" cy="19" r="3" />
+                      <path d="M8.6 10.7 L15.4 6.3 M8.6 13.3 L15.4 17.7" />
+                    </svg>
+                  </span>
+                  <div class="wf-copy">
+                    <span class="arch-name">Automated workflow engine</span>
+                    <span class="arch-role">Validates rules, assigns owners &amp; syncs data</span>
+                  </div>
+                </div>
+
+                <svg class="arch-lines" viewBox="0 0 260 28" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M122 0 C112 14, 78 14, 65 26" fill="none" stroke="rgba(124, 58, 237, 0.36)" stroke-width="1.3" />
+                  <path d="M138 0 C148 14, 182 14, 195 26" fill="none" stroke="rgba(124, 58, 237, 0.36)" stroke-width="1.3" />
+                </svg>
+
+                <div class="arch-pair">
+                  <div class="arch-tile">
+                    <span class="wf-tile-head">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="3" />
+                        <path d="M16 2v4M8 2v4M3 10h18" />
+                      </svg>
+                      <span class="arch-name">Schedule &amp; notify</span>
+                    </span>
+                    <span class="arch-role">Instant client updates</span>
+                  </div>
+                  <div class="arch-tile">
+                    <span class="wf-tile-head">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12a9 9 0 0 1-15.4 6.4M3 12a9 9 0 0 1 15.4-6.4" />
+                        <polyline points="17 2 18.5 5.8 14.7 6.5" />
+                        <polyline points="7 22 5.5 18.2 9.3 17.5" />
+                      </svg>
+                      <span class="arch-name">Sync records</span>
+                    </span>
+                    <span class="arch-role">Zero manual re-entry</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="axis-slot" aria-hidden="true">
+            <span class="axis-anchor offset-right" data-waypoint="w-preparation"></span>
+          </div>
+          <div class="split-slot slot-copy">
+            <h2 class="section-headline pop-headline">The dream becomes the blueprint.</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           STAGE 3: CLEAR MILESTONES. ZERO SURPRISES.
+           ========================================================= -->
+      <section class="stage" id="stage-build" data-stage="stage-build">
+        <div class="stage-container stage-split">
+          <div class="split-slot slot-copy align-right">
+            <h2 class="section-headline pop-headline">Live updates.</h2>
+          </div>
+          <div class="axis-slot" aria-hidden="true">
+            <span class="axis-anchor offset-left" data-waypoint="w-build"></span>
+          </div>
+          <div class="split-slot slot-visual">
+            <div class="stage-showcase" aria-label="Build progress roadmap">
+              <div class="showcase-head">
+                <span class="showcase-title">Your build roadmap</span>
+                <span class="showcase-meta">Milestone 02 of 03</span>
+              </div>
+              <ul class="milestone-list">
+                <li class="milestone-row is-done">
+                  <span class="milestone-icon-box" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                  </span>
+                  <span class="milestone-name">Foundation &amp; team access</span>
+                  <span class="milestone-status">Complete</span>
+                </li>
+                <li class="milestone-row is-current">
+                  <span class="milestone-icon-box" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                      <polyline points="2 12 12 17 22 12" />
+                      <polyline points="2 17 12 22 22 17" />
+                    </svg>
+                  </span>
+                  <div class="milestone-body">
+                    <div class="milestone-top">
+                      <span class="milestone-name">Core workflows &amp; automation</span>
+                      <span class="milestone-status">In build · 60%</span>
+                    </div>
+                    <div class="milestone-track" aria-hidden="true">
+                      <span class="milestone-fill"></span>
+                    </div>
+                  </div>
+                </li>
+                <li class="milestone-row">
+                  <span class="milestone-icon-box" aria-hidden="true">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z" />
+                      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z" />
+                      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                    </svg>
+                  </span>
+                  <span class="milestone-name">Client testing, polish &amp; launch</span>
+                  <span class="milestone-status">Up next</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           STAGE 4: WE CODE IT. YOU TEST IT LIVE.
+           ========================================================= -->
+      <section class="stage" id="stage-testing" data-stage="stage-testing">
+        <div class="stage-container stage-split is-reversed">
+          <div class="split-slot slot-visual">
+            <div class="stage-showcase" aria-label="Interactive build and client test preview">
+              <div class="showcase-head">
+                <span class="showcase-title">Build &amp; test loop</span>
+                <span class="showcase-meta" id="testing-stage-meta">Staging v2 · Live</span>
+              </div>
+
+              <div class="code-preview-block" aria-label="Live application logic">
+                <div class="code-line">
+                  <span class="code-ln">01</span>
+                  <span class="code-txt"><span class="tok-fn">onRequestApproved</span>(client) {</span>
+                </div>
+                <div class="code-line">
+                  <span class="code-ln">02</span>
+                  <span class="code-txt indent-1"><span class="tok-fn">createWorkflow</span>(client.scope);</span>
+                </div>
+                <div class="code-line is-editable" id="code-dynamic-line">
+                  <span class="code-ln">03</span>
+                  <span class="code-txt indent-1" id="code-dynamic-text"><span class="tok-fn">notifyClient</span>(<span class="tok-str">"Ready + team alerted"</span>);</span>
+                </div>
+                <div class="code-line">
+                  <span class="code-ln">04</span>
+                  <span class="code-txt">}</span>
+                </div>
+              </div>
+
+              <div class="code-bridge" aria-hidden="true">
+                <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+                  <line x1="7" y1="0" x2="7" y2="14" stroke="rgba(124, 58, 237, 0.4)" stroke-width="1.35" />
+                  <path d="M3.5 11L7 15.5L10.5 11" stroke="rgba(124, 58, 237, 0.55)" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Pushed straight to your preview link</span>
+              </div>
+
+              <div class="test-loop-panel">
+                <div class="test-note-row">
+                  <span class="test-quote">“Can my team lead get notified too?”</span>
+                  <span class="test-outcome" id="testing-outcome-label">Updated in staging — client + lead alerted</span>
+                </div>
+                <button type="button" class="btn-preview-toggle" id="preview-order-toggle">
+                  Compare before tweak
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="axis-slot" aria-hidden="true">
+            <span class="axis-anchor offset-right" data-waypoint="w-testing"></span>
+          </div>
+          <div class="split-slot slot-copy">
+            <h2 class="section-headline pop-headline">Feedback loop.</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           STAGE 5: LIVE, TESTED, AND ALL YOURS.
+           ========================================================= -->
+      <section class="stage stage-golive" id="stage-golive" data-stage="stage-golive">
+        <div class="stage-container golive-inner">
+          <div class="golive-title-row">
+            <span class="axis-anchor golive-anchor" data-waypoint="w-golive" aria-hidden="true"></span>
+            <h2 class="section-headline golive-headline pop-headline">Packaged and Deployed.</h2>
+          </div>
+
+          <div class="golive-summary-bar" aria-label="Launch readiness summary">
+            <div class="summary-metric">
+              <span class="summary-value">100%</span>
+              <span class="summary-label">Tested with your team</span>
+            </div>
+            <div class="summary-metric">
+              <span class="summary-value">Day 1</span>
+              <span class="summary-label">Software onboarding and handover</span>
+            </div>
+            <div class="mini-bars" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="next-step-panel">
+            <h3 class="next-step-title">Ready to map out your build?</h3>
+            <button class="btn-primary btn-submit" type="button" disabled>Book my 30-minute Teams call</button>
+          </div>
+        </div>
+      </section>
+  </div>
+</section>
 <section id="app" class="section surface"><div class="wrap"><header class="section-heading"><p class="eyebrow">Mobile apps</p><h2>A mobile app built around how your customers and team work</h2><p>We shape each app around your business, with features for both your customers and your team.</p></header><div class="mobile-showcase"><div><article class="callout"><span aria-hidden="true">▦</span><h3>Give customers confidence</h3><p>Give customers one place to book, manage their details and see what’s next.</p></article><article class="callout"><span aria-hidden="true">▤</span><h3>Give your team <span class="app-accent">breathing room</span></h3><p>Bring requests, schedules and daily tasks together so your team can see what needs doing.</p></article></div><div class="phone scheduler-phone" data-scheduler-phone aria-label="Scheduler demo">
   <div class="scheduler-status-strip" aria-hidden="true"><i></i></div>
   <div class="scheduler-viewport">
