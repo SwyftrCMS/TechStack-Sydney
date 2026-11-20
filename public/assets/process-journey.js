@@ -4,7 +4,7 @@
  *  - Wide, smooth, exaggerated S-curve path across mobile, tablet, laptop & desktop
  *  - Visible guide track + progressive gradient ribbon drawn behind the orb
  *  - Motion-blurred slate circle + 6-dot moving-RGB lighter circle tail
- *  - Atmospheric multi-plane parallax backdrop canvas with orb spotlight & stage ripples
+ *  - Parallax backdrop canvas with stage ripples
  *  - Strict middle-of-screen (50vh) persistent title pop-up reveals
  *  - Mid-screen calibrated anchor navigation & arrival confetti
  */
@@ -40,10 +40,6 @@
   let runnerRafId = 0;
   let backdropRafId = 0;
   let currentScrollProgress = 0;
-  let lastOrbViewportX = -999;
-  let lastOrbViewportY = -999;
-  let lastOrbEnergy = 0;
-  let lastRunnerOpacity = 0;
 
   // Milestone ripples spawned on the backdrop canvas when a stage locks in at 50vh
   const activeRipples = [];
@@ -407,12 +403,6 @@
     }
 
     if (stageEl) {
-      const stageRect = stageEl.getBoundingClientRect();
-      lastOrbViewportX = stageRect.left + orbPt.x;
-      lastOrbViewportY = stageRect.top + orbPt.y;
-      lastOrbEnergy = energy;
-      lastRunnerOpacity = runnerOpacity;
-
       stageEl.style.setProperty('--orb-energy', energy.toFixed(3));
       stageEl.style.setProperty('--orb-blur', blurPx.toFixed(2));
       stageEl.style.setProperty('--runner-opacity', (showComet ? runnerOpacity : 0).toFixed(3));
@@ -513,10 +503,6 @@
     backdropCanvas.height = Math.floor(backdropH * backdropDpr);
   }
 
-  function lerp(a, b, t) {
-    return a + (b - a) * t;
-  }
-
   function drawBackdropFrame(nowMs) {
     if (!backdropCanvas) return;
     const ctx = backdropCanvas.getContext('2d');
@@ -534,36 +520,10 @@
     const stageTop = stageEl.getBoundingClientRect().top;
     const scrollY = Math.max(0, -stageTop);
 
-    // A. Evolving multi-stage atmospheric washes
-    const driftX1 = Math.sin(time * 0.25 + p * 3.1) * backdropW * 0.14;
-    const bloom1X = lerp(backdropW * 0.22, backdropW * 0.78, p) + driftX1;
-    const bloom1Y = lerp(backdropH * 0.24, backdropH * 0.38, Math.sin(p * Math.PI));
-    const r1 = Math.max(backdropW, backdropH) * 0.58;
-
-    const grad1 = ctx.createRadialGradient(bloom1X, bloom1Y, 0, bloom1X, bloom1Y, r1);
-    const violetAlpha = lerp(0.065, 0.125, Math.sin(p * Math.PI));
-    const skyAlpha = lerp(0.02, 0.11, p);
-    grad1.addColorStop(0, `rgba(124, 58, 237, ${violetAlpha.toFixed(3)})`);
-    grad1.addColorStop(0.45, `rgba(79, 70, 229, ${(violetAlpha * 0.55).toFixed(3)})`);
-    grad1.addColorStop(1, 'rgba(248, 247, 252, 0)');
-    ctx.fillStyle = grad1;
-    ctx.fillRect(0, 0, backdropW, backdropH);
-
-    const bloom2X = lerp(backdropW * 0.82, backdropW * 0.28, p) - driftX1 * 0.6;
-    const bloom2Y = lerp(backdropH * 0.78, backdropH * 0.56, p);
-    const r2 = Math.max(backdropW, backdropH) * 0.52;
-
-    const grad2 = ctx.createRadialGradient(bloom2X, bloom2Y, 0, bloom2X, bloom2Y, r2);
-    grad2.addColorStop(0, `rgba(14, 165, 233, ${skyAlpha.toFixed(3)})`);
-    grad2.addColorStop(0.5, `rgba(99, 102, 241, ${(skyAlpha * 0.45).toFixed(3)})`);
-    grad2.addColorStop(1, 'rgba(248, 247, 252, 0)');
-    ctx.fillStyle = grad2;
-    ctx.fillRect(0, 0, backdropW, backdropH);
-
     // Fade subtle contours and depth nodes cleanly out near Stage 5 arrival so no lines or dots remain at the end
     const endQuietFactor = p > 0.86 ? Math.max(0, 1 - (p - 0.86) / 0.11) : 1;
 
-    // B. Subtle parallax architectural horizon contours that glide as you scroll
+    // Subtle parallax architectural horizon contours that glide as you scroll
     if (endQuietFactor > 0.01) {
       const contourCount = 5;
       for (let c = 0; c < contourCount; c++) {
@@ -588,27 +548,7 @@
       }
     }
 
-    // C. Reactive orb halo spotlight illuminating the space around the traveling circle
-    const spotlightActive = lastRunnerOpacity > 0.02 && lastOrbViewportY > -150 && lastOrbViewportY < backdropH + 150;
-    if (spotlightActive) {
-      const spotRadius = 155 + lastOrbEnergy * 75;
-      const spotGrad = ctx.createRadialGradient(
-        lastOrbViewportX,
-        lastOrbViewportY,
-        0,
-        lastOrbViewportX,
-        lastOrbViewportY,
-        spotRadius
-      );
-      const spotAlpha = (0.08 + lastOrbEnergy * 0.08) * lastRunnerOpacity;
-      spotGrad.addColorStop(0, `rgba(124, 58, 237, ${spotAlpha.toFixed(3)})`);
-      spotGrad.addColorStop(0.5, `rgba(14, 165, 233, ${(spotAlpha * 0.45).toFixed(3)})`);
-      spotGrad.addColorStop(1, 'rgba(248, 247, 252, 0)');
-      ctx.fillStyle = spotGrad;
-      ctx.fillRect(0, 0, backdropW, backdropH);
-    }
-
-    // D. Multi-plane parallax depth particles & subtle coordinate crosshairs
+    // Multi-plane parallax depth particles & subtle coordinate crosshairs
     if (endQuietFactor > 0.01) {
       DEPTH_NODES.forEach((node) => {
         const driftX = Math.sin(time * 0.35 + node.phase) * (8 + node.layer * 5);
@@ -617,19 +557,11 @@
         const wrapH = backdropH + 140;
         const py = (((rawY % wrapH) + wrapH) % wrapH) - 70;
 
-        let proximityBoost = 0;
-        if (spotlightActive) {
-          const dist = Math.hypot(px - lastOrbViewportX, py - lastOrbViewportY);
-          if (dist < 170) {
-            proximityBoost = (1 - dist / 170) * 0.24 * lastRunnerOpacity;
-          }
-        }
-
         const baseAlpha = node.layer === 0 ? 0.08 : node.layer === 1 ? 0.12 : 0.16;
-        const alpha = Math.min(0.45, baseAlpha + proximityBoost) * endQuietFactor;
+        const alpha = baseAlpha * endQuietFactor;
 
         if (node.isCross) {
-          const arm = 3.5 + node.layer * 1.2 + proximityBoost * 6;
+          const arm = 3.5 + node.layer * 1.2;
           ctx.strokeStyle = `rgba(79, 70, 229, ${(alpha * 0.85).toFixed(3)})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -639,18 +571,15 @@
           ctx.lineTo(px, py + arm);
           ctx.stroke();
         } else {
-          ctx.fillStyle =
-            proximityBoost > 0.05
-              ? `rgba(124, 58, 237, ${alpha.toFixed(3)})`
-              : `rgba(100, 116, 139, ${alpha.toFixed(3)})`;
+          ctx.fillStyle = `rgba(100, 116, 139, ${alpha.toFixed(3)})`;
           ctx.beginPath();
-          ctx.arc(px, py, node.radius + proximityBoost * 3, 0, Math.PI * 2);
+          ctx.arc(px, py, node.radius, 0, Math.PI * 2);
           ctx.fill();
         }
       });
     }
 
-    // E. Expanding architectural milestone ripples when stages reveal at 50vh
+    // Expanding architectural milestone ripples when stages reveal at 50vh
     for (let i = activeRipples.length - 1; i >= 0; i--) {
       const rip = activeRipples[i];
       rip.progress += 0.022;
