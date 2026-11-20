@@ -488,6 +488,8 @@
     if (visibleStage) {
       visibleStage.inert = false;
       visibleStage.classList.add('is-revealed');
+      if (visibleStage.id === 'stage-golive') celebrateAfterReveal(visibleStage);
+      else if (currentScrollProgress < 0.72) confettiArmed = true;
       const rect = getSectionAnchorEl(visibleStage).getBoundingClientRect();
       triggerMilestoneRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
     }
@@ -725,16 +727,12 @@
       trailInitialized = true;
     }
 
-    const arrivedAtEnd = drawLen >= pathTotalLength - 3;
-
     updateMidScreenReveals();
     renderOrbAndTrail();
 
     if (Math.abs(targetDrawLen - smoothDrawLen) > 0.4 || Math.abs(smoothDrawLen - trailAnchorLen) > 0.5) {
       ensureRunnerAnimating();
     }
-
-    handleConfettiArrival(arrivedAtEnd);
   }
 
   // =========================================================================
@@ -744,19 +742,20 @@
   let confettiArmed = true;
   let confettiFrameId = 0;
 
-  function handleConfettiArrival(arrivedAtEnd) {
-    if (!arrivedAtEnd) {
-      if (currentScrollProgress < 0.72) {
-        confettiArmed = true;
-      }
-      return;
+  async function celebrateAfterReveal(stage) {
+    if (!confettiArmed || prefersReducedMotion.matches) return;
+    const headline = stage.querySelector('.golive-headline');
+    const animations = headline.getAnimations();
+    try {
+      await Promise.all(animations.map(animation => animation.finished));
+    } catch {
+      return; // The reveal was interrupted.
     }
-
-    const rect = stageEl.getBoundingClientRect();
-    if (confettiArmed && rect.top < 0 && rect.bottom > window.innerHeight * SCREEN_MID_RATIO) {
-      confettiArmed = false;
-      launchConfettiFromArrival();
-    }
+    const bounds = headline.getBoundingClientRect();
+    if (visibleStage !== stage || requestedStage !== stage || !confettiArmed ||
+        prefersReducedMotion.matches || bounds.bottom <= 0 || bounds.top >= window.innerHeight) return;
+    confettiArmed = false;
+    launchConfettiFromArrival();
   }
 
   function launchConfettiFromArrival() {
