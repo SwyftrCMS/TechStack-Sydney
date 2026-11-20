@@ -462,11 +462,6 @@
     const stages = Array.from(root.querySelectorAll('.stage[data-stage]'));
 
     stages.forEach((sec) => {
-      if (sec.id === 'stage-discovery') {
-        sec.classList.add('is-revealed');
-        return;
-      }
-
       const anchorEl = getSectionAnchorEl(sec);
       if (!anchorEl) return;
 
