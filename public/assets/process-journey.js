@@ -30,8 +30,10 @@
   const COMET_TRAIL_LENGTH = 620;
   const SCREEN_MID_RATIO = 0.5;
   const stages = Array.from(root.querySelectorAll('.stage[data-stage]'));
-  let visibleStage = null;
-  let requestedStage = null;
+  const introStage = root.querySelector('#stage-intro');
+  let visibleStage = introStage;
+  let requestedStage = introStage;
+  introStage?.classList.add('is-revealed');
   let fadingOut = false;
 
   let pathTotalLength = 0;
@@ -500,7 +502,7 @@
     requestedStage = stages.findLast((stage) => {
       const rect = stage.getBoundingClientRect();
       return rect.top <= Math.max(0, (viewportHeight - rect.height) / 2) + 1;
-    }) ?? null;
+    }) ?? introStage;
     showRequestedStage();
   }
 
