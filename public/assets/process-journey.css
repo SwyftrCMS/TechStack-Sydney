@@ -340,6 +340,16 @@
     journey-text-gradient 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
 }
 
+#process-journey #stage-intro .pop-headline {
+  animation: none;
+  scale: var(--scale-end);
+  background-position: 150% center;
+}
+
+#process-journey .stage-intro.is-revealed .stage-container {
+  transition: none;
+}
+
 @keyframes journey-pop {
   from {
     scale: var(--scale-start);
