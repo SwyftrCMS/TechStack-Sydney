@@ -920,6 +920,59 @@
   // 8. Stage 4: Interactive Code & Client Testing Loop
   // =========================================================================
 
+  const projectForm = root.querySelector('#project-form');
+  const confirmationBox = root.querySelector('#form-confirmation');
+  const confirmationBody = root.querySelector('#confirmation-body');
+  const resetFormBtn = root.querySelector('#reset-form-btn');
+  const nameInput = root.querySelector('#owner-name');
+  const emailInput = root.querySelector('#owner-email');
+  const businessSelect = root.querySelector('#business-type');
+  const errorName = root.querySelector('#error-name');
+  const errorEmail = root.querySelector('#error-email');
+
+  if (projectForm && confirmationBox) {
+    projectForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+
+      if (!nameVal) {
+        valid = false;
+        if (errorName) errorName.textContent = 'Please enter your name.';
+      } else if (errorName) {
+        errorName.textContent = '';
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+        valid = false;
+        if (errorEmail) errorEmail.textContent = 'Please enter a valid email address.';
+      } else if (errorEmail) {
+        errorEmail.textContent = '';
+      }
+
+      if (!valid) return;
+
+      const biz = businessSelect ? businessSelect.value : 'Service Business';
+      if (confirmationBody) {
+        confirmationBody.textContent = `Thanks ${nameVal}. Continue to the contact page to send your ${biz.toLowerCase()} enquiry. Your details have only been entered in this preview.`;
+      }
+
+      projectForm.hidden = true;
+      confirmationBox.hidden = false;
+      confirmationBox.querySelector('a').focus();
+    });
+  }
+
+  if (resetFormBtn && projectForm && confirmationBox) {
+    resetFormBtn.addEventListener('click', () => {
+      confirmationBox.hidden = true;
+      projectForm.hidden = false;
+      if (nameInput) nameInput.focus();
+    });
+  }
+
   const previewToggleBtn = root.querySelector('#' + 'preview-order-toggle');
   const dynamicCodeLine = root.querySelector('#' + 'code-dynamic-line');
   const dynamicCodeText = root.querySelector('#' + 'code-dynamic-text');

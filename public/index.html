@@ -438,7 +438,39 @@
 
           <div class="next-step-panel">
             <h3 class="next-step-title">Ready to map out your build?</h3>
-            <a class="btn-primary btn-submit" href="/contact">Book my 30-minute Teams call</a>
+            <form class="project-form" id="project-form" novalidate>
+              <div class="form-row-2">
+                <div class="form-field">
+                  <label for="owner-name">Your name</label>
+                  <input type="text" id="owner-name" name="name" placeholder="Alex Morgan" autocomplete="name" required />
+                  <span class="field-error" id="error-name" aria-live="polite"></span>
+                </div>
+                <div class="form-field">
+                  <label for="business-type">What are you building?</label>
+                  <select id="business-type" name="businessType">
+                    <option value="Workflow & Automation">Workflow &amp; Automation</option>
+                    <option value="Custom Web Platform">Custom Web Platform</option>
+                    <option value="Client Portal or Booking App">Client Portal or Booking App</option>
+                    <option value="Website & System Integrations">Website &amp; System Integrations</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="owner-email">Email address</label>
+                <input type="email" id="owner-email" name="email" placeholder="you@company.com.au" autocomplete="email" required />
+                <span class="field-error" id="error-email" aria-live="polite"></span>
+              </div>
+
+              <button type="submit" class="btn-primary btn-submit">Book my 30-minute Teams call</button>
+            </form>
+
+            <div class="form-confirmation" id="form-confirmation" hidden>
+              <h4 class="confirmation-title">Discovery call details ready</h4>
+              <p class="confirmation-body" id="confirmation-body"></p>
+              <a class="btn-primary" href="/contact">Continue to contact</a>
+              <button type="button" class="btn-text-link" id="reset-form-btn">Edit details</button>
+            </div>
           </div>
         </div>
       </section>
