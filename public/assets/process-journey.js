@@ -141,6 +141,11 @@
   }
 
   function buildJourneyPath() {
+    if (mobileLayout.matches) {
+      updateMidScreenReveals();
+      return;
+    }
+
     if (!stageEl || !svgEl || !guidePath) return;
 
     const stageRect = stageEl.getBoundingClientRect();
@@ -499,7 +504,8 @@
       visibleStage.inert = false;
       visibleStage.classList.add('is-revealed');
       if (visibleStage.id === 'stage-golive') celebrateAfterReveal(visibleStage);
-      else if (currentScrollProgress < 0.72) confettiArmed = true;
+      else if (mobileLayout.matches ? stages.indexOf(visibleStage) < stages.length - 2 : currentScrollProgress < 0.72) confettiArmed = true;
+      if (mobileLayout.matches) return;
       const rect = getSectionAnchorEl(visibleStage).getBoundingClientRect();
       triggerMilestoneRipple(rect.left + rect.width / 2, rect.top + rect.height / 2);
     }
@@ -512,7 +518,9 @@
       const index = markers.findLastIndex((marker, i) =>
         marker.getBoundingClientRect().top <= (i <= current ? 14 : 0)
       );
-      requestedStage = stages[Math.max(0, index)];
+      const next = Math.max(0, index);
+      if (current !== next) root.classList.toggle('journey-reversing', next < current);
+      requestedStage = stages[next];
       showRequestedStage();
       return;
     }
@@ -650,7 +658,7 @@
   function updateBackdropLoop() {
     if (backdropRafId) window.cancelAnimationFrame(backdropRafId);
     backdropRafId = 0;
-    if (document.hidden) return;
+    if (document.hidden || mobileLayout.matches) return;
     const rect = root.getBoundingClientRect();
     if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
 
@@ -673,7 +681,7 @@
 
   function stepRunnerLoop() {
     runnerRafId = 0;
-    if (prefersReducedMotion.matches) return;
+    if (prefersReducedMotion.matches || mobileLayout.matches) return;
 
     const orbDiff = targetDrawLen - smoothDrawLen;
     if (Math.abs(orbDiff) <= 0.4) {
@@ -703,6 +711,11 @@
   }
 
   function updateScrollProgress() {
+    if (mobileLayout.matches) {
+      updateMidScreenReveals();
+      return;
+    }
+
     if (!stageEl || !guidePath || pathTotalLength <= 0) return;
 
     const stageRect = stageEl.getBoundingClientRect();
@@ -766,7 +779,8 @@
   async function celebrateAfterReveal(stage) {
     if (!confettiArmed || prefersReducedMotion.matches) return;
     const headline = stage.querySelector('.golive-headline');
-    const animations = headline.getAnimations();
+    const reveal = mobileLayout.matches ? stage.querySelector('.stage-container') : headline;
+    const animations = reveal.getAnimations();
     try {
       await Promise.all(animations.map(animation => animation.finished));
     } catch {
@@ -936,6 +950,7 @@
     window.addEventListener('scroll', updateBackdropLoop, { passive: true });
     updateBackdropLoop();
   }
+  mobileLayout.addEventListener('change', updateBackdropLoop);
   document.addEventListener('visibilitychange', updateBackdropLoop);
   prefersReducedMotion.addEventListener('change', () => {
     updateScrollProgress();
