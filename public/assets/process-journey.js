@@ -31,6 +31,14 @@
   const SCREEN_MID_RATIO = 0.5;
   const stages = Array.from(root.querySelectorAll('.stage[data-stage]'));
   const introStage = root.querySelector('#stage-intro');
+  const mobileLayout = window.matchMedia('(max-width: 767px)');
+  const markers = stages.map((stage) => {
+    const marker = document.createElement('div');
+    marker.className = 'journey-stage-marker';
+    marker.setAttribute('aria-hidden', 'true');
+    stage.before(marker);
+    return marker;
+  });
   let visibleStage = introStage;
   let requestedStage = introStage;
   introStage?.classList.add('is-revealed');
@@ -498,6 +506,17 @@
   }
 
   function updateMidScreenReveals() {
+    if (mobileLayout.matches) {
+      const current = stages.indexOf(requestedStage);
+      // Reversing a few pixels at a boundary should keep the current card.
+      const index = markers.findLastIndex((marker, i) =>
+        marker.getBoundingClientRect().top <= (i <= current ? 14 : 0)
+      );
+      requestedStage = stages[Math.max(0, index)];
+      showRequestedStage();
+      return;
+    }
+
     const viewportHeight = window.innerHeight;
     requestedStage = stages.findLast((stage) => {
       const rect = stage.getBoundingClientRect();
@@ -857,6 +876,12 @@
       window.requestAnimationFrame(buildJourneyPath);
     });
     ro.observe(stageEl);
+    const stageSizes = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        entry.target.style.setProperty('--journey-stage-height', entry.target.offsetHeight + 'px');
+      }
+    });
+    stages.forEach((stage) => stageSizes.observe(stage));
   }
 
   // =========================================================================
