@@ -1203,3 +1203,53 @@
 }
 
 #process-journey:not(.journey-ready) #preview-order-toggle { display: none; }
+
+@media (max-width: 767px) {
+  #process-journey {
+    --journey-enter-y: 6px;
+    --journey-exit-y: -6px;
+  }
+
+  #process-journey.journey-reversing {
+    --journey-enter-y: -6px;
+    --journey-exit-y: 6px;
+  }
+
+  #process-journey :is(.journey-backdrop-canvas, .journey-svg, .light-runner-layer) {
+    display: none;
+  }
+
+  #process-journey.journey-ready .stage .stage-container {
+    filter: none;
+    transform: translateY(var(--journey-exit-y));
+    transition: opacity 120ms ease-out, transform 120ms ease-out;
+  }
+
+  #process-journey.journey-ready .stage.is-revealed .stage-container {
+    transform: none;
+    transition: opacity 180ms ease-out;
+    animation: journey-mobile-enter 180ms ease-out;
+  }
+
+  #process-journey.journey-ready #stage-intro .stage-container {
+    animation: none;
+  }
+
+  #process-journey.journey-ready .stage .pop-headline {
+    animation: none;
+    scale: 1;
+    background-position: 150% center;
+  }
+
+  #process-journey.journey-ready .stage .slot-visual {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
+@keyframes journey-mobile-enter {
+  from { transform: translateY(var(--journey-enter-y)); }
+  to { transform: none; }
+}
