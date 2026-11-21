@@ -302,6 +302,27 @@
   margin-bottom: -65svh;
 }
 
+#process-journey .journey-stage-marker {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #process-journey .journey-stage-marker {
+    display: block;
+    height: 0;
+  }
+
+  #process-journey.journey-ready .stage {
+    padding-block: 1rem;
+    /* Let content taller than the screen scroll through before pinning. */
+    top: min(0px, calc(100svh - var(--journey-stage-height, 100svh)));
+  }
+
+  #process-journey.journey-ready .stage:not(:last-child) {
+    margin-bottom: -50svh;
+  }
+}
+
 #process-journey .stage .stage-container {
   width: 100%;
   opacity: 0;
