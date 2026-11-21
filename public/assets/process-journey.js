@@ -15,6 +15,7 @@
   const root = document.getElementById('process-journey');
   if (!root) return;
 
+  const phone = window.matchMedia('(max-width: 767px)');
   const stageEl = root.querySelector('#journey-main');
   const svgEl = root.querySelector('#' + 'journey-svg');
   const guidePath = root.querySelector('#' + 'journey-guide-path');
@@ -133,7 +134,7 @@
   }
 
   function buildJourneyPath() {
-    if (!stageEl || !svgEl || !guidePath) return;
+    if (phone.matches || !stageEl || !svgEl || !guidePath) return;
 
     const stageRect = stageEl.getBoundingClientRect();
     const width = stageEl.offsetWidth;
@@ -631,7 +632,7 @@
   function updateBackdropLoop() {
     if (backdropRafId) window.cancelAnimationFrame(backdropRafId);
     backdropRafId = 0;
-    if (document.hidden) return;
+    if (phone.matches || document.hidden) return;
     const rect = root.getBoundingClientRect();
     if (rect.bottom <= 0 || rect.top >= window.innerHeight) return;
 
@@ -684,7 +685,7 @@
   }
 
   function updateScrollProgress() {
-    if (!stageEl || !guidePath || pathTotalLength <= 0) return;
+    if (phone.matches || !stageEl || !guidePath || pathTotalLength <= 0) return;
 
     const stageRect = stageEl.getBoundingClientRect();
     const viewportH = window.innerHeight || 800;
@@ -905,6 +906,54 @@
   buildJourneyPath();
   stages.forEach((stage) => { stage.inert = stage !== visibleStage; });
   root.classList.add('journey-ready');
+  const navigation = document.createElement('nav');
+  navigation.className = 'journey-card-nav';
+  navigation.setAttribute('aria-label', 'Process steps');
+  const buttons = stages.map((stage, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    const title = stage.querySelector('h2').innerText.replace(/\s+/g, ' ').trim();
+    button.setAttribute('aria-label', `Step ${index + 1} of ${stages.length}, ${title}`);
+    button.addEventListener('click', () => {
+      stageEl.scrollTo({
+        top: stageEl.scrollTop + stage.getBoundingClientRect().top - stageEl.getBoundingClientRect().top,
+        behavior: prefersReducedMotion.matches ? 'instant' : 'smooth'
+      });
+    });
+    navigation.append(button);
+    return button;
+  });
+  root.append(navigation);
+
+  function updateCard() {
+    if (!phone.matches) return;
+    const bounds = stageEl.getBoundingClientRect();
+    const middle = bounds.top + bounds.height / 2;
+    const index = stages.findIndex(stage => stage.getBoundingClientRect().bottom > middle);
+    buttons.forEach((button, i) => {
+      if (i === index) button.setAttribute('aria-current', 'step');
+      else button.removeAttribute('aria-current');
+    });
+    if (index === stages.length - 1 && confettiArmed && !prefersReducedMotion.matches) {
+      const headline = stages[index].querySelector('h2').getBoundingClientRect();
+      if (headline.top >= Math.max(0, bounds.top) && headline.bottom <= Math.min(innerHeight, bounds.bottom)) {
+        confettiArmed = false;
+        launchConfettiFromArrival();
+      }
+    } else if (index < stages.length - 2) {
+      confettiArmed = true;
+    }
+  }
+  function syncLayout() {
+    stages.forEach(stage => { stage.inert = !phone.matches && stage !== visibleStage; });
+    updateCard();
+    updateBackdropLoop();
+    if (!phone.matches) buildJourneyPath();
+  }
+  stageEl.addEventListener('scroll', updateCard, { passive: true });
+  window.addEventListener('scroll', updateCard, { passive: true });
+  phone.addEventListener('change', syncLayout);
+  syncLayout();
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(updateBackdropLoop).observe(root);
   } else {
